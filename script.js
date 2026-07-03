@@ -26,6 +26,7 @@
   });
 
   function initAll() {
+    initSpiderWeb();
     initLenis();
     initGSAP();
     initCursor();
@@ -102,6 +103,106 @@
       el.addEventListener("mouseenter", () => { dot.classList.add("active"); ring.classList.add("active"); });
       el.addEventListener("mouseleave", () => { dot.classList.remove("active"); ring.classList.remove("active"); });
     });
+  }
+
+  /* ── CANVAS SPIDER WEB ─────────────────────────────── */
+  function initSpiderWeb() {
+    const canvas = document.getElementById("heroCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    let W, H, particles, animId;
+
+    /* Lecture de la couleur violet selon le thème courant */
+    function getColor() {
+      const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+      return isDark ? "91,45,232" : "91,45,232";
+    }
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+
+    function makeParticle() {
+      return {
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        r: Math.random() * 1.8 + 0.8,
+      };
+    }
+
+    function initParticles() {
+      const count = Math.min(Math.floor((W * H) / 9000), 100);
+      particles = Array.from({ length: count }, makeParticle);
+    }
+
+    const LINK_DIST = 155;
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      const rgb = getColor();
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        /* Mouvement */
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+
+        /* Dot */
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${rgb}, 0.8)`;
+        ctx.fill();
+
+        /* Lignes vers voisins */
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < LINK_DIST) {
+            const alpha = (1 - dist / LINK_DIST) * 0.5;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(${rgb}, ${alpha})`;
+            ctx.lineWidth = 0.7;
+            ctx.stroke();
+          }
+        }
+      }
+      animId = requestAnimationFrame(draw);
+    }
+
+    function start() {
+      if (animId) cancelAnimationFrame(animId);
+      resize();
+      initParticles();
+      draw();
+    }
+
+    start();
+    window.addEventListener("resize", () => { resize(); initParticles(); }, { passive: true });
+
+    /* Pause quand le hero n'est plus à l'écran (économie CPU) */
+    if (typeof IntersectionObserver !== "undefined") {
+      const hero = canvas.closest(".hero");
+      if (hero) {
+        new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            if (!animId) draw();
+          } else {
+            cancelAnimationFrame(animId);
+            animId = null;
+          }
+        }, { threshold: 0.1 }).observe(hero);
+      }
+    }
   }
 
   /* ── NAV SCROLL EFFECT ─────────────────────────────── */
