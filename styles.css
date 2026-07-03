@@ -4,31 +4,55 @@
    ========================================================= */
 
 /* ── TOKENS ───────────────────────────────────────────── */
-:root {
+:root,
+[data-theme="dark"] {
   --violet: #5B2DE8;
   --violet-soft: #7C54EE;
   --violet-dim: rgba(91, 45, 232, 0.15);
   --violet-glow: rgba(91, 45, 232, 0.3);
   --violet-border: rgba(91, 45, 232, 0.35);
 
-  --bg: #05050A;
-  --bg-1: #0B0B12;
-  --bg-2: #111120;
-  --surface: rgba(255, 255, 255, 0.03);
-  --surface-hover: rgba(91, 45, 232, 0.06);
-  --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --bg: #0C0C18;
+  --bg-1: #111122;
+  --bg-2: #16162A;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-hover: rgba(91, 45, 232, 0.08);
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.14);
 
-  --text: #F0F0FF;
-  --text-2: #9090B0;
-  --text-3: #606075;
+  --text: #F2F2FF;
+  --text-2: #A0A0C0;
+  --text-3: #686880;
 
+  --nav-bg: rgba(12, 12, 24, 0.85);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --container: 1240px;
   --gutter: clamp(1.5rem, 5vw, 4rem);
   --radius: 16px;
   --radius-sm: 10px;
+}
+
+[data-theme="light"] {
+  --violet: #5B2DE8;
+  --violet-soft: #7040F0;
+  --violet-dim: rgba(91, 45, 232, 0.08);
+  --violet-glow: rgba(91, 45, 232, 0.2);
+  --violet-border: rgba(91, 45, 232, 0.25);
+
+  --bg: #F9F8FF;
+  --bg-1: #F0EEFF;
+  --bg-2: #E8E4FC;
+  --surface: rgba(91, 45, 232, 0.04);
+  --surface-hover: rgba(91, 45, 232, 0.08);
+  --border: rgba(91, 45, 232, 0.1);
+  --border-strong: rgba(91, 45, 232, 0.18);
+
+  --text: #0D0D20;
+  --text-2: #4A4A70;
+  --text-3: #8080A0;
+
+  --nav-bg: rgba(249, 248, 255, 0.9);
 }
 
 /* ── RESET ────────────────────────────────────────────── */
@@ -272,7 +296,7 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   transition: background .4s var(--ease), backdrop-filter .4s, box-shadow .4s;
 }
 .nav.scrolled {
-  background: rgba(5, 5, 10, 0.82);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   box-shadow: 0 1px 0 var(--border);
@@ -308,6 +332,47 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 .nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after { width: 100%; }
 .nav-right { display: flex; align-items: center; gap: 1rem; }
+/* ── LANG SWITCH & THEME TOGGLE ───────────────────────── */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.lang-btn {
+  color: var(--text-3);
+  transition: color .25s;
+  padding: .1rem;
+}
+.lang-btn:hover { color: var(--text); }
+.lang-btn--active { color: var(--violet-soft); }
+.lang-sep { color: var(--border-strong); font-size: .65rem; }
+
+.theme-toggle {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  transition: background .25s, border-color .25s, color .25s, transform .3s var(--ease);
+  cursor: pointer;
+}
+.theme-toggle:hover {
+  background: var(--surface-hover);
+  border-color: var(--violet-border);
+  color: var(--violet-soft);
+  transform: rotate(20deg);
+}
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: block; }
+[data-theme="light"] .icon-sun { display: none; }
+[data-theme="light"] .icon-moon { display: block; }
+
 .nav-burger {
   display: none;
   flex-direction: column;
@@ -428,7 +493,6 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   text-transform: uppercase;
   color: var(--violet-soft);
   margin-bottom: 2rem;
-  opacity: 0;
 }
 .badge-dot {
   width: 6px; height: 6px;
@@ -448,8 +512,6 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 .h-line {
   display: block;
   overflow: hidden;
-  transform: translateY(100%);
-  opacity: 0;
 }
 .accent-line em {
   font-style: italic;
@@ -464,13 +526,11 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   max-width: 580px;
   line-height: 1.75;
   margin-bottom: 2.5rem;
-  opacity: 0;
 }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  opacity: 0;
 }
 .scroll-cue {
   position: absolute;
@@ -953,9 +1013,9 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   100% { width: 100%; }
 }
 
-/* ── REVEAL (GSAP controlled) ─────────────────────────── */
-.reveal { opacity: 0; transform: translateY(40px); }
-.stagger-item { opacity: 0; transform: translateY(30px); }
+/* ── REVEAL (GSAP sets initial state via JS, no CSS here) ── */
+/* .reveal and .stagger-item start visible — GSAP overrides via gsap.set() */
+.reveal, .stagger-item { opacity: 1; }
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
 @media (max-width: 1024px) {

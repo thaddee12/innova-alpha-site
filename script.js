@@ -5,6 +5,10 @@
 (function () {
   "use strict";
 
+  /* ── THEME (init avant tout pour éviter le flash) ──── */
+  const savedTheme = (() => { try { return localStorage.getItem("ia-theme"); } catch(e) { return null; } })();
+  document.documentElement.setAttribute("data-theme", savedTheme === "light" ? "light" : "dark");
+
   /* ── PRELOADER ─────────────────────────────────────── */
   window.addEventListener("load", () => {
     setTimeout(() => {
@@ -14,7 +18,7 @@
         pl.addEventListener("transitionend", () => pl.remove(), { once: true });
       }
       initAll();
-    }, 1600);
+    }, 1200);
   });
 
   function initAll() {
@@ -22,6 +26,7 @@
     initGSAP();
     initCursor();
     initNav();
+    initThemeToggle();
     initHero();
     initReveal();
     initStagger();
@@ -113,45 +118,52 @@
     window.addEventListener("scroll", update, { passive: true });
   }
 
+  /* ── THEME TOGGLE ──────────────────────────────────── */
+  function initThemeToggle() {
+    const btn = document.getElementById("themeToggle");
+    if (!btn) return;
+    const apply = (theme) => {
+      document.documentElement.setAttribute("data-theme", theme);
+      try { localStorage.setItem("ia-theme", theme); } catch(e) {}
+    };
+    btn.addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      apply(current === "light" ? "dark" : "light");
+    });
+  }
+
   /* ── HERO ANIMATION ────────────────────────────────── */
   function initHero() {
-    if (typeof gsap === "undefined") {
-      document.querySelectorAll(".h-line, .hero-badge, .hero-sub, .hero-actions, .scroll-cue")
-        .forEach((el) => { el.style.opacity = "1"; el.style.transform = "none"; });
-      return;
-    }
+    if (typeof gsap === "undefined") return;
+
+    /* GSAP gère l'état initial — pas le CSS */
+    gsap.set("#heroBadge", { opacity: 0, y: 20 });
+    gsap.set(".h-line", { opacity: 0, y: 50 });
+    gsap.set("#heroSub", { opacity: 0, y: 20 });
+    gsap.set("#heroActions", { opacity: 0, y: 20 });
 
     const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
-
     tl.to("#heroBadge", { opacity: 1, y: 0, duration: 0.7 }, 0)
-      .to(".h-line", {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        stagger: 0.12,
-      }, 0.2)
+      .to(".h-line", { opacity: 1, y: 0, duration: 1, stagger: 0.12 }, 0.2)
       .to("#heroSub", { opacity: 1, y: 0, duration: 0.8 }, 0.7)
       .to("#heroActions", { opacity: 1, y: 0, duration: 0.7 }, 0.95);
   }
 
   /* ── SCROLL REVEAL ─────────────────────────────────── */
   function initReveal() {
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
-      document.querySelectorAll(".reveal").forEach((el) => {
-        el.style.opacity = "1";
-        el.style.transform = "none";
-      });
-      return;
-    }
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
     document.querySelectorAll(".reveal").forEach((el) => {
+      /* GSAP fixe l'état initial ici, pas dans le CSS */
+      gsap.set(el, { opacity: 0, y: 40 });
       gsap.to(el, {
         opacity: 1,
         y: 0,
-        duration: 0.9,
+        duration: 0.85,
         ease: "power3.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 88%",
+          start: "top 90%",
           once: true,
         },
       });
@@ -160,24 +172,20 @@
 
   /* ── STAGGER GROUPS ────────────────────────────────── */
   function initStagger() {
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") {
-      document.querySelectorAll(".stagger-item").forEach((el) => {
-        el.style.opacity = "1";
-        el.style.transform = "none";
-      });
-      return;
-    }
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+
     document.querySelectorAll(".stagger-group").forEach((group) => {
       const items = group.querySelectorAll(".stagger-item");
+      gsap.set(items, { opacity: 0, y: 30 });
       gsap.to(items, {
         opacity: 1,
         y: 0,
-        duration: 0.75,
-        stagger: 0.1,
+        duration: 0.7,
+        stagger: 0.09,
         ease: "power3.out",
         scrollTrigger: {
           trigger: group,
-          start: "top 82%",
+          start: "top 88%",
           once: true,
         },
       });
