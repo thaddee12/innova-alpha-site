@@ -11,14 +11,18 @@
 
   /* ── PRELOADER ─────────────────────────────────────── */
   window.addEventListener("load", () => {
-    setTimeout(() => {
-      const pl = document.getElementById("preloader");
-      if (pl) {
+    const pl = document.getElementById("preloader");
+    if (pl) {
+      /* Page d'accueil : attendre la durée du preloader */
+      setTimeout(() => {
         pl.classList.add("out");
         pl.addEventListener("transitionend", () => pl.remove(), { once: true });
-      }
+        initAll();
+      }, 1200);
+    } else {
+      /* Pages secondaires : init immédiate, pas de flash */
       initAll();
-    }, 1200);
+    }
   });
 
   function initAll() {
@@ -35,6 +39,10 @@
     initCounters();
     initMobileMenu();
     initScrollProgress();
+    /* Lucide icons sur pages secondaires v1 */
+    if (window.lucide && typeof window.lucide.createIcons === "function") {
+      window.lucide.createIcons();
+    }
   }
 
   /* ── LENIS SMOOTH SCROLL ───────────────────────────── */
@@ -277,8 +285,9 @@
 
   /* ── MOBILE MENU ───────────────────────────────────── */
   function initMobileMenu() {
-    const burger = document.getElementById("navBurger");
-    const mobileNav = document.getElementById("mobileNav");
+    /* Support IDs v1 (navToggle/mobileMenu) et v2 (navBurger/mobileNav) */
+    const burger = document.getElementById("navBurger") || document.getElementById("navToggle");
+    const mobileNav = document.getElementById("mobileNav") || document.getElementById("mobileMenu");
     if (!burger || !mobileNav) return;
 
     let open = false;
