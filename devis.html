@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discutons de votre projet — INNOVA ALPHA · L'alpha du digital</title>
+  <meta name="description" content="Décrivez votre projet à INNOVA ALPHA. Nous vous revenons sous 24h avec une proposition adaptée à vos besoins." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .lang-switch { display:flex; align-items:center; gap:0.3rem; font-size:0.8rem; font-weight:700; letter-spacing:0.08em; }
+    .lang-btn { color:var(--text-muted); transition:color 0.3s var(--ease); padding:0.2rem 0.1rem; }
+    .lang-btn:hover { color:var(--text); }
+    .lang-btn--active { color:var(--violet); }
+    .lang-sep { color:var(--line-strong); }
+  </style>
+  <style>
+    /* ---- Page devis ---- */
+    .devis-hero {
+      padding-top: clamp(7rem, 14vw, 10rem);
+      padding-bottom: clamp(3rem, 6vw, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .devis-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 80%);
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 80%);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .devis-hero .container { position: relative; z-index: 1; }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      transition: color 0.3s var(--ease);
+    }
+    .back-link:hover { color: var(--violet); }
+    .back-link svg { width: 16px; height: 16px; }
+
+    .devis-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: clamp(2.5rem, 6vw, 6rem);
+      align-items: start;
+    }
+
+    /* --- Colonne gauche : infos --- */
+    .devis-info { position: sticky; top: 6rem; }
+
+    .devis-title {
+      font-weight: 800;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.2rem;
+    }
+    .devis-title .accent { color: var(--violet); }
+
+    .devis-lead {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      max-width: 40ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .devis-promises {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .promise {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .promise-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(91, 45, 232, 0.12);
+      border: 1px solid rgba(91, 45, 232, 0.25);
+      color: var(--violet);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .promise-icon svg { width: 16px; height: 16px; }
+    .promise-text strong { display: block; font-weight: 600; font-size: 0.95rem; }
+    .promise-text span { color: var(--text-muted); font-size: 0.88rem; }
+
+    .devis-contact-info {
+      border-top: 1px solid var(--line);
+      padding-top: 1.8rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .devis-contact-info a { color: var(--violet); font-weight: 500; }
+    .devis-contact-info a:hover { text-decoration: underline; }
+
+    /* --- Colonne droite : formulaire --- */
+    .devis-form-wrap {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    .form-section-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .form-section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .field label {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .field label .req { color: var(--violet); margin-left: 2px; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--text);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.4rem;
+      cursor: pointer;
+    }
+    .field textarea { resize: vertical; min-height: 130px; line-height: 1.55; }
+
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--violet);
+      box-shadow: 0 0 0 3px rgba(91, 45, 232, 0.12);
+    }
+
+    /* Services checkboxes */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-check {
+      position: relative;
+      cursor: pointer;
+    }
+    .service-check input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .service-check-label {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+      cursor: pointer;
+      transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+      user-select: none;
+    }
+    .service-check-label .check-box {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1.5px solid var(--line-strong);
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .service-check-label .check-box svg {
+      width: 10px;
+      height: 10px;
+      stroke: #fff;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .service-check input:checked + .service-check-label {
+      border-color: rgba(91, 45, 232, 0.5);
+      color: var(--text);
+      background: rgba(91, 45, 232, 0.06);
+    }
+    .service-check input:checked + .service-check-label .check-box {
+      background: var(--violet);
+      border-color: var(--violet);
+    }
+    .service-check input:checked + .service-check-label .check-box svg { opacity: 1; }
+
+    /* Budget options */
+    .budget-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .budget-opt {
+      position: relative;
+      cursor: pointer;
+    }
+    .budget-opt input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .budget-opt-label {
+      display: block;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem 0.5rem;
+      cursor: pointer;
+      transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+      user-select: none;
+      line-height: 1.3;
+    }
+    .budget-opt input:checked + .budget-opt-label {
+      border-color: var(--violet);
+      color: var(--violet);
+      background: rgba(91, 45, 232, 0.08);
+      font-weight: 700;
+    }
+
+    /* Urgency */
+    .urgency-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.7rem;
+      margin-bottom: 1.2rem;
+    }
+    .urgency-opt { position: relative; cursor: pointer; }
+    .urgency-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+    .urgency-opt-label {
+      display: block;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0.75rem 0.5rem;
+      cursor: pointer;
+      transition: border-color 0.3s var(--ease), color 0.3s var(--ease), background 0.3s var(--ease);
+      user-select: none;
+    }
+    .urgency-opt input:checked + .urgency-opt-label {
+      border-color: var(--violet);
+      color: var(--violet);
+      background: rgba(91, 45, 232, 0.08);
+      font-weight: 700;
+    }
+
+    .form-divider { height: 1px; background: var(--line); margin: 1.8rem 0; }
+
+    .form-submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .form-privacy {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      max-width: 30ch;
+      line-height: 1.5;
+    }
+
+    .btn--submit {
+      min-width: 220px;
+      justify-content: center;
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .form-success.is-visible { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
+    .success-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(91, 45, 232, 0.12);
+      border: 1px solid rgba(91, 45, 232, 0.3);
+      color: var(--violet);
+      display: grid; place-items: center;
+    }
+    .success-icon svg { width: 28px; height: 28px; }
+    .form-success h3 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; }
+    .form-success p { color: var(--text-muted); max-width: 36ch; line-height: 1.6; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .devis-layout { grid-template-columns: 1fr; }
+      .devis-info { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .budget-options { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .budget-options { grid-template-columns: 1fr; }
+      .urgency-options { grid-template-columns: 1fr; }
+      .form-submit-row { flex-direction: column; align-items: stretch; }
+      .btn--submit { min-width: unset; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo symbol -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ia-logo" viewBox="80 52 595 170"><path d="M324.6 127V71H340.44V127H324.6ZM351.709 127V71H364.749L395.629 108.28H389.469V71H404.989V127H391.949L361.069 89.72H367.229V127H351.709ZM416.163 127V71H429.203L460.083 108.28H453.923V71H469.443V127H456.403L425.523 89.72H431.682V127H416.163ZM508.856 128.12C504.376 128.12 500.242 127.4 496.456 125.96C492.669 124.52 489.362 122.493 486.536 119.88C483.762 117.213 481.602 114.12 480.056 110.6C478.509 107.08 477.736 103.213 477.736 99C477.736 94.7867 478.509 90.92 480.056 87.4C481.602 83.88 483.762 80.8133 486.536 78.2C489.362 75.5333 492.669 73.48 496.456 72.04C500.242 70.6 504.376 69.88 508.856 69.88C513.389 69.88 517.522 70.6 521.256 72.04C525.042 73.48 528.322 75.5333 531.096 78.2C533.869 80.8133 536.029 83.88 537.576 87.4C539.176 90.92 539.976 94.7867 539.976 99C539.976 103.213 539.176 107.107 537.576 110.68C536.029 114.2 533.869 117.267 531.096 119.88C528.322 122.493 525.042 124.52 521.256 125.96C517.522 127.4 513.389 128.12 508.856 128.12ZM508.856 115C510.989 115 512.962 114.627 514.776 113.88C516.642 113.133 518.242 112.067 519.576 110.68C520.962 109.24 522.029 107.533 522.776 105.56C523.576 103.587 523.976 101.4 523.976 99C523.976 96.5467 523.576 94.36 522.776 92.44C522.029 90.4667 520.962 88.7867 519.576 87.4C518.242 85.96 516.642 84.8667 514.776 84.12C512.962 83.3733 510.989 83 508.856 83C506.722 83 504.722 83.3733 502.856 84.12C501.042 84.8667 499.442 85.96 498.056 87.4C496.722 88.7867 495.656 90.4667 494.856 92.44C494.109 94.36 493.736 96.5467 493.736 99C493.736 101.4 494.109 103.587 494.856 105.56C495.656 107.533 496.722 109.24 498.056 110.68C499.442 112.067 501.042 113.133 502.856 113.88C504.722 114.627 506.722 115 508.856 115ZM563.597 127L539.677 71H556.797L576.957 119.48H566.877L587.517 71H603.197L579.197 127H563.597ZM597.802 127L622.522 71H638.122L662.922 127H646.442L627.082 78.76H633.322L613.962 127H597.802ZM611.322 116.12L615.402 104.44H642.762L646.842 116.12H611.322Z" fill="currentColor"/><path d="M317.88 195L342.6 139H358.2L383 195H366.52L347.16 146.76H353.4L334.04 195H317.88ZM331.4 184.12L335.48 172.44H362.84L366.92 184.12H331.4ZM397.891 195V139H413.731V182.44H440.451V195H397.891ZM457.119 195V139H482.719C487.839 139 492.239 139.827 495.919 141.48C499.652 143.133 502.532 145.533 504.559 148.68C506.585 151.773 507.599 155.453 507.599 159.72C507.599 163.933 506.585 167.587 504.559 170.68C502.532 173.773 499.652 176.173 495.919 177.88C492.239 179.533 487.839 180.36 482.719 180.36H465.919L472.959 173.48V195H457.119ZM472.959 175.16L465.919 167.88H481.759C485.065 167.88 487.519 167.16 489.119 165.72C490.772 164.28 491.599 162.28 491.599 159.72C491.599 157.107 490.772 155.08 489.119 153.64C487.519 152.2 485.065 151.48 481.759 151.48H465.919L472.959 144.2V175.16ZM563.162 195V139H579.002V195H563.162ZM525.722 195V139H541.562V195H525.722ZM540.442 173.16V160.04H564.282V173.16H540.442ZM593.855 195L618.575 139H634.175L658.975 195H642.495L623.135 146.76H629.375L610.015 195H593.855ZM607.375 184.12L611.455 172.44H638.815L642.895 184.12H607.375Z" fill="currentColor"/><path d="M306.5 133.5L289.5 117L256.5 153.5L286 210H251.5C251.5 210 237.5 175 235 178C232.871 180.554 229.5 184.5 229.5 184.5L227 187C227 187 222.86 191.105 220 193.5C217.006 196.007 212 199.5 212 199.5L202.5 205C202.5 205 198.005 207.042 195 208C191.751 209.036 186.5 210 186.5 210H171L163.5 208L154.5 205L146.5 199.5L140 193.5L136 188.5L151 159.5L127.5 167L127 154.5L127.5 146.5L129 138L130 135L151 146.5L140 116L149 106.5L157.5 100L168 94L177 91.5L186.5 90.5L198.5 91.5L209.5 94L220 100L227 106.5L235 116L239.5 122.5L247 115L264 96.5L247 79.5L316 62L306.5 133.5ZM120.5 192.5L116.5 178L136 171.5L120.5 192.5ZM210.956 130.593C204.623 121.273 189.031 122.229 176.129 132.727C163.227 143.225 157.902 159.29 164.234 168.609C170.567 177.929 186.16 176.974 199.062 166.476C211.963 155.977 217.289 139.912 210.956 130.593ZM109.5 151L88.5 156L97.5 143L115 142L109.5 151ZM133 127L112.5 116L125.5 106.5L133 127ZM96.5 106.5L98.5 114H93.5L86 105.5L96.5 106.5Z" fill="#5B2DE8"/></symbol></svg>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="index.html" class="brand" aria-label="INNOVA ALPHA — accueil">
+      <svg class="brand-logo" role="img" aria-label="INNOVA ALPHA"><use href="#ia-logo"></use></svg>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#why">Pourquoi nous</a></li>
+        <li><a href="index.html#process">Processus</a></li>
+        <li><a href="index.html#work">Réalisations</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <span class="lang-btn lang-btn--active">FR</span>
+        <span class="lang-sep">/</span>
+        <a href="quote.html" class="lang-btn">EN</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Basculer Jour / Nuit"><i data-lucide="sun"></i></button>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#services" data-close>Services</a>
+    <a href="index.html#why" data-close>Pourquoi nous</a>
+    <a href="index.html#process" data-close>Processus</a>
+    <a href="index.html#work" data-close>Réalisations</a>
+    <a href="index.html" class="btn btn--primary" data-close>Retour à l'accueil</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="devis-hero">
+    <div class="container">
+      <a href="index.html" class="back-link reveal">
+        <i data-lucide="arrow-left"></i> Retour à l'accueil
+      </a>
+
+      <div class="devis-layout">
+
+        <!-- Colonne gauche -->
+        <div class="devis-info reveal">
+          <span class="eyebrow" style="margin-bottom:1.2rem">Devis gratuit</span>
+          <h1 class="devis-title">Parlons de votre <span class="accent">projet</span>.</h1>
+          <p class="devis-lead">Décrivez-nous ce que vous voulez accomplir. Nous revenons vers vous sous 24h avec une proposition claire et adaptée à votre budget.</p>
+
+          <div class="devis-promises">
+            <div class="promise">
+              <div class="promise-icon"><i data-lucide="clock"></i></div>
+              <div class="promise-text">
+                <strong>Réponse sous 24h</strong>
+                <span>On prend le temps de lire votre demande avant de répondre.</span>
+              </div>
+            </div>
+            <div class="promise">
+              <div class="promise-icon"><i data-lucide="shield-check"></i></div>
+              <div class="promise-text">
+                <strong>Consultation gratuite</strong>
+                <span>Aucun engagement, aucun frais pour cet échange initial.</span>
+              </div>
+            </div>
+            <div class="promise">
+              <div class="promise-icon"><i data-lucide="user-check"></i></div>
+              <div class="promise-text">
+                <strong>CEO en direct</strong>
+                <span>C'est Léonce Thaddée qui vous répond personnellement.</span>
+              </div>
+            </div>
+            <div class="promise">
+              <div class="promise-icon"><i data-lucide="file-text"></i></div>
+              <div class="promise-text">
+                <strong>Proposition sur mesure</strong>
+                <span>Pas de tarif catalogue. Un devis adapté à votre contexte réel.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="devis-contact-info">
+            Vous préférez échanger directement ?<br />
+            <a href="mailto:contact@innovaalpha.com">contact@innovaalpha.com</a><br />
+            Yaoundé, Cameroun — disponible à distance.
+          </div>
+
+          <a href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20et%20obtenir%20un%20devis." target="_blank" rel="noopener" class="btn btn--wa" style="margin-top:1.4rem;width:100%;justify-content:center;">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            Discuter sur WhatsApp
+          </a>
+        </div>
+
+        <!-- Colonne droite : formulaire -->
+        <div class="devis-form-wrap reveal" data-delay="1">
+
+          <!-- Formulaire -->
+          <form id="devisForm" novalidate>
+
+            <!-- Section 1 : Vous -->
+            <p class="form-section-title">01 — Vous</p>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="prenom">Prénom <span class="req">*</span></label>
+                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+              </div>
+              <div class="field">
+                <label for="nom">Nom <span class="req">*</span></label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="vous@entreprise.com" required />
+              </div>
+              <div class="field">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+237 6XX XXX XXX" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="entreprise">Entreprise <span class="req">*</span></label>
+                <input type="text" id="entreprise" name="entreprise" placeholder="Nom de votre entreprise" required />
+              </div>
+              <div class="field">
+                <label for="secteur">Secteur d'activité</label>
+                <select id="secteur" name="secteur">
+                  <option value="" disabled selected>Choisir...</option>
+                  <option>BTP / Génie civil</option>
+                  <option>Commerce / Distribution</option>
+                  <option>Services aux entreprises</option>
+                  <option>Santé / Pharmacie</option>
+                  <option>Éducation / Formation</option>
+                  <option>Hôtellerie / Restauration</option>
+                  <option>Immobilier</option>
+                  <option>Transport / Logistique</option>
+                  <option>Agriculture / Agroalimentaire</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Section 2 : Votre projet -->
+            <p class="form-section-title">02 — Votre projet</p>
+
+            <div class="field">
+              <label>Services souhaités <span class="req">*</span></label>
+              <div class="services-grid">
+                <label class="service-check">
+                  <input type="checkbox" name="services" value="branding" />
+                  <span class="service-check-label">
+                    <span class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>
+                    Identité & Branding
+                  </span>
+                </label>
+                <label class="service-check">
+                  <input type="checkbox" name="services" value="site-web" />
+                  <span class="service-check-label">
+                    <span class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>
+                    Site web / Landing page
+                  </span>
+                </label>
+                <label class="service-check">
+                  <input type="checkbox" name="services" value="ia" />
+                  <span class="service-check-label">
+                    <span class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>
+                    Intégration IA
+                  </span>
+                </label>
+                <label class="service-check">
+                  <input type="checkbox" name="services" value="marketing" />
+                  <span class="service-check-label">
+                    <span class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>
+                    Marketing Digital
+                  </span>
+                </label>
+                <label class="service-check">
+                  <input type="checkbox" name="services" value="formation" />
+                  <span class="service-check-label">
+                    <span class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>
+                    Formation & Conseil
+                  </span>
+                </label>
+                <label class="service-check">
+                  <input type="checkbox" name="services" value="complet" />
+                  <span class="service-check-label">
+                    <span class="check-box"><svg viewBox="0 0 12 12" fill="none" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg></span>
+                    Déploiement complet
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="description">Décrivez votre projet <span class="req">*</span></label>
+              <textarea id="description" name="description" placeholder="Qu'est-ce que vous voulez accomplir ? Quel est votre objectif ? Avez-vous déjà un site, une marque ? Donnez-nous le plus de détails possible." required></textarea>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- Section 3 : Budget & délai -->
+            <p class="form-section-title">03 — Budget & délai</p>
+
+            <div class="field">
+              <label>Budget estimé (en FCFA)</label>
+              <div class="budget-options">
+                <label class="budget-opt">
+                  <input type="radio" name="budget" value="moins-200k" />
+                  <span class="budget-opt-label">Moins de<br/>200 000</span>
+                </label>
+                <label class="budget-opt">
+                  <input type="radio" name="budget" value="200k-500k" />
+                  <span class="budget-opt-label">200 000 –<br/>500 000</span>
+                </label>
+                <label class="budget-opt">
+                  <input type="radio" name="budget" value="500k-1m" />
+                  <span class="budget-opt-label">500 000 –<br/>1 000 000</span>
+                </label>
+                <label class="budget-opt">
+                  <input type="radio" name="budget" value="1m-3m" />
+                  <span class="budget-opt-label">1 000 000 –<br/>3 000 000</span>
+                </label>
+                <label class="budget-opt">
+                  <input type="radio" name="budget" value="plus-3m" />
+                  <span class="budget-opt-label">Plus de<br/>3 000 000</span>
+                </label>
+                <label class="budget-opt">
+                  <input type="radio" name="budget" value="a-definir" />
+                  <span class="budget-opt-label">À définir<br/>ensemble</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Délai souhaité</label>
+              <div class="urgency-options">
+                <label class="urgency-opt">
+                  <input type="radio" name="delai" value="urgent" />
+                  <span class="urgency-opt-label">Urgent<br/>&lt; 1 mois</span>
+                </label>
+                <label class="urgency-opt">
+                  <input type="radio" name="delai" value="normal" />
+                  <span class="urgency-opt-label">1 à 3 mois</span>
+                </label>
+                <label class="urgency-opt">
+                  <input type="radio" name="delai" value="flexible" />
+                  <span class="urgency-opt-label">Flexible<br/>+ 3 mois</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="infos">Informations complémentaires</label>
+              <textarea id="infos" name="infos" style="min-height:90px" placeholder="Contraintes particulières, documents à partager, questions spécifiques..."></textarea>
+            </div>
+
+            <div class="form-submit-row">
+              <p class="form-privacy">Vos données ne sont jamais partagées. Elles servent uniquement à préparer votre devis.</p>
+              <button type="submit" class="btn btn--primary btn--lg btn--submit">
+                Envoyer ma demande <i data-lucide="send"></i>
+              </button>
+            </div>
+
+            <div class="or-divider">ou</div>
+
+            <a href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20et%20obtenir%20un%20devis." target="_blank" rel="noopener" class="btn btn--wa btn--lg" style="width:100%;justify-content:center;">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+              Envoyer via WhatsApp
+            </a>
+
+          </form>
+
+          <!-- État succès -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon"><i data-lucide="check"></i></div>
+            <h3>Demande envoyée !</h3>
+            <p>Merci. Léonce Thaddée vous revient personnellement sous 24h avec une proposition adaptée.</p>
+            <a href="index.html" class="btn btn--ghost">Retour à l'accueil <i data-lucide="arrow-right"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER minimal -->
+  <footer style="border-top: 1px solid var(--line); padding: 2rem var(--gutter); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; background:var(--bg); transition: background 0.5s var(--ease);">
+    <a href="index.html" class="brand" style="opacity:0.6; transition:opacity 0.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
+      <svg style="height:28px; width:auto; color:var(--text); display:block;" role="img" aria-label="INNOVA ALPHA"><use href="#ia-logo"></use></svg>
+    </a>
+    <span style="font-size:0.82rem; color:var(--text-muted);">© 2026 INNOVA ALPHA — Yaoundé, Cameroun</span>
+  </footer>
+
+  <!-- WhatsApp flottant — remplace +237620301603 par ton vrai numéro -->
+  <a class="wa-float" href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20et%20obtenir%20un%20devis." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+  <span class="wa-float-label">Écrire sur WhatsApp</span>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    /* ---- Gestion du formulaire devis ---- */
+    const form = document.getElementById("devisForm");
+    const successBox = document.getElementById("formSuccess");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Validation minimale
+      const required = form.querySelectorAll("[required]");
+      let valid = true;
+      required.forEach((field) => {
+        field.style.borderColor = "";
+        if (!field.value.trim()) {
+          field.style.borderColor = "#e05353";
+          valid = false;
+        }
+      });
+      if (!valid) {
+        form.querySelector("[required][style*='e05353']")?.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      // Construire le mailto avec les données
+      const data = new FormData(form);
+      const services = data.getAll("services").join(", ") || "Non précisé";
+      const subject = encodeURIComponent("Demande de devis — " + (data.get("entreprise") || ""));
+      const body = encodeURIComponent(
+        "Prénom : " + data.get("prenom") + "\n" +
+        "Nom : " + data.get("nom") + "\n" +
+        "Email : " + data.get("email") + "\n" +
+        "Téléphone : " + (data.get("telephone") || "Non renseigné") + "\n" +
+        "Entreprise : " + data.get("entreprise") + "\n" +
+        "Secteur : " + (data.get("secteur") || "Non renseigné") + "\n\n" +
+        "Services souhaités : " + services + "\n\n" +
+        "Description du projet :\n" + data.get("description") + "\n\n" +
+        "Budget : " + (data.get("budget") || "Non renseigné") + "\n" +
+        "Délai : " + (data.get("delai") || "Non renseigné") + "\n\n" +
+        "Informations complémentaires :\n" + (data.get("infos") || "Aucune")
+      );
+
+      window.location.href = "mailto:contact@innovaalpha.com?subject=" + subject + "&body=" + body;
+
+      // Afficher la confirmation
+      setTimeout(() => {
+        form.style.display = "none";
+        successBox.classList.add("is-visible");
+        if (window.lucide) window.lucide.createIcons();
+      }, 400);
+    });
+  </script>
+</body>
+</html>

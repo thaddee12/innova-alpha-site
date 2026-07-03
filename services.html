@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nos services — INNOVA ALPHA · L'alpha du digital</title>
+  <meta name="description" content="Branding, site web, intégration IA, marketing digital, formation et déploiement complet. Découvrez l'offre complète d'INNOVA ALPHA pour les PME africaines." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .lang-switch { display:flex; align-items:center; gap:0.3rem; font-size:0.8rem; font-weight:700; letter-spacing:0.08em; }
+    .lang-btn { color:var(--text-muted); transition:color 0.3s var(--ease); padding:0.2rem 0.1rem; }
+    .lang-btn:hover { color:var(--text); }
+    .lang-btn--active { color:var(--violet); }
+    .lang-sep { color:var(--line-strong); }
+
+    .svc-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--violet);
+      background: rgba(91,45,232,0.08); border: 1px solid rgba(91,45,232,0.25);
+      padding: 0.4rem 0.9rem; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .img-badge {
+      position: absolute; bottom: 1.2rem; left: 1.2rem;
+      background: var(--bg); border: 1px solid var(--line);
+      border-radius: 12px; padding: 0.7rem 1rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--text);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .img-badge .dot { width:8px; height:8px; border-radius:50%; background:#25D366; flex-shrink:0; }
+
+    @media (max-width: 900px) {
+      .split-body .btn { align-self: stretch; justify-content: center; }
+    }
+    @media (max-width: 600px) {
+      .img-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ia-logo" viewBox="80 52 595 170"><path d="M324.6 127V71H340.44V127H324.6ZM351.709 127V71H364.749L395.629 108.28H389.469V71H404.989V127H391.949L361.069 89.72H367.229V127H351.709ZM416.163 127V71H429.203L460.083 108.28H453.923V71H469.443V127H456.403L425.523 89.72H431.682V127H416.163ZM508.856 128.12C504.376 128.12 500.242 127.4 496.456 125.96C492.669 124.52 489.362 122.493 486.536 119.88C483.762 117.213 481.602 114.12 480.056 110.6C478.509 107.08 477.736 103.213 477.736 99C477.736 94.7867 478.509 90.92 480.056 87.4C481.602 83.88 483.762 80.8133 486.536 78.2C489.362 75.5333 492.669 73.48 496.456 72.04C500.242 70.6 504.376 69.88 508.856 69.88C513.389 69.88 517.522 70.6 521.256 72.04C525.042 73.48 528.322 75.5333 531.096 78.2C533.869 80.8133 536.029 83.88 537.576 87.4C539.176 90.92 539.976 94.7867 539.976 99C539.976 103.213 539.176 107.107 537.576 110.68C536.029 114.2 533.869 117.267 531.096 119.88C528.322 122.493 525.042 124.52 521.256 125.96C517.522 127.4 513.389 128.12 508.856 128.12ZM508.856 115C510.989 115 512.962 114.627 514.776 113.88C516.642 113.133 518.242 112.067 519.576 110.68C520.962 109.24 522.029 107.533 522.776 105.56C523.576 103.587 523.976 101.4 523.976 99C523.976 96.5467 523.576 94.36 522.776 92.44C522.029 90.4667 520.962 88.7867 519.576 87.4C518.242 85.96 516.642 84.8667 514.776 84.12C512.962 83.3733 510.989 83 508.856 83C506.722 83 504.722 83.3733 502.856 84.12C501.042 84.8667 499.442 85.96 498.056 87.4C496.722 88.7867 495.656 90.4667 494.856 92.44C494.109 94.36 493.736 96.5467 493.736 99C493.736 101.4 494.109 103.587 494.856 105.56C495.656 107.533 496.722 109.24 498.056 110.68C499.442 112.067 501.042 113.133 502.856 113.88C504.722 114.627 506.722 115 508.856 115ZM563.597 127L539.677 71H556.797L576.957 119.48H566.877L587.517 71H603.197L579.197 127H563.597ZM597.802 127L622.522 71H638.122L662.922 127H646.442L627.082 78.76H633.322L613.962 127H597.802ZM611.322 116.12L615.402 104.44H642.762L646.842 116.12H611.322Z" fill="currentColor"/><path d="M317.88 195L342.6 139H358.2L383 195H366.52L347.16 146.76H353.4L334.04 195H317.88ZM331.4 184.12L335.48 172.44H362.84L366.92 184.12H331.4ZM397.891 195V139H413.731V182.44H440.451V195H397.891ZM457.119 195V139H482.719C487.839 139 492.239 139.827 495.919 141.48C499.652 143.133 502.532 145.533 504.559 148.68C506.585 151.773 507.599 155.453 507.599 159.72C507.599 163.933 506.585 167.587 504.559 170.68C502.532 173.773 499.652 176.173 495.919 177.88C492.239 179.533 487.839 180.36 482.719 180.36H465.919L472.959 173.48V195H457.119ZM472.959 175.16L465.919 167.88H481.759C485.065 167.88 487.519 167.16 489.119 165.72C490.772 164.28 491.599 162.28 491.599 159.72C491.599 157.107 490.772 155.08 489.119 153.64C487.519 152.2 485.065 151.48 481.759 151.48H465.919L472.959 144.2V175.16ZM563.162 195V139H579.002V195H563.162ZM525.722 195V139H541.562V195H525.722ZM540.442 173.16V160.04H564.282V173.16H540.442ZM593.855 195L618.575 139H634.175L658.975 195H642.495L623.135 146.76H629.375L610.015 195H593.855ZM607.375 184.12L611.455 172.44H638.815L642.895 184.12H607.375Z" fill="currentColor"/><path d="M306.5 133.5L289.5 117L256.5 153.5L286 210H251.5C251.5 210 237.5 175 235 178C232.871 180.554 229.5 184.5 229.5 184.5L227 187C227 187 222.86 191.105 220 193.5C217.006 196.007 212 199.5 212 199.5L202.5 205C202.5 205 198.005 207.042 195 208C191.751 209.036 186.5 210 186.5 210H171L163.5 208L154.5 205L146.5 199.5L140 193.5L136 188.5L151 159.5L127.5 167L127 154.5L127.5 146.5L129 138L130 135L151 146.5L140 116L149 106.5L157.5 100L168 94L177 91.5L186.5 90.5L198.5 91.5L209.5 94L220 100L227 106.5L235 116L239.5 122.5L247 115L264 96.5L247 79.5L316 62L306.5 133.5ZM120.5 192.5L116.5 178L136 171.5L120.5 192.5ZM210.956 130.593C204.623 121.273 189.031 122.229 176.129 132.727C163.227 143.225 157.902 159.29 164.234 168.609C170.567 177.929 186.16 176.974 199.062 166.476C211.963 155.977 217.289 139.912 210.956 130.593ZM109.5 151L88.5 156L97.5 143L115 142L109.5 151ZM133 127L112.5 116L125.5 106.5L133 127ZM96.5 106.5L98.5 114H93.5L86 105.5L96.5 106.5Z" fill="#5B2DE8"/></symbol></svg>
+
+  <header class="nav" id="nav">
+    <a href="index.html" class="brand" aria-label="INNOVA ALPHA — accueil">
+      <svg class="brand-logo" role="img" aria-label="INNOVA ALPHA"><use href="#ia-logo"></use></svg>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="services.html" style="color:var(--text)">Services</a></li>
+        <li><a href="pourquoi-nous.html">Pourquoi nous</a></li>
+        <li><a href="processus.html">Processus</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <span class="lang-btn lang-btn--active">FR</span>
+        <span class="lang-sep">/</span>
+        <a href="index-en.html" class="lang-btn">EN</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Basculer Jour / Nuit"><i data-lucide="sun"></i></button>
+      <a href="devis.html" class="btn btn--primary nav-cta">Demander un devis</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="services.html" data-close>Services</a>
+    <a href="pourquoi-nous.html" data-close>Pourquoi nous</a>
+    <a href="processus.html" data-close>Processus</a>
+    <a href="realisations.html" data-close>Réalisations</a>
+    <a href="devis.html" class="btn btn--primary" data-close>Demander un devis</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb reveal">
+        <a href="index.html">Accueil</a>
+        <span>/</span>
+        <span style="color:var(--text)">Services</span>
+      </div>
+      <h1 class="page-title reveal" data-delay="1">Ce qu'on fait<br /><span style="color:var(--violet)">pour vous.</span></h1>
+      <p class="page-lead reveal" data-delay="2">Une offre intégrée de A à Z. Vous n'avez pas besoin de jongler avec dix prestataires : branding, digital, IA et formation sous un même toit, avec un seul interlocuteur.</p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 01 : Branding -->
+  <section class="section" id="branding">
+    <div class="container">
+      <div class="split-row reveal">
+        <div class="split-body">
+          <span class="svc-tag">Service 01</span>
+          <h2>Identité & Branding</h2>
+          <p>Votre marque, c'est la première impression que vous laissez. Nous concevons des identités visuelles qui inspirent confiance, racontent une histoire et restent gravées dans la mémoire de vos clients.</p>
+          <p>Du naming au logo, en passant par la charte graphique complète et les supports de communication, nous vous livrons une marque cohérente et professionnelle, prête à conquérir votre marché.</p>
+          <ul class="deliverables">
+            <li>Audit de l'existant et brief stratégique</li>
+            <li>Conception du logo (3 propositions + révisions)</li>
+            <li>Charte graphique complète (couleurs, typographies, règles d'usage)</li>
+            <li>Déclinaisons : cartes de visite, en-têtes, signatures mail</li>
+            <li>Guide de marque livré en PDF et fichiers sources</li>
+          </ul>
+          <div class="for-whom">
+            <strong>Pour qui ?</strong>
+            Entreprise en création ou en repositionnement, PME sans identité visuelle cohérente, tout acteur qui veut inspirer confiance avant même d'ouvrir la bouche.
+          </div>
+          <a href="devis.html" class="btn btn--primary" style="align-self:flex-start;margin-top:0.5rem">Discuter de mon projet <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="split-img">
+          <div class="img-wrap img-aspect-43 reveal" data-delay="1">
+            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=900&q=80" alt="Création d'identité visuelle et branding" loading="lazy" />
+            <div class="img-badge"><span class="dot"></span> Marques mémorables</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 02 : Site web -->
+  <section class="section section--alt" id="site-web">
+    <div class="container">
+      <div class="split-row split-row--rev reveal">
+        <div class="split-img">
+          <div class="img-wrap img-aspect-43 reveal" data-delay="1">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=900&q=80" alt="Conception de site web professionnel" loading="lazy" />
+            <div class="img-badge"><span class="dot"></span> Sites qui convertissent</div>
+          </div>
+        </div>
+        <div class="split-body">
+          <span class="svc-tag">Service 02</span>
+          <h2>Site web & Landing pages</h2>
+          <p>Votre site est votre vitrine digitale 24h/24. Nous concevons des sites web rapides, élégants et optimisés pour les moteurs de recherche, pensés pour transformer vos visiteurs en clients.</p>
+          <p>Que vous ayez besoin d'un site vitrine, d'une landing page de conversion ou d'un portail métier, nous adaptons chaque projet à vos objectifs réels, pas à un template générique.</p>
+          <ul class="deliverables">
+            <li>Design sur mesure, responsive mobile-first</li>
+            <li>Optimisation SEO de base intégrée dès la conception</li>
+            <li>Formulaires de contact et intégration WhatsApp</li>
+            <li>Hébergement configuré (Netlify / Vercel / serveur dédié)</li>
+            <li>Formation à la mise à jour du contenu</li>
+            <li>Maintenance et support post-lancement</li>
+          </ul>
+          <div class="for-whom">
+            <strong>Pour qui ?</strong>
+            PME sans présence en ligne, entreprises avec un site obsolète, professionnels qui veulent attirer des clients via Google.
+          </div>
+          <a href="devis.html" class="btn btn--primary" style="align-self:flex-start;margin-top:0.5rem">Discuter de mon projet <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 03 : IA -->
+  <section class="section" id="ia">
+    <div class="container">
+      <div class="split-row reveal">
+        <div class="split-body">
+          <span class="svc-tag">Service 03</span>
+          <h2>Intégration IA</h2>
+          <p>L'intelligence artificielle n'est plus réservée aux grandes entreprises. Nous intégrons des outils IA concrets dans vos processus : automatisation des tâches répétitives, assistants virtuels, analyse de données, génération de contenu.</p>
+          <p>Nous partons toujours de vos vrais problèmes, pas de la technologie. Résultat : des solutions qui s'utilisent au quotidien et qui font gagner du temps dès la première semaine.</p>
+          <ul class="deliverables">
+            <li>Audit de vos processus et identification des gains rapides</li>
+            <li>Chatbot et assistant virtuel pour votre site ou WhatsApp</li>
+            <li>Automatisation de flux (emails, reporting, CRM)</li>
+            <li>Intégration d'outils IA génératifs (texte, image, résumé)</li>
+            <li>Formation de vos équipes aux outils déployés</li>
+            <li>Suivi des performances et ajustements</li>
+          </ul>
+          <div class="for-whom">
+            <strong>Pour qui ?</strong>
+            PME qui perdent du temps sur des tâches répétitives, équipes surchargées, dirigeants qui veulent prendre des décisions basées sur des données.
+          </div>
+          <a href="devis.html" class="btn btn--primary" style="align-self:flex-start;margin-top:0.5rem">Discuter de mon projet <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="split-img">
+          <div class="img-wrap img-aspect-43 reveal" data-delay="1">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=900&q=80" alt="Intégration intelligence artificielle PME" loading="lazy" />
+            <div class="img-badge"><span class="dot"></span> IA accessible à tous</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 04 : Marketing -->
+  <section class="section section--alt" id="marketing">
+    <div class="container">
+      <div class="split-row split-row--rev reveal">
+        <div class="split-img">
+          <div class="img-wrap img-aspect-43 reveal" data-delay="1">
+            <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?auto=format&fit=crop&w=900&q=80" alt="Marketing digital réseaux sociaux" loading="lazy" />
+            <div class="img-badge"><span class="dot"></span> Visibilité qui convertit</div>
+          </div>
+        </div>
+        <div class="split-body">
+          <span class="svc-tag">Service 04</span>
+          <h2>Marketing Digital</h2>
+          <p>Être présent en ligne ne suffit plus. Nous mettons en place des stratégies de marketing digital qui attirent les bonnes personnes au bon moment, et les transforment en clients réels.</p>
+          <p>Réseaux sociaux, référencement naturel, publicité ciblée, email marketing : nous construisons une présence digitale cohérente et mesurable, adaptée à votre budget et à votre marché local.</p>
+          <ul class="deliverables">
+            <li>Stratégie de contenu et calendrier éditorial</li>
+            <li>Gestion des réseaux sociaux (Facebook, Instagram, LinkedIn)</li>
+            <li>Optimisation SEO locale (Google Business Profile, mots-clés)</li>
+            <li>Campagnes publicitaires Meta Ads / Google Ads</li>
+            <li>Reporting mensuel avec métriques claires</li>
+          </ul>
+          <div class="for-whom">
+            <strong>Pour qui ?</strong>
+            Entreprises qui veulent plus de clients locaux, commerçants, prestataires de services qui cherchent à se faire connaître dans leur ville ou région.
+          </div>
+          <a href="devis.html" class="btn btn--primary" style="align-self:flex-start;margin-top:0.5rem">Discuter de mon projet <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 05 : Formation -->
+  <section class="section" id="formation">
+    <div class="container">
+      <div class="split-row reveal">
+        <div class="split-body">
+          <span class="svc-tag">Service 05</span>
+          <h2>Formation & Conseil</h2>
+          <p>La meilleure technologie est inutile si vos équipes ne savent pas l'utiliser. Nous formons votre personnel aux outils IA et digitaux, en langue française, avec des exemples tirés de votre secteur d'activité.</p>
+          <p>Ateliers pratiques en présentiel ou à distance, support de formation adapté à votre niveau, suivi post-formation : nous vous donnons les moyens d'être autonomes sur le long terme.</p>
+          <ul class="deliverables">
+            <li>Audit des compétences actuelles de votre équipe</li>
+            <li>Ateliers pratiques (2h à 2 jours selon le sujet)</li>
+            <li>Supports de formation personnalisés livrés en PDF</li>
+            <li>Formation aux outils IA : ChatGPT, Claude, Gemini, Canva IA</li>
+            <li>Formation aux outils bureautiques avancés (Excel, PowerPoint)</li>
+            <li>Suivi et questions/réponses pendant 30 jours</li>
+          </ul>
+          <div class="for-whom">
+            <strong>Pour qui ?</strong>
+            Équipes qui découvrent les outils IA, directions qui veulent monter en compétences, toute organisation qui veut réduire sa dépendance à des prestataires.
+          </div>
+          <a href="devis.html" class="btn btn--primary" style="align-self:flex-start;margin-top:0.5rem">Discuter de mon projet <i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="split-img">
+          <div class="img-wrap img-aspect-43 reveal" data-delay="1">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=900&q=80" alt="Formation équipes outils IA et digitaux" loading="lazy" />
+            <div class="img-badge"><span class="dot"></span> Autonomie durable</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- SERVICE 06 : Déploiement complet -->
+  <section class="section section--alt" id="deploiement">
+    <div class="container">
+      <div class="split-row split-row--rev reveal">
+        <div class="split-img">
+          <div class="img-wrap img-aspect-43 reveal" data-delay="1">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80" alt="Accompagnement transformation digitale complète" loading="lazy" />
+            <div class="img-badge"><span class="dot"></span> Transformation complète</div>
+          </div>
+        </div>
+        <div class="split-body">
+          <span class="svc-tag">Service 06</span>
+          <h2>Déploiement complet</h2>
+          <p>Pour les entreprises qui veulent une transformation digitale de fond, sans gérer dix prestataires différents. Nous prenons en charge l'intégralité de votre projet : de l'audit initial à la mesure des résultats, en passant par l'exécution et la formation.</p>
+          <p>C'est notre offre la plus complète, conçue pour les PME ambitieuses qui veulent passer un cap décisif en un seul partenariat structuré.</p>
+          <ul class="deliverables">
+            <li>Audit digital complet de votre entreprise</li>
+            <li>Stratégie de transformation personnalisée</li>
+            <li>Création ou refonte de l'identité de marque</li>
+            <li>Développement du site web et outils digitaux</li>
+            <li>Intégration des outils IA dans vos processus</li>
+            <li>Formation des équipes + 90 jours de suivi</li>
+          </ul>
+          <div class="for-whom">
+            <strong>Pour qui ?</strong>
+            PME qui partent de zéro ou qui veulent tout refaire proprement, dirigeants qui comprennent que le digital est un investissement stratégique, pas une dépense.
+          </div>
+          <a href="devis.html" class="btn btn--primary" style="align-self:flex-start;margin-top:0.5rem">Discuter de mon projet <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page-cta">
+    <div class="cta-ring"></div>
+    <div class="container">
+      <h2 class="page-cta-title reveal">Quel service vous correspond ?</h2>
+      <p class="page-cta-sub reveal" data-delay="1">Décrivez-nous votre situation. On vous dira honnêtement ce dont vous avez besoin.</p>
+      <div class="reveal" data-delay="2" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="devis.html" class="btn btn--primary btn--lg">Obtenir un devis gratuit <i data-lucide="arrow-right"></i></a>
+        <a href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20voudrais%20en%20savoir%20plus%20sur%20vos%20services." target="_blank" rel="noopener" class="btn btn--wa btn--lg">
+          <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:#fff" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <svg class="footer-logo" role="img" aria-label="INNOVA ALPHA"><use href="#ia-logo"></use></svg>
+          <div class="footer-baseline">L'alpha du digital</div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#branding">Branding</a></li>
+            <li><a href="#site-web">Site web</a></li>
+            <li><a href="#ia">Intégration IA</a></li>
+            <li><a href="#marketing">Marketing</a></li>
+            <li><a href="#formation">Formation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact">Yaoundé, Cameroun<br />contact@innovaalpha.com</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 INNOVA ALPHA — Tous droits réservés.</span>
+        <span>Conçu à Yaoundé, pour l'Afrique qui avance.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20vous." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+  <span class="wa-float-label">Écrire sur WhatsApp</span>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
