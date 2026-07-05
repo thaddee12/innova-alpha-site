@@ -8,9 +8,22 @@
   <meta name="theme-color" content="#05050A" />
   <meta property="og:title" content="INNOVA ALPHA — L'alpha du digital" />
   <meta property="og:description" content="Agence digitale & IA pour PME africaines. Yaoundé, Cameroun." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 300 900;
+      font-display: swap;
+      src: url('fonts/montserrat.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Montserrat';
+      font-style: italic;
+      font-weight: 900;
+      font-display: swap;
+      src: url('fonts/montserrat-italic-900.woff') format('woff');
+    }
+  </style>
   <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -89,14 +102,11 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-badge" id="heroBadge">
-        <span class="badge-dot"></span>
         <span>Agence digitale & IA · Yaoundé</span>
       </div>
       <h1 class="hero-title" id="heroTitle">
         <span class="h-line">Votre croissance,</span>
-        <span class="h-line">amplifiée par</span>
-        <span class="h-line accent-line"><em>l'intelligence</em></span>
-        <span class="h-line accent-line"><em>artificielle.</em></span>
+        <span class="h-line accent-line"><em>amplifiée par l'intelligence artificielle.</em></span>
       </h1>
       <p class="hero-sub" id="heroSub">
         INNOVA ALPHA transforme les ambitions des PME africaines en résultats digitaux concrets.
@@ -287,7 +297,7 @@
       </div>
       <div class="stat">
         <div class="stat-num"><span data-target="100" data-suffix="%">0</span></div>
-        <div class="stat-label">Livrables validés</div>
+        <div class="stat-label">Satisfaction client</div>
       </div>
       <div class="stat">
         <div class="stat-num"><span class="stat-text">A→Z</span></div>
@@ -377,13 +387,10 @@
         <svg class="footer-logo" width="150" height="43" viewBox="80 52 595 170" aria-label="INNOVA ALPHA"><use href="#ia-logo"/></svg>
         <p class="footer-tagline">L'alpha du digital pour les PME africaines.</p>
         <div class="footer-socials">
-          <a href="#" aria-label="LinkedIn" class="social-link">
+          <a href="#" aria-label="LinkedIn" class="social-link" id="socialLinkedIn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8.2h4.6V23H.2V8.2zM8.2 8.2h4.4v2h.06c.61-1.16 2.1-2.38 4.33-2.38 4.63 0 5.48 3.05 5.48 7.02V23h-4.6v-6.56c0-1.56-.03-3.57-2.18-3.57-2.18 0-2.51 1.7-2.51 3.46V23H8.2V8.2z"/></svg>
           </a>
-          <a href="#" aria-label="Instagram" class="social-link">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook" class="social-link">
+          <a href="#" aria-label="Facebook" class="social-link" id="socialFacebook">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
           </a>
           <a href="https://wa.me/237620301603" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link">
