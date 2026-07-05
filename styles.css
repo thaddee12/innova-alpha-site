@@ -896,70 +896,166 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 }
 .dot-sep { color: var(--violet); }
 
-/* ── FOOTER ───────────────────────────────────────────── */
-.footer {
+/* ── PAGE WRAP (cinematic reveal) ────────────────────────── */
+.page-wrap {
+  position: relative;
+  z-index: 2;
   background: var(--bg);
-  border-top: 1px solid var(--border);
-  padding-top: 4rem;
-  padding-bottom: 2rem;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
 }
-.footer-top {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 4rem;
+
+/* ── FOOTER CINÉMATIQUE ───────────────────────────────────── */
+.footer-cinematic {
+  background: #030308;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.fc-aurora {
+  position: absolute;
+  top: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 550px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(91, 45, 232, 0.2) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.fc-hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.5rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem);
+  position: relative;
+  z-index: 1;
+}
+.fc-logo {
+  width: 196px;
+  height: 56px;
+  color: rgba(242, 242, 255, 0.8);
+  overflow: visible;
   margin-bottom: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--border);
 }
-.footer-logo { width: 160px; height: 46px; color: var(--text); margin-bottom: 1.2rem; display: block; overflow: visible; }
-.footer-tagline {
-  font-size: .88rem;
-  color: var(--text-2);
-  line-height: 1.6;
-  max-width: 280px;
-  margin-bottom: 1.5rem;
+.fc-headline {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #F2F2FF;
+  margin-bottom: 1.2rem;
+  text-wrap: balance;
 }
-.footer-socials { display: flex; gap: 1rem; }
-.social-link {
-  width: 36px; height: 36px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
+.fc-sub {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: rgba(160, 160, 192, 0.75);
+  max-width: 460px;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+}
+.fc-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.fc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--violet);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  transition: background 0.3s var(--ease), transform 0.2s var(--ease);
+  text-decoration: none;
+}
+.fc-cta:hover { background: var(--violet-soft); transform: translateY(-2px); }
+.fc-cta:active { transform: scale(0.98); }
+.fc-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.22);
+  color: #25D366;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.9rem 2rem;
+  border-radius: 100px;
+  transition: background 0.3s, transform 0.2s var(--ease);
+  text-decoration: none;
+}
+.fc-wa-btn:hover { background: rgba(37, 211, 102, 0.16); transform: translateY(-2px); }
+.fc-socials { display: flex; gap: 0.8rem; }
+.fc-soc {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(242, 242, 255, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-2);
-  transition: background .25s, border-color .25s, color .25s, transform .3s var(--ease);
+  transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.3s var(--ease);
+  text-decoration: none;
 }
-.social-link:hover {
-  background: var(--surface);
-  border-color: var(--border-strong);
-  color: var(--text);
+.fc-soc:hover {
+  background: rgba(91, 45, 232, 0.15);
+  border-color: rgba(91, 45, 232, 0.4);
+  color: var(--violet-soft);
   transform: translateY(-3px);
 }
-.footer-col h4 {
-  font-size: .72rem;
+.fc-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 3rem clamp(1.5rem, 5vw, 6rem);
+  position: relative;
+  z-index: 1;
+}
+.fc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.fc-col-label {
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: .14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-3);
+  color: rgba(255, 255, 255, 0.28);
   margin-bottom: 1.2rem;
 }
-.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
-.footer-col ul a, .footer-col a, .footer-col p {
-  font-size: .88rem;
-  color: var(--text-2);
-  transition: color .25s;
+.fc-col a, .fc-col p {
   display: block;
+  font-size: 0.88rem;
+  color: rgba(160, 160, 192, 0.6);
+  margin-bottom: 0.55rem;
+  text-decoration: none;
+  transition: color 0.25s;
   line-height: 1.6;
 }
-.footer-col ul a:hover, .footer-col a:hover { color: var(--text); }
-.footer-bottom {
+.fc-col a:hover { color: rgba(242, 242, 255, 0.9); }
+.fc-legal {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
-  font-size: .78rem;
-  color: var(--text-3);
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  color: rgba(160, 160, 192, 0.28);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 1.5rem;
 }
 
 /* ── WHATSAPP FLOAT ───────────────────────────────────── */
@@ -1300,4 +1396,19 @@ blockquote { font-size:1rem; line-height:1.7; color:var(--text); margin-bottom:1
   .stats-grid { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid var(--border); }
   .stat:last-child { border-bottom: none; }
+}
+
+/* ── FOOTER CINÉMATIQUE — responsive ─────────────── */
+@media (max-width: 1024px) {
+  .fc-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .fc-grid { grid-template-columns: 1fr 1fr; }
+  .fc-legal { flex-direction: column; gap: 0.4rem; }
+  .fc-actions { flex-direction: column; align-items: center; }
+}
+@media (max-width: 480px) {
+  .fc-grid { grid-template-columns: 1fr; }
+  .fc-headline { font-size: 2.8rem; }
+  .fc-bottom { padding: 2.5rem 1.5rem; }
 }
