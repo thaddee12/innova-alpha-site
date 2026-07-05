@@ -51,19 +51,18 @@
   function initLenis() {
     if (typeof Lenis === "undefined") return;
     lenis = new Lenis({
-      duration: 1.3,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
     });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-    if (typeof ScrollTrigger !== "undefined") {
+    if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+      /* GSAP ticker uniquement — pas de RAF en double */
       lenis.on("scroll", ScrollTrigger.update);
       gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
+    } else {
+      /* Fallback sans GSAP */
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
     }
   }
 

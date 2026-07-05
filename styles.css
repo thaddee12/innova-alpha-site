@@ -294,6 +294,8 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   justify-content: space-between;
   padding: 1.4rem var(--gutter);
   transition: background .4s var(--ease), backdrop-filter .4s, box-shadow .4s;
+  transform: translateZ(0);
+  will-change: background;
 }
 .nav.scrolled {
   background: var(--nav-bg);
