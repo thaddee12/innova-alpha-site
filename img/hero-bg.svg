@@ -1,0 +1,104 @@
+<svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="rg1" cx="25%" cy="55%" r="55%">
+      <stop offset="0%" stop-color="#1e0b4a"/>
+      <stop offset="100%" stop-color="#05050f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="80%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#0a1a35"/>
+      <stop offset="100%" stop-color="#05050f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lg-bottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#05050f" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0c0c18" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fond principal -->
+  <rect width="1440" height="900" fill="#080813"/>
+
+  <!-- Silhouette ville stylisée — bas de l'image -->
+  <g fill="#0e0e22" opacity="0.9">
+    <!-- Buildings -->
+    <rect x="0"    y="680" width="60"  height="220"/>
+    <rect x="55"   y="710" width="40"  height="190"/>
+    <rect x="90"   y="640" width="80"  height="260"/>
+    <rect x="165"  y="700" width="50"  height="200"/>
+    <rect x="210"  y="650" width="70"  height="250"/>
+    <rect x="275"  y="720" width="45"  height="180"/>
+    <rect x="315"  y="600" width="90"  height="300"/>
+    <rect x="400"  y="680" width="55"  height="220"/>
+    <rect x="450"  y="660" width="65"  height="240"/>
+    <rect x="510"  y="730" width="40"  height="170"/>
+    <rect x="545"  y="610" width="100" height="290"/>
+    <rect x="640"  y="690" width="50"  height="210"/>
+    <rect x="685"  y="645" width="75"  height="255"/>
+    <rect x="755"  y="720" width="45"  height="180"/>
+    <rect x="795"  y="580" width="110" height="320"/>
+    <rect x="900"  y="660" width="60"  height="240"/>
+    <rect x="955"  y="700" width="50"  height="200"/>
+    <rect x="1000" y="630" width="85"  height="270"/>
+    <rect x="1080" y="710" width="45"  height="190"/>
+    <rect x="1120" y="650" width="70"  height="250"/>
+    <rect x="1185" y="680" width="55"  height="220"/>
+    <rect x="1235" y="600" width="95"  height="300"/>
+    <rect x="1325" y="670" width="60"  height="230"/>
+    <rect x="1380" y="720" width="60"  height="180"/>
+    <!-- Fenêtres bâtiments (petits rectangles lumineux) -->
+    <rect x="100"  y="660" width="8" height="6" fill="#5b2de8" opacity="0.4"/>
+    <rect x="115"  y="660" width="8" height="6" fill="#5b2de8" opacity="0.3"/>
+    <rect x="330"  y="620" width="8" height="6" fill="#5b2de8" opacity="0.5"/>
+    <rect x="345"  y="620" width="8" height="6" fill="#3a1a9e" opacity="0.4"/>
+    <rect x="330"  y="635" width="8" height="6" fill="#5b2de8" opacity="0.3"/>
+    <rect x="560"  y="625" width="10" height="7" fill="#5b2de8" opacity="0.5"/>
+    <rect x="578"  y="625" width="10" height="7" fill="#3a1a9e" opacity="0.3"/>
+    <rect x="560"  y="642" width="10" height="7" fill="#5b2de8" opacity="0.4"/>
+    <rect x="810"  y="595" width="12" height="8" fill="#5b2de8" opacity="0.6"/>
+    <rect x="830"  y="595" width="12" height="8" fill="#3a1a9e" opacity="0.4"/>
+    <rect x="810"  y="613" width="12" height="8" fill="#5b2de8" opacity="0.3"/>
+    <rect x="830"  y="613" width="12" height="8" fill="#5b2de8" opacity="0.5"/>
+    <rect x="1015" y="645" width="10" height="7" fill="#5b2de8" opacity="0.4"/>
+    <rect x="1033" y="645" width="10" height="7" fill="#3a1a9e" opacity="0.3"/>
+    <rect x="1250" y="615" width="12" height="8" fill="#5b2de8" opacity="0.5"/>
+    <rect x="1268" y="615" width="12" height="8" fill="#5b2de8" opacity="0.4"/>
+  </g>
+
+  <!-- Lignes de réseau / connexions tech -->
+  <g stroke="#5b2de8" stroke-width="0.5" opacity="0.15" fill="none">
+    <line x1="200" y1="200" x2="500" y2="350"/>
+    <line x1="500" y1="350" x2="800" y2="180"/>
+    <line x1="800" y1="180" x2="1100" y2="400"/>
+    <line x1="1100" y1="400" x2="1300" y2="250"/>
+    <line x1="200" y1="200" x2="350" y2="450"/>
+    <line x1="350" y1="450" x2="650" y2="500"/>
+    <line x1="650" y1="500" x2="900" y2="380"/>
+    <line x1="900" y1="380" x2="1200" y2="550"/>
+    <line x1="500" y1="350" x2="650" y2="500"/>
+    <line x1="800" y1="180" x2="900" y2="380"/>
+    <line x1="1100" y1="400" x2="1200" y2="550"/>
+    <line x1="100" y1="400" x2="350" y2="450"/>
+    <line x1="1200" y1="550" x2="1400" y2="480"/>
+  </g>
+  <!-- Noeuds réseau -->
+  <g fill="#5b2de8" opacity="0.3">
+    <circle cx="200"  cy="200" r="3"/>
+    <circle cx="500"  cy="350" r="3"/>
+    <circle cx="800"  cy="180" r="4"/>
+    <circle cx="1100" cy="400" r="3"/>
+    <circle cx="1300" cy="250" r="3"/>
+    <circle cx="350"  cy="450" r="3"/>
+    <circle cx="650"  cy="500" r="4"/>
+    <circle cx="900"  cy="380" r="3"/>
+    <circle cx="1200" cy="550" r="3"/>
+    <circle cx="100"  cy="400" r="2"/>
+    <circle cx="1400" cy="480" r="2"/>
+  </g>
+
+  <!-- Overlays gradients -->
+  <rect width="1440" height="900" fill="url(#rg1)"/>
+  <rect width="1440" height="900" fill="url(#rg2)"/>
+  <rect width="1440" height="900" fill="url(#lg-bottom)"/>
+
+  <!-- Label placeholder -->
+  <text x="720" y="460" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.18)" letter-spacing="4">PHOTO HERO — À REMPLACER</text>
+</svg>
