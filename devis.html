@@ -473,7 +473,7 @@
           <div class="devis-contact-info">
             Vous préférez échanger directement ?<br />
             <a href="mailto:contact@innovaalpha.com">contact@innovaalpha.com</a><br />
-            Yaoundé, Cameroun — disponible à distance.
+            Yaoundé, Cameroun, disponible à distance.
           </div>
 
           <a href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20de%20mon%20projet%20et%20obtenir%20un%20devis." target="_blank" rel="noopener" class="btn btn--wa" style="margin-top:1.4rem;width:100%;justify-content:center;">
@@ -489,7 +489,7 @@
           <form id="devisForm" novalidate>
 
             <!-- Section 1 : Vous -->
-            <p class="form-section-title">01 — Vous</p>
+            <p class="form-section-title">Vous</p>
 
             <div class="form-row">
               <div class="field">
@@ -539,7 +539,7 @@
             <div class="form-divider"></div>
 
             <!-- Section 2 : Votre projet -->
-            <p class="form-section-title">02 — Votre projet</p>
+            <p class="form-section-title">Votre projet</p>
 
             <div class="field">
               <label>Services souhaités <span class="req">*</span></label>
@@ -597,7 +597,7 @@
             <div class="form-divider"></div>
 
             <!-- Section 3 : Budget & délai -->
-            <p class="form-section-title">03 — Budget & délai</p>
+            <p class="form-section-title">Budget & délai</p>
 
             <div class="field">
               <label>Budget estimé (en FCFA)</label>
@@ -686,7 +686,7 @@
     <a href="index.html" class="brand" style="opacity:0.6; transition:opacity 0.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
       <svg style="height:28px; width:auto; color:var(--text); display:block;" role="img" aria-label="INNOVA ALPHA"><use href="#ia-logo"></use></svg>
     </a>
-    <span style="font-size:0.82rem; color:var(--text-muted);">© 2026 INNOVA ALPHA — Yaoundé, Cameroun</span>
+    <span style="font-size:0.82rem; color:var(--text-muted);">© 2026 INNOVA ALPHA, Yaoundé, Cameroun</span>
   </footer>
 
   <!-- WhatsApp flottant — remplace +237620301603 par ton vrai numéro -->
@@ -723,7 +723,7 @@
       // Construire le mailto avec les données
       const data = new FormData(form);
       const services = data.getAll("services").join(", ") || "Non précisé";
-      const subject = encodeURIComponent("Demande de devis — " + (data.get("entreprise") || ""));
+      const subject = encodeURIComponent("Demande de devis : " + (data.get("entreprise") || ""));
       const body = encodeURIComponent(
         "Prénom : " + data.get("prenom") + "\n" +
         "Nom : " + data.get("nom") + "\n" +

@@ -107,30 +107,6 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   box-shadow: 0 0 12px var(--violet-glow);
 }
 
-/* ── CUSTOM CURSOR ────────────────────────────────────── */
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-}
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--violet);
-  transition: width .2s, height .2s, background .2s;
-}
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(91, 45, 232, 0.5);
-  transition: width .35s var(--ease), height .35s var(--ease), border-color .3s, opacity .3s;
-}
-.cursor-dot.active { width: 10px; height: 10px; background: #fff; }
-.cursor-ring.active { width: 56px; height: 56px; border-color: rgba(91,45,232,0.25); }
-@media (pointer: coarse) { .cursor-dot, .cursor-ring { display: none; } }
 
 /* ── PRELOADER ────────────────────────────────────────── */
 .preloader {
@@ -557,36 +533,6 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   flex-wrap: wrap;
   gap: 1rem;
 }
-.scroll-cue {
-  position: absolute;
-  bottom: 2.5rem;
-  left: var(--gutter);
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  font-size: .7rem;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  opacity: 0;
-  animation: fadeUp .8s var(--ease) 2.5s forwards;
-}
-.scroll-cue-line {
-  width: 40px;
-  height: 1px;
-  background: var(--text-3);
-  position: relative;
-  overflow: hidden;
-}
-.scroll-cue-line::after {
-  content: '';
-  position: absolute;
-  left: -100%; top: 0;
-  width: 100%; height: 100%;
-  background: var(--violet);
-  animation: scanLine 2s ease-in-out infinite;
-}
 
 /* ── MARQUEE ──────────────────────────────────────────── */
 .marquee-wrap {
@@ -616,8 +562,34 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 /* ── SERVICES ─────────────────────────────────────────── */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.2rem;
+}
+.service-card--wide  { grid-column: span 3; }
+.service-card--third { grid-column: span 2; }
+.service-card--full  {
+  grid-column: span 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  background: var(--vdim);
+  border-color: var(--vborder);
+}
+.svc-full-left { flex: 1; }
+.svc-full-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+  flex-shrink: 0;
+}
+.svc-full-stat {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -.05em;
+  color: var(--violet-soft);
+  line-height: 1;
 }
 .service-card {
   background: var(--surface);
@@ -1290,7 +1262,11 @@ blockquote { font-size:1rem; line-height:1.7; color:var(--text); margin-bottom:1
 
 /* ── RESPONSIVE ───────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+  .service-card--wide  { grid-column: span 2; }
+  .service-card--third { grid-column: span 2; }
+  .service-card--full  { grid-column: span 4; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .svc-full-right { flex-direction: row; align-items: center; gap: 1.5rem; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .stat { border-bottom: 1px solid var(--border); }
   .stat:nth-child(2n) { border-right: none; }
@@ -1306,6 +1282,11 @@ blockquote { font-size:1rem; line-height:1.7; color:var(--text); margin-bottom:1
   .btn-nav { display: none; }
   .hero-title { font-size: clamp(2.4rem, 9vw, 3.8rem); }
   .services-grid { grid-template-columns: 1fr; }
+  .service-card--wide,
+  .service-card--third,
+  .service-card--full { grid-column: span 1; }
+  .service-card--full { flex-direction: column; }
+  .svc-full-right { flex-direction: row; align-items: center; }
   .work-item { grid-template-columns: 1fr; gap: 2rem; }
   .work-item--reverse { direction: ltr; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }

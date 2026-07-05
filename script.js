@@ -1,6 +1,6 @@
 /* =========================================================
    INNOVA ALPHA — Interactions v2
-   Lenis + GSAP + ScrollTrigger + Cursor + Tilt + Magnetic
+   Lenis + GSAP + ScrollTrigger + Tilt + Magnetic
    ========================================================= */
 (function () {
   "use strict";
@@ -29,7 +29,6 @@
     initSpiderWeb();
     initLenis();
     initGSAP();
-    initCursor();
     initNav();
     initThemeToggle();
     initHero();
@@ -74,37 +73,7 @@
     }
   }
 
-  /* ── CUSTOM CURSOR ─────────────────────────────────── */
-  function initCursor() {
-    const dot = document.getElementById("cursorDot");
-    const ring = document.getElementById("cursorRing");
-    if (!dot || !ring || window.matchMedia("(pointer: coarse)").matches) return;
-
-    let mx = -100, my = -100, rx = -100, ry = -100;
-
-    document.addEventListener("mousemove", (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.left = mx + "px";
-      dot.style.top = my + "px";
-    });
-
-    (function loopRing() {
-      rx += (mx - rx) * 0.11;
-      ry += (my - ry) * 0.11;
-      ring.style.left = rx + "px";
-      ring.style.top = ry + "px";
-      requestAnimationFrame(loopRing);
-    })();
-
-    const hoverEls = document.querySelectorAll("a, button, .service-card, .work-media, .tilt");
-    hoverEls.forEach((el) => {
-      el.addEventListener("mouseenter", () => { dot.classList.add("active"); ring.classList.add("active"); });
-      el.addEventListener("mouseleave", () => { dot.classList.remove("active"); ring.classList.remove("active"); });
-    });
-  }
-
-  /* ── CANVAS SPIDER WEB ─────────────────────────────── */
+/* ── CANVAS SPIDER WEB ─────────────────────────────── */
   function initSpiderWeb() {
     const canvas = document.getElementById("heroCanvas");
     if (!canvas) return;

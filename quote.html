@@ -271,7 +271,7 @@
           <div class="devis-contact-info">
             Prefer to reach out directly?<br />
             <a href="mailto:contact@innovaalpha.com">contact@innovaalpha.com</a><br />
-            Yaoundé, Cameroon — available remotely.
+            Yaoundé, Cameroon, available remotely.
           </div>
 
           <a href="https://wa.me/237620301603?text=Hello%20INNOVA%20ALPHA%2C%20I%27d%20like%20to%20discuss%20my%20project%20and%20get%20a%20quote." target="_blank" rel="noopener" class="btn btn--wa" style="margin-top:1.4rem;width:100%;justify-content:center;">
@@ -483,7 +483,7 @@
     <a href="index-en.html" class="brand" style="opacity:0.6;transition:opacity 0.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6">
       <svg style="height:28px;width:auto;color:var(--text);display:block;" role="img" aria-label="INNOVA ALPHA"><use href="#ia-logo"></use></svg>
     </a>
-    <span style="font-size:0.82rem;color:var(--text-muted);">© 2026 INNOVA ALPHA — Yaoundé, Cameroon</span>
+    <span style="font-size:0.82rem;color:var(--text-muted);">© 2026 INNOVA ALPHA, Yaoundé, Cameroon</span>
   </footer>
 
   <!-- WhatsApp float — replace +237620301603 with your real number -->
@@ -510,7 +510,7 @@
 
       const data = new FormData(form);
       const services = data.getAll("services").join(", ") || "Not specified";
-      const subject = encodeURIComponent("Quote request — " + (data.get("company") || ""));
+      const subject = encodeURIComponent("Quote request: " + (data.get("company") || ""));
       const body = encodeURIComponent(
         "First name: " + data.get("first_name") + "\n" +
         "Last name: " + data.get("last_name") + "\n" +
