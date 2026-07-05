@@ -303,9 +303,10 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 }
 .nav-logo {
   width: 140px;
-  height: auto;
+  height: 40px;
   color: var(--text);
   display: block;
+  overflow: visible;
 }
 .nav-links {
   display: flex;
@@ -924,7 +925,7 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
   padding-bottom: 3rem;
   border-bottom: 1px solid var(--border);
 }
-.footer-logo { width: 160px; color: var(--text); margin-bottom: 1.2rem; }
+.footer-logo { width: 160px; height: 46px; color: var(--text); margin-bottom: 1.2rem; display: block; overflow: visible; }
 .footer-tagline {
   font-size: .88rem;
   color: var(--text-2);
@@ -1051,7 +1052,7 @@ button { border: none; background: none; cursor: pointer; font: inherit; }
 
 /* Ancien logo nav */
 .brand { display:flex; align-items:center; }
-.brand-logo { width:140px; height:auto; color:var(--text); display:block; }
+.brand-logo { width:140px; height:40px; color:var(--text); display:block; overflow:visible; }
 
 /* Ancienne nav liste */
 .nav-links ul { display:flex; align-items:center; gap:2rem; list-style:none; }
@@ -1198,7 +1199,7 @@ blockquote { font-size:1rem; line-height:1.7; color:var(--text); margin-bottom:1
 
 /* Footer v1 */
 .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--line); }
-.footer-brand .footer-logo { width:150px; color:var(--text); display:block; margin-bottom:1rem; }
+.footer-brand .footer-logo { width:150px; height:43px; color:var(--text); display:block; margin-bottom:1rem; overflow:visible; }
 .footer-baseline { font-size:.9rem; color:var(--text-muted); margin-bottom:1.2rem; }
 .socials { display:flex; gap:.8rem; }
 .socials a { width:36px; height:36px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; color:var(--text-muted); transition:background .25s,border-color .25s,color .25s,transform .3s var(--ease); }
