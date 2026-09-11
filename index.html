@@ -1,463 +1,627 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INNOVA ALPHA — L'alpha du digital · Yaoundé</title>
-  <meta name="description" content="INNOVA ALPHA — Agence digitale et intégratrice d'IA basée à Yaoundé. Branding, sites web, intégration IA et marketing digital pour les PME africaines." />
-  <meta name="theme-color" content="#05050A" />
-  <meta property="og:title" content="INNOVA ALPHA — L'alpha du digital" />
-  <meta property="og:description" content="Agence digitale & IA pour PME africaines. Yaoundé, Cameroun." />
-  <style>
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 300 900;
-      font-display: swap;
-      src: url('fonts/montserrat.woff2') format('woff2');
-    }
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: italic;
-      font-weight: 900;
-      font-display: swap;
-      src: url('fonts/montserrat-italic-900.woff') format('woff');
-    }
-  </style>
-  <link rel="icon" type="image/svg+xml" href="assets/logo-light.svg" />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="canonical" href="https://innovaalpha.com/">
+<meta name="theme-color" content="#6C22ED">
+<title>INNOVA ALPHA | La transformation digitale par la Méthode Alpha</title>
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://innovaalpha.com/">
+<meta name="description" content="Nous identifions ce qui vous coûte du temps et de l'argent, puis nous le corrigeons. Premier point sans frais, réponse sous 48 h.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="INNOVA ALPHA | La transformation digitale par la Méthode Alpha">
+<meta property="og:description" content="Nous identifions ce qui vous coûte du temps et de l&#39;argent, puis nous le corrigeons. Premier point sans frais, réponse sous 48 h.">
+<meta property="og:image" content="https://innovaalpha.com/assets/og-innova-alpha.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://innovaalpha.com/assets/og-innova-alpha.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"INNOVA ALPHA","description":"Nous identifions ce qui vous coûte du temps et de l'argent, puis nous le corrigeons. Premier point sans frais, réponse sous 48 h.","url":"https://innovaalpha.com/","email":"contact@innovaalpha.com","telephone":"+237697212646"}</script>
+<script>document.documentElement.lang="fr";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+html { scroll-behavior: smooth; }
+:root { --sA:#FFFFFF; --sB:#F5F4F8; --txA:#0B0B0C; --txB:#555555; --lineA:rgba(11,11,12,0.14); --glassBg:rgba(11,11,12,0.04); --glassLine:rgba(11,11,12,0.12); --navBg:rgba(255,255,255,0.72); --navShadow:0 12px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.75); --hov:rgba(11,11,12,0.06); --accent:#6C22ED; --ghost:rgba(108,34,237,0.10); --trustBg:#FFFFFF; }
+body[data-night] { --sA:#0B0B0C; --sB:#141019; --txA:#FFFFFF; --txB:#E0E0E0; --lineA:rgba(255,255,255,0.12); --glassBg:rgba(255,255,255,0.04); --glassLine:rgba(255,255,255,0.10); --navBg:rgba(11,11,12,0.55); --navShadow:0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.10); --hov:rgba(255,255,255,0.07); --accent:#B98CFF; --ghost:rgba(185,140,255,0.20); --trustBg:linear-gradient(135deg, #14092B 0%, #2A0F63 42%, #1A0B3E 72%, #0F0722 100%); }
+body { margin: 0; background: var(--sA); color: var(--txA); font-family: 'Montserrat', 'Arial Black', Impact, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition:background .6s ease, color .6s ease; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: #8A4DFF; }
+@media (max-width: 1120px){
+  nav[data-glass] [data-nav-links]{ display:none !important; }
+  nav[data-glass] > a:not(:has(img)){ display:none !important; }
+  nav[data-glass] [data-burger]{ display:inline-flex !important; }
+  nav[data-glass] [data-logo]{ height:30px !important; }
+  nav[data-glass]{ padding:8px 10px 8px 14px !important; gap:5px !important; }
+  nav[data-glass] > button{ margin-left:6px !important; }
+  nav[data-glass]:has([data-nav-toggle]:checked) [data-mobile-menu]{ display:flex !important; }
+  nav[data-glass]:has([data-nav-toggle]:checked) [data-burger] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  nav[data-glass]:has([data-nav-toggle]:checked) [data-burger] span:nth-child(2){ opacity:0; }
+  nav[data-glass]:has([data-nav-toggle]:checked) [data-burger] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+@media (min-width: 1121px){ nav[data-glass] [data-mobile-menu], nav[data-glass] [data-nav-toggle], nav[data-glass] [data-burger]{ display:none !important; } }
+nav[data-glass] [data-gnav]{ position:relative; box-sizing:border-box; flex:none; width:40px; height:40px; border-radius:999px; display:flex; align-items:center; justify-content:center; text-decoration:none; background:var(--glassBg); border:1px solid var(--lineA); cursor:pointer; overflow:visible; transition:width .5s cubic-bezier(.22,1,.36,1), border-color .5s ease, background .5s ease; }
+nav[data-glass] [data-gnav]:hover, nav[data-glass] [data-gnav][data-gnav-open]{ width:152px; border-color:transparent; }
+nav[data-glass] [data-gnav-bg]{ position:absolute; inset:0; border-radius:999px; background:linear-gradient(45deg, var(--gfrom), var(--gto)); opacity:0; transition:opacity .5s ease; pointer-events:none; }
+nav[data-glass] [data-gnav]:hover [data-gnav-bg], nav[data-glass] [data-gnav][data-gnav-open] [data-gnav-bg]{ opacity:1; }
+nav[data-glass] [data-gnav-glow]{ position:absolute; top:10px; left:0; right:0; height:100%; border-radius:999px; background:linear-gradient(45deg, var(--gfrom), var(--gto)); filter:blur(15px); opacity:0; z-index:-1; transition:opacity .5s ease; pointer-events:none; }
+nav[data-glass] [data-gnav]:hover [data-gnav-glow], nav[data-glass] [data-gnav][data-gnav-open] [data-gnav-glow]{ opacity:.55; }
+nav[data-glass] [data-gnav-icon]{ position:relative; z-index:1; display:inline-flex; color:var(--txB); transform:scale(1); transition:transform .5s cubic-bezier(.22,1,.36,1); }
+nav[data-glass] [data-gnav]:hover [data-gnav-icon], nav[data-glass] [data-gnav][data-gnav-open] [data-gnav-icon]{ transform:scale(0); }
+nav[data-glass] [data-gnav-label]{ position:absolute; z-index:1; color:#FFFFFF; font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; transform:scale(0); transition:transform .5s cubic-bezier(.22,1,.36,1) .15s; pointer-events:none; }
+nav[data-glass] [data-gnav]:hover [data-gnav-label], nav[data-glass] [data-gnav][data-gnav-open] [data-gnav-label]{ transform:scale(1); }
+nav[data-glass] [data-nav-links]{ gap:12px !important; min-width:0; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes grainShift { 0%{transform:translate3d(0,0,0)} 25%{transform:translate3d(-2%,1.5%,0)} 50%{transform:translate3d(1.5%,-2%,0)} 75%{transform:translate3d(-1%,-1.5%,0)} 100%{transform:translate3d(0,0,0)} }
+@keyframes heroDrift { 0%{transform:scale(1.06) translate3d(0,0,0)} 100%{transform:scale(1.14) translate3d(-1.2%,-1%,0)} }
+[data-hero-slide]{ opacity: 0; filter: saturate(0.6) contrast(1.1) blur(3px); transition: opacity 2.6s cubic-bezier(.4,0,.25,1), filter 2.6s cubic-bezier(.4,0,.25,1); will-change: opacity; backface-visibility: hidden; }
+[data-hero-slide][data-active]{ opacity: 1; filter: saturate(0.92) contrast(1.04) blur(0px); animation: heroDrift 22s linear forwards; }
+[data-hero-grain]{ animation: grainShift 7s steps(6, end) infinite; mix-blend-mode: overlay; pointer-events: none; transition: opacity 1.2s ease; background-size: 180px 180px; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='180' height='180' filter='url(%23n)'/></svg>"); }
+@keyframes sepFlow { 0% { background-position: -30% 0; } 100% { background-position: 130% 0; } }
+@keyframes alphaGlow { 0%, 100% { box-shadow: 0 10px 28px rgba(108,34,237,0.30), 0 0 30px rgba(138,77,255,0.20); } 50% { box-shadow: 0 10px 28px rgba(108,34,237,0.50), 0 0 50px rgba(138,77,255,0.40); } }
+@keyframes ctaPathFlow { from { stroke-dashoffset: 1000; } to { stroke-dashoffset: 0; } }
+@keyframes ctaRise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes innovaTrace { from { stroke-dashoffset: 500; } to { stroke-dashoffset: 0; } }
+@keyframes alphaSpin { to { transform: rotate(360deg); } }
+@keyframes alphaSpinRev { to { transform: rotate(-360deg); } }
+@keyframes alphaDots { to { stroke-dashoffset: -240; } }
+@keyframes alphaHalo { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.045); opacity: 1; } }
+@keyframes alphaStep { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes alphaBadge { 0%, 100% { box-shadow: 0 0 20px rgba(138,77,255,0.18); border-color: rgba(138,77,255,0.6); } 50% { box-shadow: 0 0 36px rgba(138,77,255,0.5); border-color: rgba(138,77,255,1); } }
+[data-alpha-step] { animation: alphaStep .7s cubic-bezier(.22,1,.36,1) both; }
+[data-alpha-badge] { transition: transform .5s cubic-bezier(.22,1,.36,1); cursor:default; position:relative; z-index:2; }
+[data-alpha-title] { position:relative; z-index:2; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+[data-alpha-step] { position:relative; z-index:1; }
+[data-alpha-step]:hover { z-index:10; }
+[data-alpha-step]:hover [data-alpha-badge] { transform: scale(1.34); animation-play-state: paused; }
+[data-alpha-step]:hover [data-alpha-title] { transform: translateY(-10px) scale(1.06); }
+[data-alpha-pentagon]:has([data-alpha-step]:hover) [data-alpha-step]:not(:hover) { filter: blur(3px); opacity: .32; transition: filter .4s ease, opacity .4s ease; }
+[data-alpha-step] { transition: filter .4s ease, opacity .4s ease; }
+[data-alpha-step]:hover [data-alpha-detail-card] { opacity: 1 !important; pointer-events: auto !important; }
+@media (hover: none) {
+  [data-alpha-detail-card] { opacity: 1 !important; pointer-events: auto !important; }
+}
+@media (max-width: 760px) {
+  [data-alpha-pentagon] { position: static !important; height: auto !important; display: flex; flex-direction: column; gap: 44px; }
+  [data-alpha-pentagon] [data-alpha-step] { position: static !important; transform: none !important; display: flex; align-items: center; gap: 16px; text-align: left; animation: none !important; }
+  [data-alpha-title] { position: static !important; width: auto !important; text-align: left !important; }
+  [data-alpha-detail-card] { position: static !important; opacity: 1 !important; pointer-events: auto !important; width: auto !important; margin-top: 10px !important; text-align: left !important; }
+  [data-alpha-step] > p, [data-alpha-step] > div { margin-top: 0 !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-alpha-step] { opacity: 1 !important; animation: none !important; }
+  [data-alpha-spiral] *, [data-alpha-badge] { animation: none !important; }
+}
+@keyframes innovaTrace2 { from { stroke-dashoffset: 360; } to { stroke-dashoffset: 0; } }
+[data-footer-trace]{ animation: innovaTrace 14s linear infinite; filter: drop-shadow(0 0 6px rgba(169,113,255,0.95)) drop-shadow(0 0 18px rgba(138,77,255,0.55)); }
+[data-footer-trace-2]{ animation: innovaTrace2 26s linear infinite; animation-delay: -12s; filter: drop-shadow(0 0 5px rgba(138,77,255,0.8)); }
+img[data-logo-night]{ display:none !important; }
+body[data-night] img[data-logo]:not([data-logo-night]){ display:none !important; }
+body[data-night] img[data-logo-night]{ display:block !important; }
+@keyframes statGlow { from { text-shadow:0 0 14px rgba(169,113,255,0.55), 0 0 38px rgba(138,77,255,0.32); } to { text-shadow:0 0 22px rgba(169,113,255,0.9), 0 0 56px rgba(138,77,255,0.55); } }
+@keyframes statAurora { 0% { transform:translate3d(-3%,-2%,0) scale(1); } 100% { transform:translate3d(4%,3%,0) scale(1.08); } }
+@keyframes statSheen { from { background-position:-60% 0; } to { background-position:160% 0; } }
+
+:focus-visible{ outline:2px solid #8A4DFF; outline-offset:3px; border-radius:6px; }
+[data-skip]{ position:absolute; left:-9999px; top:0; z-index:400; padding:12px 18px; border-radius:0 0 12px 0; background:#6C22ED; color:#FFFFFF; font-weight:700; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; }
+[data-skip]:focus{ left:0; }
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+/* corrections mode nuit : bandes alternées et footer lisibles */
+body[data-night] [data-footer-shell] p, body[data-night] [data-footer-shell] span, body[data-night] [data-footer-shell] div{ color:rgba(255,255,255,0.78) !important; }
+body[data-night] [data-footer-shell] a{ color:rgba(255,255,255,0.9) !important; }
+body[data-night] [data-footer-shell] h2{ background:none !important; -webkit-text-fill-color:#FFFFFF !important; color:#FFFFFF !important; }
+body[data-night] [data-footer-shell] [data-magnetic]{ border-color:rgba(255,255,255,0.22) !important; background:rgba(255,255,255,0.05) !important; }
+body[data-night] [data-footer-shell] a[href="contact.html"]{ color:#FFFFFF !important; }
+body[data-night] [data-footer-giant] text:first-of-type{ stroke:rgba(255,255,255,0.14) !important; }
+[data-trust-logo]{ transition:transform .4s cubic-bezier(.22,1,.36,1), background .4s ease; }
+[data-trust-logo]:hover{ transform:translateY(-3px); }
+body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:12px 20px; border-radius:14px; }
+@keyframes trustScroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+[data-trust-track]:hover ul{ animation-play-state:paused; }
+
+/* Carrousel des 6 poles : etats CSS (remplace le state React) */
+[data-pole-cards]{ display:flex; flex-direction:row; gap:10px; height:520px; }
+[data-pole-card]{ flex:1; min-width:84px; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease; }
+[data-pole-card][data-active]{ flex:5; }
+[data-pole-card] [data-pole-img]{ opacity:0.6; transform:scale(1.12); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease; }
+[data-pole-card][data-active] [data-pole-img]{ opacity:1; transform:scale(1); filter:saturate(0.95) !important; }
+[data-pole-card] p[aria-hidden]{ display:block; opacity:1; }
+[data-pole-card][data-active] p[aria-hidden]{ opacity:0; }
+[data-pole-card] h3{ opacity:0; }
+[data-pole-card][data-active] h3{ opacity:1; }
+[data-pole-card] > div > p:not([aria-hidden]), [data-pole-card] > div > span{ opacity:0; }
+[data-pole-card][data-active] > div > p:not([aria-hidden]), [data-pole-card][data-active] > div > span{ opacity:1; }
+@media (max-width: 819px){
+  [data-pole-cards]{ flex-direction:column; height:760px; }
+  [data-pole-card]{ min-width:0; min-height:58px; }
+  [data-pole-card] p[aria-hidden]{ display:none; }
+  [data-pole-card] h3{ opacity:1; }
+}
+
+.iha16::after { content:''; position:absolute; inset:0; border-radius:inherit; background:radial-gradient(140px circle at var(--gx,50%) var(--gy,50%), rgba(124,59,255,0.18), transparent 65%); opacity:var(--glow,0); transition:opacity .4s ease; pointer-events:none }
+.ihh17:hover { transform:scale(1.04); filter:brightness(1.12) }
+.ihh18:hover { background:var(--hov) }
+.ihh19:hover { background:var(--hov) }
+.ihh20:hover { color:var(--accent) }
+.ihh21:hover { color:var(--accent) }
+.ihh22:hover { color:var(--accent) }
+.ihh23:hover { color:var(--accent) }
+.ihh24:hover { color:var(--accent) }
+.ihh25:hover { color:var(--accent) }
+.ihh26:hover { color:var(--accent) }
+.ihh27:hover { color:var(--accent) }
+.ihh28:hover { color:var(--accent) }
+.ihh29:hover { color:var(--accent) }
+.ihh30:hover { transform:scale(1.02); filter:brightness(1.12) }
+.ihh31:hover { transform:scale(1.02); filter:brightness(1.12) }
+.ihh32:hover { border-color:rgba(255,255,255,0.5); background:rgba(255,255,255,0.12); transform:scale(1.02) }
+.ihh33:hover { transform:scale(1.09); color:#FFFFFF; text-shadow:0 0 14px rgba(255,255,255,0.65), 0 0 40px rgba(169,113,255,0.95), 0 0 84px rgba(138,77,255,0.6); animation-play-state:paused }
+.ihh34:hover { transform:scale(1.09); color:#FFFFFF; text-shadow:0 0 14px rgba(255,255,255,0.65), 0 0 40px rgba(169,113,255,0.95), 0 0 84px rgba(138,77,255,0.6); animation-play-state:paused }
+.ihh35:hover { transform:scale(1.09); color:#FFFFFF; text-shadow:0 0 14px rgba(255,255,255,0.65), 0 0 40px rgba(169,113,255,0.95), 0 0 84px rgba(138,77,255,0.6); animation-play-state:paused }
+.ihh36:hover { transform:scale(1.09); color:#FFFFFF; text-shadow:0 0 14px rgba(255,255,255,0.65), 0 0 40px rgba(169,113,255,0.95), 0 0 84px rgba(138,77,255,0.6); animation-play-state:paused }
+.ihh37:hover { gap:16px }
+.ihh38:hover { background:rgba(108,34,237,0.07); box-shadow:0 10px 34px rgba(108,34,237,0.22); transform:translateX(6px) }
+.ihh39:hover { background:rgba(108,34,237,0.07); box-shadow:0 10px 34px rgba(108,34,237,0.22); transform:translateX(6px) }
+.ihh40:hover { background:rgba(108,34,237,0.07); box-shadow:0 10px 34px rgba(108,34,237,0.22); transform:translateX(6px) }
+.ihh41:hover { transform:scale(1.02); filter:brightness(1.12) }
+.ihh42:hover { border-color:rgba(108,34,237,0.4); background:linear-gradient(145deg, rgba(11,11,12,0.08) 0%, rgba(11,11,12,0.02) 100%) }
+.ihh43:hover { border-color:rgba(108,34,237,0.4); background:linear-gradient(145deg, rgba(11,11,12,0.08) 0%, rgba(11,11,12,0.02) 100%) }
+.ihh44:hover { border-color:rgba(108,34,237,0.4); background:linear-gradient(145deg, rgba(11,11,12,0.08) 0%, rgba(11,11,12,0.02) 100%) }
+.ihh45:hover { border-color:rgba(108,34,237,0.4); background:linear-gradient(145deg, rgba(11,11,12,0.08) 0%, rgba(11,11,12,0.02) 100%) }
+.ihh46:hover { color:var(--accent); border-color:rgba(108,34,237,0.4) }
+</style>
+<script src="./service-nav.js"></script>
+<script src="./theme.js"></script>
+<script src="./consent.js"></script>
+<script src="./scroll-progress.js"></script>
+<script src="./circuit-bg.js"></script>
+<script src="./footer-motion.js"></script>
 </head>
 <body>
+<a data-skip href="#contenu">Aller au contenu</a>
 
-<!-- ── LOGO SVG SYMBOL ─────────────────────────────────── -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="ia-logo" viewBox="80 52 595 170">
-    <style>.ia-t{fill:var(--text,#F2F2FF)}.ia-i{fill:#5B2DE8}</style>
-    <path class="ia-t" d="M324.6 127V71H340.44V127H324.6ZM351.709 127V71H364.749L395.629 108.28H389.469V71H404.989V127H391.949L361.069 89.72H367.229V127H351.709ZM416.163 127V71H429.203L460.083 108.28H453.923V71H469.443V127H456.403L425.523 89.72H431.682V127H416.163ZM508.856 128.12C504.376 128.12 500.242 127.4 496.456 125.96C492.669 124.52 489.362 122.493 486.536 119.88C483.762 117.213 481.602 114.12 480.056 110.6C478.509 107.08 477.736 103.213 477.736 99C477.736 94.7867 478.509 90.92 480.056 87.4C481.602 83.88 483.762 80.8133 486.536 78.2C489.362 75.5333 492.669 73.48 496.456 72.04C500.242 70.6 504.376 69.88 508.856 69.88C513.389 69.88 517.522 70.6 521.256 72.04C525.042 73.48 528.322 75.5333 531.096 78.2C533.869 80.8133 536.029 83.88 537.576 87.4C539.176 90.92 539.976 94.7867 539.976 99C539.976 103.213 539.176 107.107 537.576 110.68C536.029 114.2 533.869 117.267 531.096 119.88C528.322 122.493 525.042 124.52 521.256 125.96C517.522 127.4 513.389 128.12 508.856 128.12ZM508.856 115C510.989 115 512.962 114.627 514.776 113.88C516.642 113.133 518.242 112.067 519.576 110.68C520.962 109.24 522.029 107.533 522.776 105.56C523.576 103.587 523.976 101.4 523.976 99C523.976 96.5467 523.576 94.36 522.776 92.44C522.029 90.4667 520.962 88.7867 519.576 87.4C518.242 85.96 516.642 84.8667 514.776 84.12C512.962 83.3733 510.989 83 508.856 83C506.722 83 504.722 83.3733 502.856 84.12C501.042 84.8667 499.442 85.96 498.056 87.4C496.722 88.7867 495.656 90.4667 494.856 92.44C494.109 94.36 493.736 96.5467 493.736 99C493.736 101.4 494.109 103.587 494.856 105.56C495.656 107.533 496.722 109.24 498.056 110.68C499.442 112.067 501.042 113.133 502.856 113.88C504.722 114.627 506.722 115 508.856 115ZM563.597 127L539.677 71H556.797L576.957 119.48H566.877L587.517 71H603.197L579.197 127H563.597ZM597.802 127L622.522 71H638.122L662.922 127H646.442L627.082 78.76H633.322L613.962 127H597.802ZM611.322 116.12L615.402 104.44H642.762L646.842 116.12H611.322Z"/>
-    <path class="ia-t" d="M317.88 195L342.6 139H358.2L383 195H366.52L347.16 146.76H353.4L334.04 195H317.88ZM331.4 184.12L335.48 172.44H362.84L366.92 184.12H331.4ZM397.891 195V139H413.731V182.44H440.451V195H397.891ZM457.119 195V139H482.719C487.839 139 492.239 139.827 495.919 141.48C499.652 143.133 502.532 145.533 504.559 148.68C506.585 151.773 507.599 155.453 507.599 159.72C507.599 163.933 506.585 167.587 504.559 170.68C502.532 173.773 499.652 176.173 495.919 177.88C492.239 179.533 487.839 180.36 482.719 180.36H465.919L472.959 173.48V195H457.119ZM472.959 175.16L465.919 167.88H481.759C485.065 167.88 487.519 167.16 489.119 165.72C490.772 164.28 491.599 162.28 491.599 159.72C491.599 157.107 490.772 155.08 489.119 153.64C487.519 152.2 485.065 151.48 481.759 151.48H465.919L472.959 144.2V175.16ZM563.162 195V139H579.002V195H563.162ZM525.722 195V139H541.562V195H525.722ZM540.442 173.16V160.04H564.282V173.16H540.442ZM593.855 195L618.575 139H634.175L658.975 195H642.495L623.135 146.76H629.375L610.015 195H593.855ZM607.375 184.12L611.455 172.44H638.815L642.895 184.12H607.375Z"/>
-    <path d="M306.5 133.5L289.5 117L256.5 153.5L286 210H251.5C251.5 210 237.5 175 235 178C232.871 180.554 229.5 184.5 229.5 184.5L227 187C227 187 222.86 191.105 220 193.5C217.006 196.007 212 199.5 212 199.5L202.5 205C202.5 205 198.005 207.042 195 208C191.751 209.036 186.5 210 186.5 210H171L163.5 208L154.5 205L146.5 199.5L140 193.5L136 188.5L151 159.5L127.5 167L127 154.5L127.5 146.5L129 138L130 135L151 146.5L140 116L149 106.5L157.5 100L168 94L177 91.5L186.5 90.5L198.5 91.5L209.5 94L220 100L227 106.5L235 116L239.5 122.5L247 115L264 96.5L247 79.5L316 62L306.5 133.5ZM120.5 192.5L116.5 178L136 171.5L120.5 192.5ZM210.956 130.593C204.623 121.273 189.031 122.229 176.129 132.727C163.227 143.225 157.902 159.29 164.234 168.609C170.567 177.929 186.16 176.974 199.062 166.476C211.963 155.977 217.289 139.912 210.956 130.593ZM109.5 151L88.5 156L97.5 143L115 142L109.5 151ZM133 127L112.5 116L125.5 106.5L133 127ZM96.5 106.5L98.5 114H93.5L86 105.5L96.5 106.5Z" class="ia-i"/>
-  </symbol>
-</svg>
 
-<!-- ── PRELOADER ────────────────────────────────────────── -->
-<div class="preloader" id="preloader">
-  <svg class="preloader-logo" width="220" height="70" viewBox="80 52 595 170" aria-hidden="true">
-    <use href="#ia-logo" fill="white"/>
-  </svg>
-  <div class="preloader-bar"><div class="preloader-progress" id="preloaderProgress"></div></div>
+<div data-scroll-progress aria-hidden="true" style="position:fixed; top:50%; left:18px; transform:translateY(-50%); height:38vh; width:2px; background:rgba(108,34,237,0.22); border-radius:2px; z-index:200; pointer-events:none; opacity:0; transition:opacity .6s ease">
+  <div data-scroll-thumb style="position:absolute; left:50%; top:0; transform:translate(-50%,-50%); width:12px; height:12px; border-radius:50%; background:#6C22ED; box-shadow:0 0 10px rgba(108,34,237,0.55)"></div>
 </div>
 
-<!-- ── OVERLAYS ────────────────────────────────────────── -->
-<div class="noise-overlay" aria-hidden="true"></div>
-<div class="scroll-progress-bar" id="scrollProgressBar"></div>
-
-<!-- ── NAV ────────────────────────────────────────────── -->
-<div class="page-wrap">
-<header class="nav" id="nav">
-  <a href="index.html" class="nav-brand" aria-label="INNOVA ALPHA — accueil">
-    <svg class="nav-logo" width="140" height="40" viewBox="80 52 595 170" aria-label="INNOVA ALPHA"><use href="#ia-logo"/></svg>
-  </a>
-  <nav class="nav-links" aria-label="Navigation principale">
-    <a href="index.html">Accueil</a>
-    <a href="services.html">Services</a>
-    <a href="pourquoi-nous.html">Pourquoi nous</a>
-    <a href="processus.html">Processus</a>
-    <a href="realisations.html">Réalisations</a>
-  </nav>
-  <div class="nav-right">
-    <div class="lang-switch">
-      <a href="index.html" class="lang-btn lang-btn--active" aria-label="Français">FR</a>
-      <span class="lang-sep">/</span>
-      <a href="index-en.html" class="lang-btn" aria-label="English">EN</a>
-    </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Basculer mode sombre/clair">
-      <svg class="icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-    <a href="devis.html" class="btn-nav magnetic">Démarrer un projet</a>
-    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span>
-    </button>
+<div data-nav-row style="position:fixed; top:20px; left:50%; transform:translate(-50%,0); z-index:100; width:min(1040px, calc(100vw - 32px)); display:flex; align-items:stretch; gap:14px">
+<nav class="iha16" data-glass aria-label="Navigation principale" style="position:relative; flex:1 1 auto; min-width:0; display:flex; align-items:center; justify-content:space-between; gap:6px; padding:9px 11px 9px 16px; border-radius:999px; background:var(--navBg); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(20px) saturate(180%); border:1px solid var(--lineA); box-shadow:var(--navShadow)">
+  <a href="index.html" style="display:flex; align-items:center; flex:none; margin-right:22px"><img decoding="async" fetchpriority="high" width="799" height="300" data-logo="1" src="assets/logo-innova-alpha-light.svg" alt="INNOVA ALPHA" style="height:36px; width:auto; display:block; margin:-4px 0"><img decoding="async" fetchpriority="high" width="799" height="300" data-logo="1" data-logo-night="1" src="assets/logo-innova-alpha-dark.svg" alt="INNOVA ALPHA" style="height:36px; width:auto; display:block; margin:-4px 0"></a>
+  <div data-nav-links style="display:flex; align-items:center; justify-content:center; gap:2px; min-width:0; flex:1 1 auto">
+    <a data-gnav href="#expertises" aria-label="Services" aria-haspopup="true" style="--gfrom:#8A4DFF; --gto:#6C22ED"><span data-gnav-bg aria-hidden="true"></span><span data-gnav-glow aria-hidden="true"></span><span data-gnav-icon aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h6v6H4zM14 6h6v6h-6zM4 16h6v4H4zM14 16h6v4h-6z"></path></svg></span><span data-gnav-label>Services</span></a>
+    <a data-gnav href="methode-alpha.html" aria-label="Méthode Alpha" style="--gfrom:#6C22ED; --gto:#B98CFF"><span data-gnav-bg aria-hidden="true"></span><span data-gnav-glow aria-hidden="true"></span><span data-gnav-icon aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.2-6.9"></path><path d="M21 3v5h-5"></path><circle cx="12" cy="12" r="2.6"></circle></svg></span><span data-gnav-label>Méthode</span></a>
+    <a data-gnav href="realisations.html" aria-label="Réalisations" style="--gfrom:#A855F7; --gto:#5A18CF"><span data-gnav-bg aria-hidden="true"></span><span data-gnav-glow aria-hidden="true"></span><span data-gnav-icon aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v13H3z"></path><path d="M9 7V4h6v3"></path><path d="M3 12h18"></path></svg></span><span data-gnav-label>Portfolio</span></a>
+    <a data-gnav href="tarifs.html" aria-label="Tarifs" style="--gfrom:#7C3BFF; --gto:#3C1482"><span data-gnav-bg aria-hidden="true"></span><span data-gnav-glow aria-hidden="true"></span><span data-gnav-icon aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.5 12 21l-9-9 8.5-8.5H20a1 1 0 0 1 1 1v7.5"></path><circle cx="16.5" cy="7.5" r="1.3"></circle></svg></span><span data-gnav-label>Tarifs</span></a>
+    <a data-gnav href="apropos.html" aria-label="À propos" style="--gfrom:#B98CFF; --gto:#6C22ED"><span data-gnav-bg aria-hidden="true"></span><span data-gnav-glow aria-hidden="true"></span><span data-gnav-icon aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"></path><path d="M17 8.5a3 3 0 0 1 0 5.6"></path><path d="M19.5 20c0-2.3-.9-3.9-2.5-4.8"></path></svg></span><span data-gnav-label>Équipe</span></a>
   </div>
-</header>
-
-<!-- ── MOBILE MENU ─────────────────────────────────────── -->
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <nav>
-    <a href="index.html" class="mobile-link">Accueil</a>
-    <a href="services.html" class="mobile-link">Services</a>
-    <a href="pourquoi-nous.html" class="mobile-link">Pourquoi nous</a>
-    <a href="processus.html" class="mobile-link">Processus</a>
-    <a href="realisations.html" class="mobile-link">Réalisations</a>
-    <a href="devis.html" class="mobile-link mobile-cta">Démarrer un projet</a>
-  </nav>
+  <a class="ihh17" href="contact.html" style="color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); text-decoration:none; font-size:13px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; white-space:nowrap; padding:9px 18px; border-radius:999px; flex:none; margin-left:8px; transition:transform .3s ease, background .3s ease">Simuler</a>
+  <button class="ihh18" onclick="INNOVA_toggleTheme()" aria-label="Jour / Nuit" style="font-family:inherit; cursor:pointer; flex:none; width:36px; height:36px; display:flex; align-items:center; justify-content:center; font-size:16px; line-height:1; color:var(--txA); background:transparent; border:1px solid var(--lineA); border-radius:999px; margin-left:8px; transition:background .3s ease"><span data-theme-glyph>☾</span></button>
+  <button class="ihh19"  aria-label="Français / English" hidden style="display:none; font-family:inherit; cursor:pointer; flex:none; height:36px; padding:0 12px; align-items:center; gap:6px; font-size:11px; font-weight:800; letter-spacing:0.1em; line-height:1; color:var(--txA); background:transparent; border:1px solid var(--lineA); border-radius:999px; margin-left:8px; transition:background .3s ease">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"></path></svg>
+    EN
+  </button>
+  <input type="checkbox" id="omNavToggle" data-nav-toggle aria-hidden="true" style="position:absolute; opacity:0; width:0; height:0; pointer-events:none">
+  <label for="omNavToggle" data-burger aria-label="Ouvrir le menu" style="display:none; flex:none; box-sizing:border-box; width:38px; height:38px; margin-left:6px; cursor:pointer; align-items:center; justify-content:center; flex-direction:column; gap:5px; border:1px solid var(--lineA); border-radius:999px; background:transparent">
+    <span style="display:block; width:18px; height:2px; border-radius:2px; background:var(--txA); transition:transform .3s ease, opacity .3s ease"></span>
+    <span style="display:block; width:18px; height:2px; border-radius:2px; background:var(--txA); transition:transform .3s ease, opacity .3s ease"></span>
+    <span style="display:block; width:18px; height:2px; border-radius:2px; background:var(--txA); transition:transform .3s ease, opacity .3s ease"></span>
+  </label>
+  <div data-mobile-menu style="display:none; position:absolute; top:calc(100% + 12px); right:0; flex-direction:column; gap:10px; padding:20px; background:var(--navBg); backdrop-filter:blur(24px); border:1px solid var(--lineA); border-radius:20px; min-width:240px">
+    <p style="margin:0; font-size:0.7rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent)">Services</p>
+    
+      <a class="ihh20" href="conseil.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Conseil & Transformation</a>
+    
+      <a class="ihh21" href="digital.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Digital & Web</a>
+    
+      <a class="ihh22" href="ia.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">IA & Automatisation</a>
+    
+      <a class="ihh23" href="graphisme.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Identité & Marketing</a>
+    
+      <a class="ihh24" href="mobile.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Applications Mobiles</a>
+    
+      <a class="ihh25" href="formation.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Formation IA</a>
+    
+    <span style="display:block; height:1px; background:var(--lineA); margin:4px 0"></span>
+    <a class="ihh26" href="methode-alpha.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Méthode</a>
+    <a class="ihh27" href="realisations.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Portfolio</a>
+    <a class="ihh28" href="tarifs.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Tarifs</a>
+    <a class="ihh29" href="apropos.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Équipe</a>
+    <a href="contact.html" style="color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 100%); text-decoration:none; font-size:0.9rem; padding:10px 16px; border-radius:8px; text-align:center">Simuler</a>
+  </div>
+</nav>
+<a class="ihh30" href="contact.html" style="flex:none; display:inline-flex; align-items:center; justify-content:center; padding:9px 30px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; white-space:nowrap; border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); border-radius:999px; text-decoration:none; transition:transform .3s ease, filter .3s ease">Contact</a>
 </div>
 
-<!-- ── HERO ───────────────────────────────────────────── -->
-<section class="hero" id="hero">
-  <img src="img/hero-bg.svg" alt="" class="hero-bg" aria-hidden="true">
-  <canvas id="heroCanvas" aria-hidden="true"></canvas>
-  <div class="hero-orb orb-1"></div>
-  <div class="hero-orb orb-2"></div>
-  <div class="hero-orb orb-3"></div>
-  <div class="hero-grid"></div>
+<!-- Hero -->
+<div id="contenu" tabindex="-1"></div>
+<section style="position:relative; min-height:72svh; height:auto; overflow:hidden; background:#000000">
+  <div data-hero-slideshow aria-hidden="true" style="position:absolute; inset:0; overflow:hidden; background:#0B0B0C">
+    <video data-hero-slide autoplay muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"><source src="assets/hero-video/scene2.mp4" type="video/mp4"></video>
+    <video data-hero-slide autoplay muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"><source src="assets/hero-video/scene1.mp4" type="video/mp4"></video>
+    <video data-hero-slide autoplay muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"><source src="assets/hero-video/ia.mp4" type="video/mp4"></video>
+    <video data-hero-slide autoplay muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"><source src="assets/hero-video/mobile.mp4" type="video/mp4"></video>
+    <video data-hero-slide autoplay muted loop playsinline preload="none" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover"><source src="assets/formation-hero.mp4" type="video/mp4"></video>
+    <div data-hero-grain style="position:absolute; inset:-10%; opacity:0.16"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,11,12,0.55) 0%, rgba(11,11,12,0.72) 55%, rgba(11,11,12,0.85) 100%)"></div>
+    <canvas data-hero-net style="position:absolute; inset:0; width:100%; height:100%"></canvas>
+  </div>
+  <div style="position:relative; z-index:1; display:flex; align-items:center; min-height:72svh; padding:clamp(160px, 22vh, 240px) 24px clamp(64px, 8vw, 96px); box-sizing:border-box; pointer-events:none">
+      <div style="max-width:850px; animation:slideUp .8s ease; pointer-events:auto">
+        <p style="margin:0 0 18px; font-size:clamp(0.75rem, 1.6vw, 0.9rem); font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:#B98CFF">La transformation digitale par la Méthode Alpha</p>
+        <h1 style="margin:0 0 24px; font-size:clamp(2.4rem, 6.4vw, 4.6rem); font-weight:900; line-height:1.04; letter-spacing:-0.02em; color:#FFFFFF; text-wrap:pretty">
+          Ce qui vous ralentit aujourd'hui a une solution :<br><span style="color:#B98CFF">la Méthode Alpha.</span>
+        </h1>
+        <p style="margin:0 0 36px; max-width:820px; font-size:clamp(0.95rem, 2vw, 1.08rem); line-height:1.7; color:rgba(255,255,255,0.66)">
+          Devis rédigés à la main, stocks suivis sur papier, clients qui ne vous trouvent pas en ligne. Nous identifions ce qui vous coûte du temps et de l'argent, puis nous le corrigeons.
+        </p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap">
+          <a class="ihh31" href="contact.html" style="display:inline-flex; align-items:center; gap:8px; padding:17px 32px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); border-radius:999px; text-decoration:none; transition:transform .3s ease, background .3s ease">Faire le point, sans frais</a>
+          <a class="ihh32" href="realisations.html" style="display:inline-flex; align-items:center; gap:8px; padding:17px 32px; background:rgba(255,255,255,0.06); color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; border-radius:999px; text-decoration:none; border:1px solid rgba(255,255,255,0.28); transition:border-color .3s ease, background .3s ease, transform .3s ease">Voir des cas concrets</a>
+        </div>
+      </div>
+  </div>
+</section>
 
-  <div class="container">
-    <div class="hero-inner">
-      <div class="hero-badge" id="heroBadge">
-        <span>Agence digitale & IA · Yaoundé</span>
+
+<!-- Chiffres clés -->
+<section style="position:relative; isolation:isolate; overflow:hidden; padding:clamp(44px, 6vw, 72px) 24px clamp(52px, 7vw, 80px); background:linear-gradient(135deg, #14092B 0%, #2A0F63 42%, #1A0B3E 72%, #0F0722 100%); border-bottom:1px solid rgba(255,255,255,0.08)">
+  <div aria-hidden="true" style="position:absolute; inset:-20%; z-index:0; pointer-events:none; background:radial-gradient(38% 55% at 22% 30%, rgba(138,77,255,0.42) 0%, transparent 70%), radial-gradient(34% 50% at 78% 70%, rgba(108,34,237,0.38) 0%, transparent 72%); filter:blur(10px); animation:statAurora 18s ease-in-out infinite alternate"></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none; background-size:200% 100%; background-image:linear-gradient(100deg, transparent 42%, rgba(255,255,255,0.07) 50%, transparent 58%); animation:statSheen 9s linear infinite"></div>
+  <div style="position:relative; z-index:1; max-width:1240px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr))">
+    
+      <div style="padding:6px clamp(20px, 3vw, 40px); border-left:1px solid rgba(255,255,255,0.16)">
+        <p class="ihh33" data-stat-value data-final="0 FCFA" style="margin:0 0 18px; font-size:clamp(2.6rem, 6vw, 4.2rem); font-weight:300; line-height:1; letter-spacing:-0.03em; color:#A971FF; cursor:default; transform-origin:left center; text-shadow:0 0 18px rgba(169,113,255,0.75), 0 0 46px rgba(138,77,255,0.45); animation:statGlow 5s ease-in-out infinite alternate; transition:transform .45s cubic-bezier(.22,1,.36,1), color .45s ease, text-shadow .45s ease">0 FCFA</p>
+        <p style="margin:0; max-width:22ch; font-size:0.86rem; line-height:1.55; color:rgba(255,255,255,0.78)">Pour identifier vos trois priorités</p>
       </div>
-      <h1 class="hero-title" id="heroTitle">
-        <span class="h-line">Votre croissance,</span>
-        <span class="h-line accent-line"><em>amplifiée par l'intelligence artificielle.</em></span>
-      </h1>
-      <p class="hero-sub" id="heroSub">
-        INNOVA ALPHA transforme les ambitions des PME africaines en résultats digitaux concrets.
-        Marque, site web, IA et marketing. De A à Z, depuis Yaoundé.
-      </p>
-      <div class="hero-actions" id="heroActions">
-        <a href="devis.html" class="btn btn-primary magnetic">
-          <span>Démarrer un projet</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#work" class="btn btn-ghost">
-          <span>Voir nos réalisations</span>
-        </a>
+    
+      <div style="padding:6px clamp(20px, 3vw, 40px); border-left:1px solid rgba(255,255,255,0.16)">
+        <p class="ihh34" data-stat-value data-final="48h" style="margin:0 0 18px; font-size:clamp(2.6rem, 6vw, 4.2rem); font-weight:300; line-height:1; letter-spacing:-0.03em; color:#A971FF; cursor:default; transform-origin:left center; text-shadow:0 0 18px rgba(169,113,255,0.75), 0 0 46px rgba(138,77,255,0.45); animation:statGlow 5s ease-in-out infinite alternate; transition:transform .45s cubic-bezier(.22,1,.36,1), color .45s ease, text-shadow .45s ease">48h</p>
+        <p style="margin:0; max-width:22ch; font-size:0.86rem; line-height:1.55; color:rgba(255,255,255,0.78)">Pour obtenir une réponse claire</p>
       </div>
+    
+      <div style="padding:6px clamp(20px, 3vw, 40px); border-left:1px solid rgba(255,255,255,0.16)">
+        <p class="ihh35" data-stat-value data-final="1" style="margin:0 0 18px; font-size:clamp(2.6rem, 6vw, 4.2rem); font-weight:300; line-height:1; letter-spacing:-0.03em; color:#A971FF; cursor:default; transform-origin:left center; text-shadow:0 0 18px rgba(169,113,255,0.75), 0 0 46px rgba(138,77,255,0.45); animation:statGlow 5s ease-in-out infinite alternate; transition:transform .45s cubic-bezier(.22,1,.36,1), color .45s ease, text-shadow .45s ease">1</p>
+        <p style="margin:0; max-width:22ch; font-size:0.86rem; line-height:1.55; color:rgba(255,255,255,0.78)">Interlocuteur, du premier échange à la formation</p>
+      </div>
+    
+      <div style="padding:6px clamp(20px, 3vw, 40px); border-left:1px solid rgba(255,255,255,0.16)">
+        <p class="ihh36" data-stat-value data-final="Incluse" style="margin:0 0 18px; font-size:clamp(2.6rem, 6vw, 4.2rem); font-weight:300; line-height:1; letter-spacing:-0.03em; color:#A971FF; cursor:default; transform-origin:left center; text-shadow:0 0 18px rgba(169,113,255,0.75), 0 0 46px rgba(138,77,255,0.45); animation:statGlow 5s ease-in-out infinite alternate; transition:transform .45s cubic-bezier(.22,1,.36,1), color .45s ease, text-shadow .45s ease">Incluse</p>
+        <p style="margin:0; max-width:22ch; font-size:0.86rem; line-height:1.55; color:rgba(255,255,255,0.78)">Formation de vos équipes à la livraison</p>
+      </div>
+    
+  </div>
+</section>
+
+<hr aria-hidden="true" style="height:1px; border:none; margin:0; background-image:linear-gradient(90deg, transparent 0%, rgba(108,34,237,0) 35%, rgba(138,77,255,0.95) 50%, rgba(108,34,237,0) 65%, transparent 100%); background-size:220% 100%; background-repeat:no-repeat; background-color:var(--lineA); animation:sepFlow 4.5s linear infinite">
+
+
+<!-- Services/Expertises -->
+<section id="expertises" style="position:relative; isolation:isolate; overflow:hidden; padding:80px 24px; background:var(--sB)">
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none"><svg viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" fill="none" style="position:absolute; inset:0; width:100%; height:100%; color:#8A4DFF"><path d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875" stroke="currentColor" fill="none" stroke-width="0.180" stroke-opacity="0.100" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:0.0s"></path><path d="M-375 -195C-375 -195 -307 210 147 337C611 464 679 869 679 869" stroke="currentColor" fill="none" stroke-width="0.192" stroke-opacity="0.116" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-1.1s"></path><path d="M-370 -201C-370 -201 -302 204 142 331C606 458 674 863 674 863" stroke="currentColor" fill="none" stroke-width="0.204" stroke-opacity="0.132" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-2.2s"></path><path d="M-365 -207C-365 -207 -297 198 137 325C601 452 669 857 669 857" stroke="currentColor" fill="none" stroke-width="0.216" stroke-opacity="0.148" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-3.3s"></path><path d="M-360 -213C-360 -213 -292 192 132 319C596 446 664 851 664 851" stroke="currentColor" fill="none" stroke-width="0.228" stroke-opacity="0.164" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-4.4s"></path><path d="M-355 -219C-355 -219 -287 186 127 313C591 440 659 845 659 845" stroke="currentColor" fill="none" stroke-width="0.240" stroke-opacity="0.180" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-5.5s"></path><path d="M-350 -225C-350 -225 -282 180 122 307C586 434 654 839 654 839" stroke="currentColor" fill="none" stroke-width="0.252" stroke-opacity="0.196" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-6.6s"></path><path d="M-345 -231C-345 -231 -277 174 117 301C581 428 649 833 649 833" stroke="currentColor" fill="none" stroke-width="0.264" stroke-opacity="0.212" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-7.7s"></path><path d="M-340 -237C-340 -237 -272 168 112 295C576 422 644 827 644 827" stroke="currentColor" fill="none" stroke-width="0.276" stroke-opacity="0.228" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-8.8s"></path><path d="M-335 -243C-335 -243 -267 162 107 289C571 416 639 821 639 821" stroke="currentColor" fill="none" stroke-width="0.288" stroke-opacity="0.244" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-9.9s"></path><path d="M-330 -249C-330 -249 -262 156 102 283C566 410 634 815 634 815" stroke="currentColor" fill="none" stroke-width="0.300" stroke-opacity="0.260" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-11.0s"></path><path d="M-325 -255C-325 -255 -257 150 97 277C561 404 629 809 629 809" stroke="currentColor" fill="none" stroke-width="0.312" stroke-opacity="0.276" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-12.1s"></path><path d="M-320 -261C-320 -261 -252 144 92 271C556 398 624 803 624 803" stroke="currentColor" fill="none" stroke-width="0.324" stroke-opacity="0.292" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-13.2s"></path><path d="M-315 -267C-315 -267 -247 138 87 265C551 392 619 797 619 797" stroke="currentColor" fill="none" stroke-width="0.336" stroke-opacity="0.308" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-14.3s"></path><path d="M-310 -273C-310 -273 -242 132 82 259C546 386 614 791 614 791" stroke="currentColor" fill="none" stroke-width="0.348" stroke-opacity="0.324" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-15.4s"></path><path d="M-305 -279C-305 -279 -237 126 77 253C541 380 609 785 609 785" stroke="currentColor" fill="none" stroke-width="0.360" stroke-opacity="0.340" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-16.5s"></path><path d="M-300 -285C-300 -285 -232 120 72 247C536 374 604 779 604 779" stroke="currentColor" fill="none" stroke-width="0.372" stroke-opacity="0.356" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-17.6s"></path><path d="M-295 -291C-295 -291 -227 114 67 241C531 368 599 773 599 773" stroke="currentColor" fill="none" stroke-width="0.384" stroke-opacity="0.372" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-18.7s"></path><path d="M-290 -297C-290 -297 -222 108 62 235C526 362 594 767 594 767" stroke="currentColor" fill="none" stroke-width="0.396" stroke-opacity="0.388" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-19.8s"></path><path d="M-285 -303C-285 -303 -217 102 57 229C521 356 589 761 589 761" stroke="currentColor" fill="none" stroke-width="0.408" stroke-opacity="0.404" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-20.9s"></path><path d="M-280 -309C-280 -309 -212 96 52 223C516 350 584 755 584 755" stroke="currentColor" fill="none" stroke-width="0.420" stroke-opacity="0.420" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-22.0s"></path><path d="M-275 -315C-275 -315 -207 90 47 217C511 344 579 749 579 749" stroke="currentColor" fill="none" stroke-width="0.432" stroke-opacity="0.436" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-23.1s"></path><path d="M-270 -321C-270 -321 -202 84 42 211C506 338 574 743 574 743" stroke="currentColor" fill="none" stroke-width="0.444" stroke-opacity="0.452" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-24.2s"></path><path d="M-265 -327C-265 -327 -197 78 37 205C501 332 569 737 569 737" stroke="currentColor" fill="none" stroke-width="0.456" stroke-opacity="0.468" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-25.3s"></path><path d="M-260 -333C-260 -333 -192 72 32 199C496 326 564 731 564 731" stroke="currentColor" fill="none" stroke-width="0.468" stroke-opacity="0.484" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-26.4s"></path><path d="M-255 -339C-255 -339 -187 66 27 193C491 320 559 725 559 725" stroke="currentColor" fill="none" stroke-width="0.480" stroke-opacity="0.500" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-27.5s"></path><path d="M-250 -345C-250 -345 -182 60 22 187C486 314 554 719 554 719" stroke="currentColor" fill="none" stroke-width="0.492" stroke-opacity="0.516" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-28.6s"></path><path d="M-245 -351C-245 -351 -177 54 17 181C481 308 549 713 549 713" stroke="currentColor" fill="none" stroke-width="0.504" stroke-opacity="0.532" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-29.7s"></path><path d="M-240 -357C-240 -357 -172 48 12 175C476 302 544 707 544 707" stroke="currentColor" fill="none" stroke-width="0.516" stroke-opacity="0.548" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-30.8s"></path><path d="M-235 -363C-235 -363 -167 42 7 169C471 296 539 701 539 701" stroke="currentColor" fill="none" stroke-width="0.528" stroke-opacity="0.564" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-31.9s"></path><path d="M-230 -369C-230 -369 -162 36 2 163C466 290 534 695 534 695" stroke="currentColor" fill="none" stroke-width="0.540" stroke-opacity="0.580" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-33.0s"></path><path d="M-225 -375C-225 -375 -157 30 -3 157C461 284 529 689 529 689" stroke="currentColor" fill="none" stroke-width="0.552" stroke-opacity="0.596" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-34.1s"></path><path d="M-220 -381C-220 -381 -152 24 -8 151C456 278 524 683 524 683" stroke="currentColor" fill="none" stroke-width="0.564" stroke-opacity="0.612" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-35.2s"></path><path d="M-215 -387C-215 -387 -147 18 -13 145C451 272 519 677 519 677" stroke="currentColor" fill="none" stroke-width="0.576" stroke-opacity="0.628" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-36.3s"></path><path d="M-210 -393C-210 -393 -142 12 -18 139C446 266 514 671 514 671" stroke="currentColor" fill="none" stroke-width="0.588" stroke-opacity="0.644" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-37.4s"></path><path d="M-205 -399C-205 -399 -137 6 -23 133C441 260 509 665 509 665" stroke="currentColor" fill="none" stroke-width="0.600" stroke-opacity="0.660" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-38.5s"></path></svg></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none"><svg viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" fill="none" style="position:absolute; inset:0; width:100%; height:100%; color:#8A4DFF"><path d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875" stroke="currentColor" fill="none" stroke-width="0.180" stroke-opacity="0.100" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:0.0s"></path><path d="M-385 -195C-385 -195 -317 210 157 337C621 464 689 869 689 869" stroke="currentColor" fill="none" stroke-width="0.192" stroke-opacity="0.116" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-1.1s"></path><path d="M-390 -201C-390 -201 -322 204 162 331C626 458 694 863 694 863" stroke="currentColor" fill="none" stroke-width="0.204" stroke-opacity="0.132" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-2.2s"></path><path d="M-395 -207C-395 -207 -327 198 167 325C631 452 699 857 699 857" stroke="currentColor" fill="none" stroke-width="0.216" stroke-opacity="0.148" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-3.3s"></path><path d="M-400 -213C-400 -213 -332 192 172 319C636 446 704 851 704 851" stroke="currentColor" fill="none" stroke-width="0.228" stroke-opacity="0.164" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-4.4s"></path><path d="M-405 -219C-405 -219 -337 186 177 313C641 440 709 845 709 845" stroke="currentColor" fill="none" stroke-width="0.240" stroke-opacity="0.180" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-5.5s"></path><path d="M-410 -225C-410 -225 -342 180 182 307C646 434 714 839 714 839" stroke="currentColor" fill="none" stroke-width="0.252" stroke-opacity="0.196" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-6.6s"></path><path d="M-415 -231C-415 -231 -347 174 187 301C651 428 719 833 719 833" stroke="currentColor" fill="none" stroke-width="0.264" stroke-opacity="0.212" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-7.7s"></path><path d="M-420 -237C-420 -237 -352 168 192 295C656 422 724 827 724 827" stroke="currentColor" fill="none" stroke-width="0.276" stroke-opacity="0.228" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-8.8s"></path><path d="M-425 -243C-425 -243 -357 162 197 289C661 416 729 821 729 821" stroke="currentColor" fill="none" stroke-width="0.288" stroke-opacity="0.244" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-9.9s"></path><path d="M-430 -249C-430 -249 -362 156 202 283C666 410 734 815 734 815" stroke="currentColor" fill="none" stroke-width="0.300" stroke-opacity="0.260" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-11.0s"></path><path d="M-435 -255C-435 -255 -367 150 207 277C671 404 739 809 739 809" stroke="currentColor" fill="none" stroke-width="0.312" stroke-opacity="0.276" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-12.1s"></path><path d="M-440 -261C-440 -261 -372 144 212 271C676 398 744 803 744 803" stroke="currentColor" fill="none" stroke-width="0.324" stroke-opacity="0.292" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-13.2s"></path><path d="M-445 -267C-445 -267 -377 138 217 265C681 392 749 797 749 797" stroke="currentColor" fill="none" stroke-width="0.336" stroke-opacity="0.308" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-14.3s"></path><path d="M-450 -273C-450 -273 -382 132 222 259C686 386 754 791 754 791" stroke="currentColor" fill="none" stroke-width="0.348" stroke-opacity="0.324" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-15.4s"></path><path d="M-455 -279C-455 -279 -387 126 227 253C691 380 759 785 759 785" stroke="currentColor" fill="none" stroke-width="0.360" stroke-opacity="0.340" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-16.5s"></path><path d="M-460 -285C-460 -285 -392 120 232 247C696 374 764 779 764 779" stroke="currentColor" fill="none" stroke-width="0.372" stroke-opacity="0.356" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-17.6s"></path><path d="M-465 -291C-465 -291 -397 114 237 241C701 368 769 773 769 773" stroke="currentColor" fill="none" stroke-width="0.384" stroke-opacity="0.372" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-18.7s"></path><path d="M-470 -297C-470 -297 -402 108 242 235C706 362 774 767 774 767" stroke="currentColor" fill="none" stroke-width="0.396" stroke-opacity="0.388" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-19.8s"></path><path d="M-475 -303C-475 -303 -407 102 247 229C711 356 779 761 779 761" stroke="currentColor" fill="none" stroke-width="0.408" stroke-opacity="0.404" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-20.9s"></path><path d="M-480 -309C-480 -309 -412 96 252 223C716 350 784 755 784 755" stroke="currentColor" fill="none" stroke-width="0.420" stroke-opacity="0.420" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-22.0s"></path><path d="M-485 -315C-485 -315 -417 90 257 217C721 344 789 749 789 749" stroke="currentColor" fill="none" stroke-width="0.432" stroke-opacity="0.436" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-23.1s"></path><path d="M-490 -321C-490 -321 -422 84 262 211C726 338 794 743 794 743" stroke="currentColor" fill="none" stroke-width="0.444" stroke-opacity="0.452" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-24.2s"></path><path d="M-495 -327C-495 -327 -427 78 267 205C731 332 799 737 799 737" stroke="currentColor" fill="none" stroke-width="0.456" stroke-opacity="0.468" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-25.3s"></path><path d="M-500 -333C-500 -333 -432 72 272 199C736 326 804 731 804 731" stroke="currentColor" fill="none" stroke-width="0.468" stroke-opacity="0.484" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-26.4s"></path><path d="M-505 -339C-505 -339 -437 66 277 193C741 320 809 725 809 725" stroke="currentColor" fill="none" stroke-width="0.480" stroke-opacity="0.500" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-27.5s"></path><path d="M-510 -345C-510 -345 -442 60 282 187C746 314 814 719 814 719" stroke="currentColor" fill="none" stroke-width="0.492" stroke-opacity="0.516" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-28.6s"></path><path d="M-515 -351C-515 -351 -447 54 287 181C751 308 819 713 819 713" stroke="currentColor" fill="none" stroke-width="0.504" stroke-opacity="0.532" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-29.7s"></path><path d="M-520 -357C-520 -357 -452 48 292 175C756 302 824 707 824 707" stroke="currentColor" fill="none" stroke-width="0.516" stroke-opacity="0.548" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-30.8s"></path><path d="M-525 -363C-525 -363 -457 42 297 169C761 296 829 701 829 701" stroke="currentColor" fill="none" stroke-width="0.528" stroke-opacity="0.564" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-31.9s"></path><path d="M-530 -369C-530 -369 -462 36 302 163C766 290 834 695 834 695" stroke="currentColor" fill="none" stroke-width="0.540" stroke-opacity="0.580" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-33.0s"></path><path d="M-535 -375C-535 -375 -467 30 307 157C771 284 839 689 839 689" stroke="currentColor" fill="none" stroke-width="0.552" stroke-opacity="0.596" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-34.1s"></path><path d="M-540 -381C-540 -381 -472 24 312 151C776 278 844 683 844 683" stroke="currentColor" fill="none" stroke-width="0.564" stroke-opacity="0.612" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-35.2s"></path><path d="M-545 -387C-545 -387 -477 18 317 145C781 272 849 677 849 677" stroke="currentColor" fill="none" stroke-width="0.576" stroke-opacity="0.628" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-36.3s"></path><path d="M-550 -393C-550 -393 -482 12 322 139C786 266 854 671 854 671" stroke="currentColor" fill="none" stroke-width="0.588" stroke-opacity="0.644" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-37.4s"></path><path d="M-555 -399C-555 -399 -487 6 327 133C791 260 859 665 859 665" stroke="currentColor" fill="none" stroke-width="0.600" stroke-opacity="0.660" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-38.5s"></path></svg></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none; background:radial-gradient(60% 50% at 50% 50%, rgba(108,34,237,0.10) 0%, transparent 70%)"></div>
+  <div style="position:relative; z-index:1; max-width:1200px; margin:0 auto">
+    <p style="margin:0 0 8px; font-size:0.85rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent)">Ce que nous faisons</p>
+    <h2 style="margin:0 0 60px; font-size:clamp(1.8rem, 5vw, 3rem); font-weight:900; color:var(--txA)">Six pôles au service d'une seule méthode</h2>
+    <div data-pole-cards style="display:flex; gap:10px">
+      
+        <a href="conseil.html" data-pole-card data-pole-index="0" data-active style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
+          <img data-pole-img src="assets/poles/conseil.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
+          <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Conseil & Transformation</p>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
+            <p style="margin:0; font-size:0.78rem; font-weight:900; letter-spacing:0.2em; color:#B98CFF">01</p>
+            <h3 style="margin:0; font-size:clamp(1.05rem, 2.2vw, 1.5rem); font-weight:800; color:#FFFFFF; text-wrap:pretty;  transition:opacity .4s ease">Conseil & Transformation</h3>
+            <p style="margin:0; max-width:38ch; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.82);  transition:opacity .45s ease .1s">Savoir par quoi commencer, et ce qui peut attendre.</p>
+            <span style="font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B98CFF;  transition:opacity .45s ease .18s">Découvrir →</span>
+          </div>
+        </a>
+      
+        <a href="digital.html" data-pole-card data-pole-index="1" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
+          <img data-pole-img src="assets/poles/digital.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
+          <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Digital & Web</p>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
+            <p style="margin:0; font-size:0.78rem; font-weight:900; letter-spacing:0.2em; color:#B98CFF">02</p>
+            <h3 style="margin:0; font-size:clamp(1.05rem, 2.2vw, 1.5rem); font-weight:800; color:#FFFFFF; text-wrap:pretty;  transition:opacity .4s ease">Digital & Web</h3>
+            <p style="margin:0; max-width:38ch; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.82);  transition:opacity .45s ease .1s">Un site que vos clients trouvent, et qui leur donne envie de vous appeler.</p>
+            <span style="font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B98CFF;  transition:opacity .45s ease .18s">Découvrir →</span>
+          </div>
+        </a>
+      
+        <a href="ia.html" data-pole-card data-pole-index="2" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
+          <img data-pole-img src="assets/poles/ia.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
+          <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">IA & Automatisation</p>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
+            <p style="margin:0; font-size:0.78rem; font-weight:900; letter-spacing:0.2em; color:#B98CFF">03</p>
+            <h3 style="margin:0; font-size:clamp(1.05rem, 2.2vw, 1.5rem); font-weight:800; color:#FFFFFF; text-wrap:pretty;  transition:opacity .4s ease">IA & Automatisation</h3>
+            <p style="margin:0; max-width:38ch; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.82);  transition:opacity .45s ease .1s">Les tâches répétitives faites par la machine, pas par vos équipes.</p>
+            <span style="font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B98CFF;  transition:opacity .45s ease .18s">Découvrir →</span>
+          </div>
+        </a>
+      
+        <a href="graphisme.html" data-pole-card data-pole-index="3" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
+          <img data-pole-img src="assets/poles/graphisme.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
+          <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Identité & Marketing</p>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
+            <p style="margin:0; font-size:0.78rem; font-weight:900; letter-spacing:0.2em; color:#B98CFF">04</p>
+            <h3 style="margin:0; font-size:clamp(1.05rem, 2.2vw, 1.5rem); font-weight:800; color:#FFFFFF; text-wrap:pretty;  transition:opacity .4s ease">Identité & Marketing</h3>
+            <p style="margin:0; max-width:38ch; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.82);  transition:opacity .45s ease .1s">Une marque qui vous rend crédible avant même le premier rendez-vous.</p>
+            <span style="font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B98CFF;  transition:opacity .45s ease .18s">Découvrir →</span>
+          </div>
+        </a>
+      
+        <a href="mobile.html" data-pole-card data-pole-index="4" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
+          <img data-pole-img src="assets/poles/mobile.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
+          <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Applications Mobiles</p>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
+            <p style="margin:0; font-size:0.78rem; font-weight:900; letter-spacing:0.2em; color:#B98CFF">05</p>
+            <h3 style="margin:0; font-size:clamp(1.05rem, 2.2vw, 1.5rem); font-weight:800; color:#FFFFFF; text-wrap:pretty;  transition:opacity .4s ease">Applications Mobiles</h3>
+            <p style="margin:0; max-width:38ch; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.82);  transition:opacity .45s ease .1s">Une application dans la poche de vos clients, iOS et Android.</p>
+            <span style="font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B98CFF;  transition:opacity .45s ease .18s">Découvrir →</span>
+          </div>
+        </a>
+      
+        <a href="formation.html" data-pole-card data-pole-index="5" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
+          <img data-pole-img src="assets/poles/formation.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
+          <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Formation IA</p>
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
+            <p style="margin:0; font-size:0.78rem; font-weight:900; letter-spacing:0.2em; color:#B98CFF">06</p>
+            <h3 style="margin:0; font-size:clamp(1.05rem, 2.2vw, 1.5rem); font-weight:800; color:#FFFFFF; text-wrap:pretty;  transition:opacity .4s ease">Formation IA</h3>
+            <p style="margin:0; max-width:38ch; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.82);  transition:opacity .45s ease .1s">Vos équipes savent utiliser l'IA sur leurs vrais dossiers.</p>
+            <span style="font-size:0.78rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#B98CFF;  transition:opacity .45s ease .18s">Découvrir →</span>
+          </div>
+        </a>
+      
     </div>
   </div>
 </section>
 
-<!-- ── MARQUEE ─────────────────────────────────────────── -->
-<div class="marquee-wrap" aria-hidden="true">
-  <div class="marquee-track">
-    <div class="marquee-inner">
-      <span>BRANDING</span><span class="sep">·</span>
-      <span>SITES WEB</span><span class="sep">·</span>
-      <span>INTELLIGENCE ARTIFICIELLE</span><span class="sep">·</span>
-      <span>AUTOMATISATION</span><span class="sep">·</span>
-      <span>MARKETING DIGITAL</span><span class="sep">·</span>
-      <span>FORMATION</span><span class="sep">·</span>
-      <span>DÉPLOIEMENT</span><span class="sep">·</span>
-      <span>BRANDING</span><span class="sep">·</span>
-      <span>SITES WEB</span><span class="sep">·</span>
-      <span>INTELLIGENCE ARTIFICIELLE</span><span class="sep">·</span>
-      <span>AUTOMATISATION</span><span class="sep">·</span>
-      <span>MARKETING DIGITAL</span><span class="sep">·</span>
-      <span>FORMATION</span><span class="sep">·</span>
-      <span>DÉPLOIEMENT</span><span class="sep">·</span>
+<hr aria-hidden="true" style="height:1px; border:none; margin:0; background-image:linear-gradient(90deg, transparent 0%, rgba(108,34,237,0) 35%, rgba(138,77,255,0.95) 50%, rgba(108,34,237,0) 65%, transparent 100%); background-size:220% 100%; background-repeat:no-repeat; background-color:var(--lineA); animation:sepFlow 4.5s linear infinite">
+
+<!-- Méthode Alpha -->
+<section data-alpha-section style="position:relative; isolation:isolate; overflow:hidden; background:var(--sA); padding:clamp(84px, 10vw, 140px) 24px; transition:background .4s ease">
+  <circuit-bg variant="network"></circuit-bg>
+  <div style="position:relative; z-index:1; max-width:1120px; margin:0 auto">
+    <div style="max-width:600px; margin:0 auto clamp(52px, 7vw, 92px); text-align:center">
+      <p style="margin:0 0 14px; font-size:0.82rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent)">La Méthode Alpha</p>
+      <h2 style="margin:0 0 18px; font-size:clamp(2rem, 5.6vw, 3.4rem); font-weight:900; line-height:1.06; color:var(--txA)">Cinq étapes, toujours dans le même ordre</h2>
+      <p style="margin:0; font-size:clamp(0.92rem, 1.7vw, 1rem); line-height:1.75; color:var(--txB)">La technologie n'est jamais le point de départ. Survolez une étape pour voir ce qu'elle contient.</p>
+    </div>
+
+    <div style="position:relative">
+      <svg aria-hidden="true" viewBox="0 0 1340 460" preserveAspectRatio="none" fill="none" style="position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; color:#8A4DFF">
+        <path d="M0 330 C 90 384 200 362 280 282 C 360 202 462 188 540 250 C 620 312 700 362 800 300 C 880 250 942 152 1042 172 C 1142 192 1222 300 1340 332" stroke="currentColor" stroke-width="5" stroke-opacity="0.10" stroke-linecap="round"></path>
+        <path d="M0 330 C 90 384 200 362 280 282 C 360 202 462 188 540 250 C 620 312 700 362 800 300 C 880 250 942 152 1042 172 C 1142 192 1222 300 1340 332" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.6" stroke-linecap="round" stroke-dasharray="760 480" style="animation:alphaSpin 28s linear infinite"></path>
+      </svg>
+      <div data-alpha-pentagon style="position:relative; z-index:1; display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; gap:clamp(28px, 3vw, 46px) clamp(14px, 1.8vw, 26px); padding:clamp(20px,3vw,40px) 0">
+        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:clamp(0px, 4.6vw, 58px); animation-delay:0s;">
+          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
+            <path id="alphaArc0" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
+            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc0" startOffset="50%" text-anchor="middle">Problème</textPath></text>
+          </svg>
+          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 0s infinite">1</span>
+          
+          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
+            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">Nous passons du temps chez vous pour voir ce qui coince réellement.</p>
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Périmètre, interlocuteurs et calendrier posés par écrit</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les dix dimensions passées au crible : entretien dirigeant, terrain, audit documentaire</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Un rapport remis à la direction : ce qui coûte, ce qui rapporte, ce qui peut attendre</span></li>
+            </ul>
+          </div>
+        </div>
+        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:0px; animation-delay:.12s;">
+          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
+            <path id="alphaArc1" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
+            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc1" startOffset="50%" text-anchor="middle">Stratégie</textPath></text>
+          </svg>
+          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 0.9s infinite">2</span>
+          
+          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
+            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">Trois chantiers maximum, classés par ce qu'ils vous font gagner.</p>
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les chantiers priorisés par impact, chiffrés et jalonnés</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Trois chantiers au maximum, jamais plus</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Ce qui peut attendre est dit aussi clairement que ce qui est urgent</span></li>
+            </ul>
+          </div>
+        </div>
+        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:clamp(0px, 4.6vw, 58px); animation-delay:.24s;">
+          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
+            <path id="alphaArc2" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
+            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc2" startOffset="50%" text-anchor="middle">Transformation</textPath></text>
+          </svg>
+          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 1.8s infinite">3</span>
+          
+          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
+            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">Livré par morceaux utilisables tout de suite, pas un grand projet dans six mois.</p>
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Fondations : identité, présence en ligne et outils de base</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les processus passent au numérique, par lots utilisables immédiatement</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Chaque lot est utilisable avant que le suivant commence</span></li>
+            </ul>
+          </div>
+        </div>
+        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:0px; animation-delay:.36s;">
+          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
+            <path id="alphaArc3" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
+            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc3" startOffset="50%" text-anchor="middle">IA</textPath></text>
+          </svg>
+          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 2.7s infinite">4</span>
+          
+          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
+            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">L'automatisation vient après, sur des processus déjà propres.</p>
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>L'IA arrive sur des processus déjà propres, jamais en point de départ</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les tâches répétitives automatisées, pas les décisions</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Chaque automatisation est mesurée avant d'être étendue</span></li>
+            </ul>
+          </div>
+        </div>
+        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:clamp(0px, 4.6vw, 58px); animation-delay:.48s;">
+          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
+            <path id="alphaArc4" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
+            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc4" startOffset="50%" text-anchor="middle">Performance</textPath></text>
+          </svg>
+          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 3.6s infinite">5</span>
+          
+          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
+            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">On mesure, on forme vos équipes, vous reprenez la main.</p>
+            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Indicateurs de suivi remis avec la livraison</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Formation de vos équipes et transfert des compétences</span></li>
+                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>La mission finit quand vous n'avez plus besoin de nous</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(48px, 6vw, 76px); text-align:center">
+      <a class="ihh37" href="methode-alpha.html" style="display:inline-flex; align-items:center; gap:10px; font-size:0.85rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); text-decoration:none; transition:gap .35s ease">Voir le déroulé complet d'une mission <span aria-hidden="true">→</span></a>
     </div>
   </div>
+</section>
+<hr aria-hidden="true" style="height:1px; border:none; margin:0; background-image:linear-gradient(90deg, transparent 0%, rgba(108,34,237,0) 35%, rgba(138,77,255,0.95) 50%, rgba(108,34,237,0) 65%, transparent 100%); background-size:220% 100%; background-repeat:no-repeat; background-color:var(--lineA); animation:sepFlow 4.5s linear infinite">
+<!-- Pourquoi nous -->
+<section style="padding:96px 24px; background:var(--sB)">
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:40px">
+    <div>
+      <p style="margin:0 0 8px; font-size:0.85rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent)">Notre approche</p>
+      <h2 style="margin:0; font-size:clamp(1.8rem, 4.5vw, 2.6rem); font-weight:900; line-height:1.15; color:var(--txA)">Nous commençons par écouter, pas par vendre</h2>
+    </div>
+    <div style="display:flex; flex-direction:column">
+      
+        <div class="ihh38" style="display:flex; gap:16px; padding:20px 10px; margin:0 -10px; border-top:1px solid var(--lineA); border-radius:12px; transition:background .4s ease, box-shadow .4s ease, transform .4s ease">
+          <span aria-hidden="true" style="flex:none; width:6px; height:6px; background:#6C22ED; margin-top:11px; transform:rotate(45deg)"></span>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:1.1rem; font-weight:700; color:var(--txA)">Nous vous disons aussi ce qui n'est pas urgent</h3>
+            <p style="margin:0; color:var(--txB); line-height:1.7">Le premier échange sert autant à écarter les dépenses inutiles qu'à lancer les bons chantiers.</p>
+          </div>
+        </div>
+      
+        <div class="ihh39" style="display:flex; gap:16px; padding:20px 10px; margin:0 -10px; border-top:1px solid var(--lineA); border-radius:12px; transition:background .4s ease, box-shadow .4s ease, transform .4s ease">
+          <span aria-hidden="true" style="flex:none; width:6px; height:6px; background:#6C22ED; margin-top:11px; transform:rotate(45deg)"></span>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:1.1rem; font-weight:700; color:var(--txA)">Vous comprenez chaque décision</h3>
+            <p style="margin:0; color:var(--txB); line-height:1.7">Pas de vocabulaire technique imposé. Chaque proposition est expliquée en temps gagné et en coût évité.</p>
+          </div>
+        </div>
+      
+        <div class="ihh40" style="display:flex; gap:16px; padding:20px 10px; margin:0 -10px; border-top:1px solid var(--lineA); border-radius:12px; transition:background .4s ease, box-shadow .4s ease, transform .4s ease">
+          <span aria-hidden="true" style="flex:none; width:6px; height:6px; background:#6C22ED; margin-top:11px; transform:rotate(45deg)"></span>
+          <div>
+            <h3 style="margin:0 0 8px; font-size:1.1rem; font-weight:700; color:var(--txA)">Vos équipes savent s'en servir</h3>
+            <p style="margin:0; color:var(--txB); line-height:1.7">Un outil que personne n'utilise ne sert à rien. La formation et le suivi font partie du projet.</p>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+</section>
+
+<hr aria-hidden="true" style="height:1px; border:none; margin:0; background-image:linear-gradient(90deg, transparent 0%, rgba(108,34,237,0) 35%, rgba(138,77,255,0.95) 50%, rgba(108,34,237,0) 65%, transparent 100%); background-size:220% 100%; background-repeat:no-repeat; background-color:var(--lineA); animation:sepFlow 4.5s linear infinite">
+
+<!-- Ils nous font confiance -->
+<section data-trust data-screen-label="Confiance" style="position:relative; isolation:isolate; overflow:hidden; background:var(--trustBg); color:var(--txA); padding:clamp(52px, 6vw, 76px) 24px">
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none"><svg viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" fill="none" style="position:absolute; inset:0; width:100%; height:100%; color:#8A4DFF"><path d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875" stroke="currentColor" fill="none" stroke-width="0.180" stroke-opacity="0.100" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:0.0s"></path><path d="M-375 -195C-375 -195 -307 210 147 337C611 464 679 869 679 869" stroke="currentColor" fill="none" stroke-width="0.192" stroke-opacity="0.116" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-1.1s"></path><path d="M-370 -201C-370 -201 -302 204 142 331C606 458 674 863 674 863" stroke="currentColor" fill="none" stroke-width="0.204" stroke-opacity="0.132" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-2.2s"></path><path d="M-365 -207C-365 -207 -297 198 137 325C601 452 669 857 669 857" stroke="currentColor" fill="none" stroke-width="0.216" stroke-opacity="0.148" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-3.3s"></path><path d="M-360 -213C-360 -213 -292 192 132 319C596 446 664 851 664 851" stroke="currentColor" fill="none" stroke-width="0.228" stroke-opacity="0.164" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-4.4s"></path><path d="M-355 -219C-355 -219 -287 186 127 313C591 440 659 845 659 845" stroke="currentColor" fill="none" stroke-width="0.240" stroke-opacity="0.180" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-5.5s"></path><path d="M-350 -225C-350 -225 -282 180 122 307C586 434 654 839 654 839" stroke="currentColor" fill="none" stroke-width="0.252" stroke-opacity="0.196" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-6.6s"></path><path d="M-345 -231C-345 -231 -277 174 117 301C581 428 649 833 649 833" stroke="currentColor" fill="none" stroke-width="0.264" stroke-opacity="0.212" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-7.7s"></path><path d="M-340 -237C-340 -237 -272 168 112 295C576 422 644 827 644 827" stroke="currentColor" fill="none" stroke-width="0.276" stroke-opacity="0.228" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-8.8s"></path><path d="M-335 -243C-335 -243 -267 162 107 289C571 416 639 821 639 821" stroke="currentColor" fill="none" stroke-width="0.288" stroke-opacity="0.244" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-9.9s"></path><path d="M-330 -249C-330 -249 -262 156 102 283C566 410 634 815 634 815" stroke="currentColor" fill="none" stroke-width="0.300" stroke-opacity="0.260" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-11.0s"></path><path d="M-325 -255C-325 -255 -257 150 97 277C561 404 629 809 629 809" stroke="currentColor" fill="none" stroke-width="0.312" stroke-opacity="0.276" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-12.1s"></path><path d="M-320 -261C-320 -261 -252 144 92 271C556 398 624 803 624 803" stroke="currentColor" fill="none" stroke-width="0.324" stroke-opacity="0.292" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-13.2s"></path><path d="M-315 -267C-315 -267 -247 138 87 265C551 392 619 797 619 797" stroke="currentColor" fill="none" stroke-width="0.336" stroke-opacity="0.308" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-14.3s"></path><path d="M-310 -273C-310 -273 -242 132 82 259C546 386 614 791 614 791" stroke="currentColor" fill="none" stroke-width="0.348" stroke-opacity="0.324" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-15.4s"></path><path d="M-305 -279C-305 -279 -237 126 77 253C541 380 609 785 609 785" stroke="currentColor" fill="none" stroke-width="0.360" stroke-opacity="0.340" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-16.5s"></path><path d="M-300 -285C-300 -285 -232 120 72 247C536 374 604 779 604 779" stroke="currentColor" fill="none" stroke-width="0.372" stroke-opacity="0.356" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-17.6s"></path><path d="M-295 -291C-295 -291 -227 114 67 241C531 368 599 773 599 773" stroke="currentColor" fill="none" stroke-width="0.384" stroke-opacity="0.372" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-18.7s"></path><path d="M-290 -297C-290 -297 -222 108 62 235C526 362 594 767 594 767" stroke="currentColor" fill="none" stroke-width="0.396" stroke-opacity="0.388" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-19.8s"></path><path d="M-285 -303C-285 -303 -217 102 57 229C521 356 589 761 589 761" stroke="currentColor" fill="none" stroke-width="0.408" stroke-opacity="0.404" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-20.9s"></path><path d="M-280 -309C-280 -309 -212 96 52 223C516 350 584 755 584 755" stroke="currentColor" fill="none" stroke-width="0.420" stroke-opacity="0.420" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-22.0s"></path><path d="M-275 -315C-275 -315 -207 90 47 217C511 344 579 749 579 749" stroke="currentColor" fill="none" stroke-width="0.432" stroke-opacity="0.436" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-23.1s"></path><path d="M-270 -321C-270 -321 -202 84 42 211C506 338 574 743 574 743" stroke="currentColor" fill="none" stroke-width="0.444" stroke-opacity="0.452" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-24.2s"></path><path d="M-265 -327C-265 -327 -197 78 37 205C501 332 569 737 569 737" stroke="currentColor" fill="none" stroke-width="0.456" stroke-opacity="0.468" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-25.3s"></path><path d="M-260 -333C-260 -333 -192 72 32 199C496 326 564 731 564 731" stroke="currentColor" fill="none" stroke-width="0.468" stroke-opacity="0.484" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-26.4s"></path><path d="M-255 -339C-255 -339 -187 66 27 193C491 320 559 725 559 725" stroke="currentColor" fill="none" stroke-width="0.480" stroke-opacity="0.500" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-27.5s"></path><path d="M-250 -345C-250 -345 -182 60 22 187C486 314 554 719 554 719" stroke="currentColor" fill="none" stroke-width="0.492" stroke-opacity="0.516" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-28.6s"></path><path d="M-245 -351C-245 -351 -177 54 17 181C481 308 549 713 549 713" stroke="currentColor" fill="none" stroke-width="0.504" stroke-opacity="0.532" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-29.7s"></path><path d="M-240 -357C-240 -357 -172 48 12 175C476 302 544 707 544 707" stroke="currentColor" fill="none" stroke-width="0.516" stroke-opacity="0.548" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-30.8s"></path><path d="M-235 -363C-235 -363 -167 42 7 169C471 296 539 701 539 701" stroke="currentColor" fill="none" stroke-width="0.528" stroke-opacity="0.564" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-31.9s"></path><path d="M-230 -369C-230 -369 -162 36 2 163C466 290 534 695 534 695" stroke="currentColor" fill="none" stroke-width="0.540" stroke-opacity="0.580" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-33.0s"></path><path d="M-225 -375C-225 -375 -157 30 -3 157C461 284 529 689 529 689" stroke="currentColor" fill="none" stroke-width="0.552" stroke-opacity="0.596" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-34.1s"></path><path d="M-220 -381C-220 -381 -152 24 -8 151C456 278 524 683 524 683" stroke="currentColor" fill="none" stroke-width="0.564" stroke-opacity="0.612" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-35.2s"></path><path d="M-215 -387C-215 -387 -147 18 -13 145C451 272 519 677 519 677" stroke="currentColor" fill="none" stroke-width="0.576" stroke-opacity="0.628" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-36.3s"></path><path d="M-210 -393C-210 -393 -142 12 -18 139C446 266 514 671 514 671" stroke="currentColor" fill="none" stroke-width="0.588" stroke-opacity="0.644" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-37.4s"></path><path d="M-205 -399C-205 -399 -137 6 -23 133C441 260 509 665 509 665" stroke="currentColor" fill="none" stroke-width="0.600" stroke-opacity="0.660" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-38.5s"></path></svg></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none"><svg viewBox="0 0 696 316" preserveAspectRatio="xMidYMid slice" fill="none" style="position:absolute; inset:0; width:100%; height:100%; color:#8A4DFF"><path d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875" stroke="currentColor" fill="none" stroke-width="0.180" stroke-opacity="0.100" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:0.0s"></path><path d="M-385 -195C-385 -195 -317 210 157 337C621 464 689 869 689 869" stroke="currentColor" fill="none" stroke-width="0.192" stroke-opacity="0.116" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-1.1s"></path><path d="M-390 -201C-390 -201 -322 204 162 331C626 458 694 863 694 863" stroke="currentColor" fill="none" stroke-width="0.204" stroke-opacity="0.132" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-2.2s"></path><path d="M-395 -207C-395 -207 -327 198 167 325C631 452 699 857 699 857" stroke="currentColor" fill="none" stroke-width="0.216" stroke-opacity="0.148" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-3.3s"></path><path d="M-400 -213C-400 -213 -332 192 172 319C636 446 704 851 704 851" stroke="currentColor" fill="none" stroke-width="0.228" stroke-opacity="0.164" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-4.4s"></path><path d="M-405 -219C-405 -219 -337 186 177 313C641 440 709 845 709 845" stroke="currentColor" fill="none" stroke-width="0.240" stroke-opacity="0.180" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-5.5s"></path><path d="M-410 -225C-410 -225 -342 180 182 307C646 434 714 839 714 839" stroke="currentColor" fill="none" stroke-width="0.252" stroke-opacity="0.196" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-6.6s"></path><path d="M-415 -231C-415 -231 -347 174 187 301C651 428 719 833 719 833" stroke="currentColor" fill="none" stroke-width="0.264" stroke-opacity="0.212" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-7.7s"></path><path d="M-420 -237C-420 -237 -352 168 192 295C656 422 724 827 724 827" stroke="currentColor" fill="none" stroke-width="0.276" stroke-opacity="0.228" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-8.8s"></path><path d="M-425 -243C-425 -243 -357 162 197 289C661 416 729 821 729 821" stroke="currentColor" fill="none" stroke-width="0.288" stroke-opacity="0.244" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-9.9s"></path><path d="M-430 -249C-430 -249 -362 156 202 283C666 410 734 815 734 815" stroke="currentColor" fill="none" stroke-width="0.300" stroke-opacity="0.260" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-11.0s"></path><path d="M-435 -255C-435 -255 -367 150 207 277C671 404 739 809 739 809" stroke="currentColor" fill="none" stroke-width="0.312" stroke-opacity="0.276" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-12.1s"></path><path d="M-440 -261C-440 -261 -372 144 212 271C676 398 744 803 744 803" stroke="currentColor" fill="none" stroke-width="0.324" stroke-opacity="0.292" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-13.2s"></path><path d="M-445 -267C-445 -267 -377 138 217 265C681 392 749 797 749 797" stroke="currentColor" fill="none" stroke-width="0.336" stroke-opacity="0.308" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-14.3s"></path><path d="M-450 -273C-450 -273 -382 132 222 259C686 386 754 791 754 791" stroke="currentColor" fill="none" stroke-width="0.348" stroke-opacity="0.324" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-15.4s"></path><path d="M-455 -279C-455 -279 -387 126 227 253C691 380 759 785 759 785" stroke="currentColor" fill="none" stroke-width="0.360" stroke-opacity="0.340" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-16.5s"></path><path d="M-460 -285C-460 -285 -392 120 232 247C696 374 764 779 764 779" stroke="currentColor" fill="none" stroke-width="0.372" stroke-opacity="0.356" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-17.6s"></path><path d="M-465 -291C-465 -291 -397 114 237 241C701 368 769 773 769 773" stroke="currentColor" fill="none" stroke-width="0.384" stroke-opacity="0.372" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-18.7s"></path><path d="M-470 -297C-470 -297 -402 108 242 235C706 362 774 767 774 767" stroke="currentColor" fill="none" stroke-width="0.396" stroke-opacity="0.388" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-19.8s"></path><path d="M-475 -303C-475 -303 -407 102 247 229C711 356 779 761 779 761" stroke="currentColor" fill="none" stroke-width="0.408" stroke-opacity="0.404" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-20.9s"></path><path d="M-480 -309C-480 -309 -412 96 252 223C716 350 784 755 784 755" stroke="currentColor" fill="none" stroke-width="0.420" stroke-opacity="0.420" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-22.0s"></path><path d="M-485 -315C-485 -315 -417 90 257 217C721 344 789 749 789 749" stroke="currentColor" fill="none" stroke-width="0.432" stroke-opacity="0.436" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-23.1s"></path><path d="M-490 -321C-490 -321 -422 84 262 211C726 338 794 743 794 743" stroke="currentColor" fill="none" stroke-width="0.444" stroke-opacity="0.452" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-24.2s"></path><path d="M-495 -327C-495 -327 -427 78 267 205C731 332 799 737 799 737" stroke="currentColor" fill="none" stroke-width="0.456" stroke-opacity="0.468" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-25.3s"></path><path d="M-500 -333C-500 -333 -432 72 272 199C736 326 804 731 804 731" stroke="currentColor" fill="none" stroke-width="0.468" stroke-opacity="0.484" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-26.4s"></path><path d="M-505 -339C-505 -339 -437 66 277 193C741 320 809 725 809 725" stroke="currentColor" fill="none" stroke-width="0.480" stroke-opacity="0.500" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-27.5s"></path><path d="M-510 -345C-510 -345 -442 60 282 187C746 314 814 719 814 719" stroke="currentColor" fill="none" stroke-width="0.492" stroke-opacity="0.516" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-28.6s"></path><path d="M-515 -351C-515 -351 -447 54 287 181C751 308 819 713 819 713" stroke="currentColor" fill="none" stroke-width="0.504" stroke-opacity="0.532" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 34.0s linear infinite; animation-delay:-29.7s"></path><path d="M-520 -357C-520 -357 -452 48 292 175C756 302 824 707 824 707" stroke="currentColor" fill="none" stroke-width="0.516" stroke-opacity="0.548" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 36.4s linear infinite; animation-delay:-30.8s"></path><path d="M-525 -363C-525 -363 -457 42 297 169C761 296 829 701 829 701" stroke="currentColor" fill="none" stroke-width="0.528" stroke-opacity="0.564" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 38.8s linear infinite; animation-delay:-31.9s"></path><path d="M-530 -369C-530 -369 -462 36 302 163C766 290 834 695 834 695" stroke="currentColor" fill="none" stroke-width="0.540" stroke-opacity="0.580" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 41.2s linear infinite; animation-delay:-33.0s"></path><path d="M-535 -375C-535 -375 -467 30 307 157C771 284 839 689 839 689" stroke="currentColor" fill="none" stroke-width="0.552" stroke-opacity="0.596" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 43.6s linear infinite; animation-delay:-34.1s"></path><path d="M-540 -381C-540 -381 -472 24 312 151C776 278 844 683 844 683" stroke="currentColor" fill="none" stroke-width="0.564" stroke-opacity="0.612" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 46.0s linear infinite; animation-delay:-35.2s"></path><path d="M-545 -387C-545 -387 -477 18 317 145C781 272 849 677 849 677" stroke="currentColor" fill="none" stroke-width="0.576" stroke-opacity="0.628" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 48.4s linear infinite; animation-delay:-36.3s"></path><path d="M-550 -393C-550 -393 -482 12 322 139C786 266 854 671 854 671" stroke="currentColor" fill="none" stroke-width="0.588" stroke-opacity="0.644" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 50.8s linear infinite; animation-delay:-37.4s"></path><path d="M-555 -399C-555 -399 -487 6 327 133C791 260 859 665 859 665" stroke="currentColor" fill="none" stroke-width="0.600" stroke-opacity="0.660" stroke-dasharray="520 480" vector-effect="non-scaling-stroke" style="animation:ctaPathFlow 53.2s linear infinite; animation-delay:-38.5s"></path></svg></div>
+  <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none; background:radial-gradient(60% 60% at 50% 50%, rgba(108,34,237,0.12) 0%, transparent 72%)"></div>
+  <div style="position:relative; z-index:1; max-width:1140px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:clamp(28px, 4vw, 44px)">
+    <p style="margin:0; color:var(--accent); font-size:12px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; text-align:center">Ils nous font confiance</p>
+    <div data-trust-track style="position:relative; width:100%; overflow:hidden; mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)">
+      <ul style="display:flex; align-items:center; width:max-content; margin:0; padding:0; list-style:none; animation:trustScroll 34s linear infinite">
+      <li style="flex:0 0 auto; display:flex; align-items:center; gap:clamp(40px, 6vw, 80px); padding-right:clamp(40px, 6vw, 80px)"><img data-trust-logo src="assets/logo-integc-logistic-alpha.png" alt="Integc Logistic" width="636" height="230" loading="lazy" decoding="async" style="height:58px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-kashop-alpha.png" alt="Ka Shop" width="709" height="350" loading="lazy" decoding="async" style="height:52px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-jkam-alpha.png" alt="J'KAM" width="100" height="107" loading="lazy" decoding="async" style="height:54px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-lexsolutions-alpha.png" alt="LexSolutions" width="1735" height="590" loading="lazy" decoding="async" style="height:44px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-aquafarm-alpha.png" alt="Aquafarm" width="557" height="330" loading="lazy" decoding="async" style="height:54px; width:auto; max-width:200px; object-fit:contain"></li>
+      <li style="flex:0 0 auto; display:flex; align-items:center; gap:clamp(40px, 6vw, 80px); padding-right:clamp(40px, 6vw, 80px)"><img data-trust-logo src="assets/logo-integc-logistic-alpha.png" alt="Integc Logistic" width="636" height="230" loading="lazy" decoding="async" style="height:58px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-kashop-alpha.png" alt="Ka Shop" width="709" height="350" loading="lazy" decoding="async" style="height:52px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-jkam-alpha.png" alt="J'KAM" width="100" height="107" loading="lazy" decoding="async" style="height:54px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-lexsolutions-alpha.png" alt="LexSolutions" width="1735" height="590" loading="lazy" decoding="async" style="height:44px; width:auto; max-width:200px; object-fit:contain"><img data-trust-logo src="assets/logo-aquafarm-alpha.png" alt="Aquafarm" width="557" height="330" loading="lazy" decoding="async" style="height:54px; width:auto; max-width:200px; object-fit:contain"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Spacer & Cinematic Container -->
+
+
+
+<div data-footer-shell data-footer-spacer style="position:relative; width:100%; height:100vh; clip-path:polygon(0% 0, 100% 0%, 100% 100%, 0 100%)">
+  <footer style="position:fixed; bottom:0; left:0; width:100%; height:100vh; display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; background:var(--sA); color:var(--txA); z-index:1">
+    
+    <!-- Aurora Glow -->
+    <div style="position:absolute; left:50%; top:50%; width:80vw; height:60vh; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(circle at 50% 50%, rgba(138,77,255,0.15) 0%, rgba(107,34,237,0.08) 40%, transparent 70%); filter:blur(80px); opacity:0.6; animation:breathe 8s ease-in-out infinite alternate; pointer-events:none; z-index:0"></div>
+    
+    <!-- Grid Background -->
+    <div style="position:absolute; inset:0; background-size:60px 60px; background-image:linear-gradient(to right, rgba(11,11,12,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,11,12,0.08) 1px, transparent 1px); mask-image:linear-gradient(to bottom, transparent, black 30%, black 70%, transparent); -webkit-mask-image:linear-gradient(to bottom, transparent, black 30%, black 70%, transparent); z-index:0; pointer-events:none"></div>
+    
+    <!-- Giant Background Text -->
+    <div data-footer-giant style="position:absolute; bottom:-5vh; left:50%; width:104%; transform:translateX(-50%); z-index:0; pointer-events:none; user-select:none">
+      <svg viewBox="0 0 1000 220" preserveAspectRatio="xMidYMax meet" style="display:block; width:100%; height:auto; overflow:visible">
+        <text x="500" y="190" text-anchor="middle" font-size="230" font-weight="900" letter-spacing="-11" fill="none" stroke="rgba(11,11,12,0.12)" stroke-width="1.4">INNOVA</text>
+        <text data-footer-trace x="500" y="190" text-anchor="middle" font-size="230" font-weight="900" letter-spacing="-11" fill="none" stroke="#A971FF" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="130 370">INNOVA</text>
+        <text data-footer-trace-2 x="500" y="190" text-anchor="middle" font-size="230" font-weight="900" letter-spacing="-11" fill="none" stroke="#8A4DFF" stroke-width="0.8" stroke-linecap="round" stroke-dasharray="60 300">INNOVA</text>
+      </svg>
+    </div>
+    
+    <!-- Diagonal Marquee -->
+    <div style="position:absolute; top:104px; left:0; width:100%; overflow:hidden; border-top:1px solid rgba(11,11,12,0.08); border-bottom:1px solid rgba(11,11,12,0.08); background:rgba(11,11,12,0.06); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); padding:16px 0; z-index:10; transform:rotate(-2deg) scale(1.1); box-shadow:0 20px 40px rgba(0,0,0,0.12)">
+      <div style="display:flex; width:max-content; font-size:0.75rem; font-weight:700; letter-spacing:0.3em; color:var(--accent); text-transform:uppercase; animation:marquee 40s linear infinite">
+        <div style="display:flex; align-items:center; gap:48px; padding:0 24px">
+          <span>Gagner du temps</span> <span>✦</span> <span>Être trouvé en ligne</span> <span>✦</span> <span>Suivre ses stocks</span> <span>✦</span> <span>Automatiser ses devis</span> <span>✦</span> <span>Former ses équipes</span> <span>✦</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:48px; padding:0 24px">
+          <span>Gagner du temps</span> <span>✦</span> <span>Être trouvé en ligne</span> <span>✦</span> <span>Suivre ses stocks</span> <span>✦</span> <span>Automatiser ses devis</span> <span>✦</span> <span>Former ses équipes</span> <span>✦</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1 1 auto; min-height:0; padding:clamp(108px, 15vh, 150px) 24px clamp(20px, 4vh, 56px); width:100%; max-width:900px; margin:0 auto">
+      <h2 data-footer-reveal style="font-size:clamp(2rem, 8vw, 4.5rem); font-weight:900; letter-spacing:-0.02em; margin:0 0 clamp(18px, 3.5vh, 32px); text-align:center; background:linear-gradient(180deg, var(--txA) 0%, rgba(11,11,12,0.4) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text">Où en êtes-vous aujourd'hui ?</h2>
+      <p data-footer-reveal style="margin:0 0 clamp(18px, 3.5vh, 32px); max-width:52ch; text-align:center; font-size:clamp(0.92rem, 2vw, 1.05rem); line-height:1.7; color:var(--txB)">Décrivez-nous votre fonctionnement actuel. Nous vous répondons sous 48 heures.</p>
+      
+      <div data-footer-reveal style="display:flex; flex-direction:column; align-items:center; gap:24px; width:100%">
+        <a class="ihh41" data-magnetic href="contact.html" style="display:inline-flex; align-items:center; gap:8px; padding:17px 34px; border-radius:999px; text-decoration:none; color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); transition:transform .3s ease, filter .3s ease">Faire le point, sans frais</a>
+        
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px; width:100%; margin-top:16px">
+          <a class="ihh42" data-magnetic href="methode-alpha.html" style="padding:10px 20px; border-radius:999px; text-decoration:none; color:var(--txA); font-size:0.85rem; font-weight:600; background:linear-gradient(145deg, rgba(11,11,12,0.03) 0%, rgba(11,11,12,0.01) 100%); backdrop-filter:blur(16px); border:1px solid rgba(11,11,12,0.12); transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1)">Notre Méthode</a>
+          <a class="ihh43" data-magnetic href="realisations.html" style="padding:10px 20px; border-radius:999px; text-decoration:none; color:var(--txA); font-size:0.85rem; font-weight:600; background:linear-gradient(145deg, rgba(11,11,12,0.03) 0%, rgba(11,11,12,0.01) 100%); backdrop-filter:blur(16px); border:1px solid rgba(11,11,12,0.12); transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1)">Portfolio</a>
+          <a class="ihh44" data-magnetic href="tarifs.html" style="padding:10px 20px; border-radius:999px; text-decoration:none; color:var(--txA); font-size:0.85rem; font-weight:600; background:linear-gradient(145deg, rgba(11,11,12,0.03) 0%, rgba(11,11,12,0.01) 100%); backdrop-filter:blur(16px); border:1px solid rgba(11,11,12,0.12); transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1)">Tarifs</a>
+          <a class="ihh45" data-magnetic href="apropos.html" style="padding:10px 20px; border-radius:999px; text-decoration:none; color:var(--txA); font-size:0.85rem; font-weight:600; background:linear-gradient(145deg, rgba(11,11,12,0.03) 0%, rgba(11,11,12,0.01) 100%); backdrop-filter:blur(16px); border:1px solid rgba(11,11,12,0.12); transition:all 0.4s cubic-bezier(0.16, 1, 0.3, 1)">Équipe</a>
+        </div>
+
+        <div style="margin-top:20px; text-align:center; color:rgba(85,85,85,0.8); font-size:0.82rem; line-height:1.6">
+          <p style="margin:0; font-weight:600">+237 697 212 646 • contact@innovaalpha.com</p>
+          <p style="margin:6px 0 0; font-size:0.75rem">Yaoundé, Cameroun • Ouvert Lun-Ven 8h-18h GMT+1</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div style="position:relative; z-index:20; width:100%; flex:none; padding:14px clamp(20px, 4vw, 44px); display:flex; flex-wrap:nowrap; gap:16px; align-items:center; justify-content:space-between; border-top:1px solid rgba(11,11,12,0.08)">
+      <div style="min-width:0; display:flex; align-items:center; gap:16px; flex-wrap:wrap; color:rgba(85,85,85,0.8); font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase"><span>© 2026 INNOVA ALPHA. Tous droits réservés.</span><a href="mentions-legales.html" style="color:rgba(85,85,85,0.8); text-decoration:none; border-bottom:1px solid rgba(11,11,12,0.18)">Mentions légales</a></div>
+            <button class="ihh46" data-magnetic type="button" onclick="INNOVA_scrollToTop()" aria-label="Retour en haut" style="width:48px; height:48px; flex:none; border-radius:999px; display:flex; align-items:center; justify-content:center; color:rgba(85,85,85,0.9); border:1px solid rgba(11,11,12,0.12); background:linear-gradient(145deg, rgba(11,11,12,0.03) 0%, rgba(11,11,12,0.01) 100%); backdrop-filter:blur(16px); cursor:pointer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+      </button>
+    </div>
+  </footer>
 </div>
 
-<!-- ── SERVICES ───────────────────────────────────────── -->
-<section class="section" id="services">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Services</span>
-      <h2 class="section-title">Ce qu'on fait pour vous.</h2>
-      <p class="section-lead">Une offre complète, du premier logo à l'IA en production. Un seul partenaire, pas dix prestataires.</p>
-    </div>
-
-    <div class="services-grid stagger-group">
-
-      <!-- Row 1 : 2 grandes cards côte à côte (3+3 colonnes) -->
-      <article class="service-card service-card--wide tilt stagger-item">
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <h3>Identité & Branding</h3>
-        <p>Logo, charte graphique et identité de marque. Une image forte, cohérente et mémorable pour votre entreprise.</p>
-        <a href="services.html#branding" class="card-link">En savoir plus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-
-      <article class="service-card service-card--wide tilt stagger-item">
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h3>Site web & Landing pages</h3>
-        <p>Sites rapides, performants et optimisés SEO. Conçus pour convertir vos visiteurs en clients réels.</p>
-        <a href="services.html#web" class="card-link">En savoir plus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-
-      <!-- Row 2 : 3 cards égales (2+2+2 colonnes) -->
-      <article class="service-card service-card--third tilt stagger-item">
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>
-        </div>
-        <h3>Intégration IA</h3>
-        <p>Automatisation, chatbots et outils IA sur mesure. La technologie traduite en gain de temps concret.</p>
-        <a href="services.html#ia" class="card-link">En savoir plus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-
-      <article class="service-card service-card--third tilt stagger-item">
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3>Marketing Digital</h3>
-        <p>Réseaux sociaux, SEO et publicité en ligne. De la visibilité qui se transforme réellement en clients.</p>
-        <a href="services.html#marketing" class="card-link">En savoir plus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-
-      <article class="service-card service-card--third tilt stagger-item">
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <h3>Formation & Conseil</h3>
-        <p>On forme vos équipes aux outils IA et digitaux. Vous gagnez en autonomie et en compétences durables.</p>
-        <a href="services.html#formation" class="card-link">En savoir plus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </article>
-
-      <!-- Row 3 : card pleine largeur — le service intégrateur -->
-      <article class="service-card service-card--full tilt stagger-item">
-        <div class="svc-full-left">
-          <div class="card-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>
-          </div>
-          <h3>Déploiement complet</h3>
-          <p>Accompagnement de A à Z sur votre transformation digitale. Vous pilotez la vision, on exécute.</p>
-        </div>
-        <div class="svc-full-right">
-          <span class="svc-full-stat">A→Z</span>
-          <a href="services.html#deploiement" class="card-link">En savoir plus <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── WORK ────────────────────────────────────────────── -->
-<section class="section section-alt" id="work">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="eyebrow">Réalisations</span>
-      <h2 class="section-title">Projets livrés.</h2>
-      <p class="section-lead">Des résultats concrets pour de vraies entreprises. La liste s'agrandit.</p>
-    </div>
-
-    <div class="work-list">
-      <article class="work-item reveal">
-        <div class="work-media">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85" alt="General Engineering SARL" loading="lazy" />
-          <div class="work-overlay"></div>
-        </div>
-        <div class="work-info">
-          <div class="work-num">01</div>
-          <div class="work-tags">
-            <span>Branding</span>
-            <span>Site web</span>
-            <span>Déploiement</span>
-          </div>
-          <h3>General Engineering SARL</h3>
-          <p>Refonte complète de l'identité de marque, conception d'un site web performant et déploiement digital de bout en bout pour un bureau d'études BTP.</p>
-          <a href="realisations.html" class="work-link">
-            Voir le projet
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="work-item work-item--reverse reveal">
-        <div class="work-media">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=85" alt="Aquafarm Cameroun" loading="lazy" />
-          <div class="work-overlay"></div>
-        </div>
-        <div class="work-info">
-          <div class="work-num">02</div>
-          <div class="work-tags">
-            <span>Rebranding</span>
-            <span>Site web SEO</span>
-            <span>Marketing digital</span>
-          </div>
-          <h3>Aquafarm Cameroun</h3>
-          <p>Rebranding complet, plaquette commerciale, site web 6 pages et déploiement de l'écosystème digital pour une entreprise piscicole basée à Mfou, Cameroun.</p>
-          <a href="realisations.html" class="work-link">
-            Voir le projet
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </article>
-    </div>
-
-    <div class="work-cta reveal">
-      <a href="realisations.html" class="btn btn-outline">Voir toutes les réalisations</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── STATS ───────────────────────────────────────────── -->
-<section class="stats-section reveal">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-num"><span data-target="2" data-suffix="+">0</span></div>
-        <div class="stat-label">Clients accompagnés</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num"><span data-target="6" data-suffix="">0</span></div>
-        <div class="stat-label">Expertises maîtrisées</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num"><span data-target="100" data-suffix="%">0</span></div>
-        <div class="stat-label">Satisfaction client</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num"><span class="stat-text">A→Z</span></div>
-        <div class="stat-label">De la stratégie au déploiement</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── WHY ─────────────────────────────────────────────── -->
-<section class="section" id="why">
-  <div class="container">
-    <div class="why-inner">
-      <div class="why-left reveal">
-        <h2 class="section-title">Pourquoi INNOVA ALPHA ?</h2>
-        <p>Nous ne vendons pas du rêve. Nous livrons des résultats mesurables, adaptés au terrain africain, avec des budgets PME.</p>
-        <a href="pourquoi-nous.html" class="btn btn-primary magnetic" style="margin-top:2rem;display:inline-flex">
-          <span>Notre approche</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="why-right stagger-group">
-        <div class="why-item stagger-item">
-          <div class="why-num">01</div>
-          <div>
-            <h4>On connaît le terrain africain</h4>
-            <p>Des solutions pensées pour votre marché, vos contraintes et vos clients réels. Pas des templates importés.</p>
-          </div>
-        </div>
-        <div class="why-item stagger-item">
-          <div class="why-num">02</div>
-          <div>
-            <h4>L'IA accessible aux PME</h4>
-            <p>On traduit la technologie en résultats concrets et abordables. Pas de jargon, juste de l'impact mesurable.</p>
-          </div>
-        </div>
-        <div class="why-item stagger-item">
-          <div class="why-num">03</div>
-          <div>
-            <h4>Livraison. Résultats. Suivi.</h4>
-            <p>On ne promet pas. On livre. Et on reste à vos côtés pour mesurer ce qui a vraiment changé.</p>
-          </div>
-        </div>
-        <div class="why-item stagger-item">
-          <div class="why-num">04</div>
-          <div>
-            <h4>Un interlocuteur unique</h4>
-            <p>Le CEO est présent du premier appel à la livraison. Un partenaire engagé, pas une boîte anonyme.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA ─────────────────────────────────────────────── -->
-<section class="cta-section" id="contact">
-  <div class="cta-orb cta-orb-1"></div>
-  <div class="cta-orb cta-orb-2"></div>
-  <div class="container">
-    <div class="cta-inner reveal">
-      <h2 class="cta-title">Prêt à passer à la vitesse supérieure ?</h2>
-      <p class="cta-sub">Décrivez votre projet. On vous répond sous 24h.</p>
-      <div class="cta-actions">
-        <a href="devis.html" class="btn btn-white magnetic">
-          <span>Prendre un rendez-vous</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20d%27un%20projet." class="btn btn-ghost-white" target="_blank" rel="noopener">
-          <span>WhatsApp direct</span>
-        </a>
-      </div>
-      <div class="cta-contact-info">
-        <span>contact@innovaalpha.com</span>
-        <span class="dot-sep">·</span>
-        <span>Yaoundé, Cameroun</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div><!-- /.page-wrap -->
-
-<!-- ── FOOTER CINÉMATIQUE ─────────────────────────── -->
-<footer class="footer-cinematic">
-  <div class="fc-aurora" aria-hidden="true"></div>
-
-  <div class="fc-hero">
-    <svg class="fc-logo" width="196" height="56" viewBox="80 52 595 170" aria-label="INNOVA ALPHA">
-      <use href="#ia-logo"/>
-    </svg>
-    <h2 class="fc-headline">Prêt à décoller&nbsp;?</h2>
-    <p class="fc-sub">Premier échange gratuit. Livraison réelle. Résultats concrets.</p>
-    <div class="fc-actions">
-      <a href="devis.html" class="fc-cta">
-        Démarrer un projet
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a href="https://wa.me/237620301603" target="_blank" rel="noopener" class="fc-wa-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-        WhatsApp
-      </a>
-    </div>
-    <div class="fc-socials">
-      <a href="#" id="socialLinkedIn" aria-label="LinkedIn" class="fc-soc">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8.2h4.6V23H.2V8.2zM8.2 8.2h4.4v2h.06c.61-1.16 2.1-2.38 4.33-2.38 4.63 0 5.48 3.05 5.48 7.02V23h-4.6v-6.56c0-1.56-.03-3.57-2.18-3.57-2.18 0-2.51 1.7-2.51 3.46V23H8.2V8.2z"/></svg>
-      </a>
-      <a href="#" id="socialFacebook" aria-label="Facebook" class="fc-soc">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
-      </a>
-      <a href="https://wa.me/237620301603" target="_blank" rel="noopener" aria-label="WhatsApp" class="fc-soc">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-      </a>
-    </div>
-  </div>
-
-  <div class="fc-bottom">
-    <div class="fc-grid">
-      <div class="fc-col">
-        <p class="fc-col-label">Services</p>
-        <a href="services.html#branding">Identité &amp; Branding</a>
-        <a href="services.html#web">Site web</a>
-        <a href="services.html#ia">Intégration IA</a>
-        <a href="services.html#marketing">Marketing digital</a>
-      </div>
-      <div class="fc-col">
-        <p class="fc-col-label">Agence</p>
-        <a href="pourquoi-nous.html">Pourquoi nous</a>
-        <a href="processus.html">Notre méthode</a>
-        <a href="realisations.html">Réalisations</a>
-        <a href="devis.html">Démarrer un projet</a>
-      </div>
-      <div class="fc-col">
-        <p class="fc-col-label">Contact</p>
-        <p>Yaoundé, Cameroun</p>
-        <a href="mailto:contact@innovaalpha.com">contact@innovaalpha.com</a>
-        <a href="https://wa.me/237620301603" target="_blank" rel="noopener">+237 620 301 603</a>
-      </div>
-    </div>
-    <div class="fc-legal">
-      <span>© 2026 INNOVA ALPHA. Tous droits réservés.</span>
-      <span>Conçu à Yaoundé, pour l'Afrique qui avance.</span>
-    </div>
-  </div>
-</footer>
-
-<!-- ── WHATSAPP FLOAT ──────────────────────────────────── -->
-<a class="wa-float" href="https://wa.me/237620301603?text=Bonjour%20INNOVA%20ALPHA%2C%20je%20souhaite%20discuter%20d%27un%20projet%20avec%20vous." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-</a>
-
-<!-- ── SCRIPTS ──────────────────────────────────────────── -->
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="script.js"></script>
+<style>
+@keyframes breathe { 0% { transform:translate(-50%,-50%) scale(1); opacity:0.6 } 100% { transform:translate(-50%,-50%) scale(1.1); opacity:1 } }
+@keyframes marquee { from { transform:translateX(0) } to { transform:translateX(-50%) } }
+@keyframes heartbeat { 0%, 100% { transform:scale(1); filter:drop-shadow(0 0 5px rgba(239, 68, 68, 0.5)) } 15%, 45% { transform:scale(1.2); filter:drop-shadow(0 0 10px rgba(239, 68, 68, 0.8)) } 30% { transform:scale(1) } }
+</style>
+<script src="home.js"></script>
 </body>
 </html>

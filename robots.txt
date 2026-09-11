@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Allow: /*.dc.html
+Allow: /assets/
+Disallow: /debug/
+Disallow: /scraps/
+Disallow: /uploads/
+Disallow: /.image-slots.state.json
+Disallow: /.thumbnail
+
+User-agent: GPTBot
+User-agent: CCBot
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Crawl-delay: 1
+Request-rate: 10/1s
+
+Sitemap: https://innovaalpha.com/sitemap.xml

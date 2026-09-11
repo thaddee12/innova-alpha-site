@@ -1,0 +1,14 @@
+{
+  "name": "INNOVA ALPHA : La transformation digitale par la Méthode Alpha",
+  "short_name": "INNOVA ALPHA",
+  "description": "La transformation digitale par la Méthode Alpha : diagnostic, stratégie, transformation, IA, performance. Diagnostic Alpha sans frais, réponse sous 48 h.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B0B0C",
+  "theme_color": "#6C22ED",
+  "icons": [
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
