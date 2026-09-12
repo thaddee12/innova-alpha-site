@@ -33,6 +33,7 @@ a:hover { color: #8A4DFF; }
 @media (max-width: 1120px){
   nav[data-glass] [data-nav-links]{ display:none !important; }
   nav[data-glass] > a:not(:has(img)){ display:none !important; }
+  [data-nav-row] > a{ display:none !important; }
   nav[data-glass] [data-burger]{ display:inline-flex !important; }
   nav[data-glass] [data-logo]{ height:30px !important; }
   nav[data-glass]{ padding:8px 10px 8px 14px !important; gap:5px !important; }
@@ -82,7 +83,14 @@ nav[data-glass] [data-nav-links]{ gap:12px !important; min-width:0; }
 [data-alpha-step] { transition: filter .4s ease, opacity .4s ease; }
 [data-alpha-step]:hover [data-alpha-detail-card] { opacity: 1 !important; pointer-events: auto !important; }
 @media (hover: none) {
-  [data-alpha-detail-card] { opacity: 1 !important; pointer-events: auto !important; }
+  /* Ecrans tactiles (tablettes comprises) : les fiches sont toutes visibles,
+     donc le pentagone passe en liste empilee pour eviter qu'elles se
+     superposent et debordent a droite. */
+  [data-alpha-pentagon] { position: static !important; height: auto !important; display: flex; flex-direction: column; gap: 44px; }
+  [data-alpha-pentagon] [data-alpha-step] { position: static !important; transform: none !important; display: flex; align-items: center; gap: 16px; text-align: left; animation: none !important; }
+  [data-alpha-title] { position: static !important; width: auto !important; text-align: left !important; }
+  [data-alpha-detail-card] { position: static !important; opacity: 1 !important; pointer-events: auto !important; width: auto !important; margin-top: 10px !important; text-align: left !important; }
+  [data-alpha-step] > p, [data-alpha-step] > div { margin-top: 0 !important; }
 }
 @media (max-width: 760px) {
   [data-alpha-pentagon] { position: static !important; height: auto !important; display: flex; flex-direction: column; gap: 44px; }
