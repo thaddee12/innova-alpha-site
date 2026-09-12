@@ -33,7 +33,7 @@
 
     var txt = document.createElement('p');
     txt.style.cssText = 'margin:0; flex:1 1 260px; min-width:0; color:rgba(255,255,255,0.86)';
-    txt.innerHTML = 'Nous mesurons l\u2019audience du site pour l\u2019améliorer. Rien n\u2019est déposé sans votre accord. <a href="MentionsLegales.dc.html" style="color:#C4A6FF">En savoir plus</a>';
+    txt.innerHTML = 'Nous mesurons l\u2019audience du site pour l\u2019améliorer. Rien n\u2019est déposé sans votre accord. <a href="mentions-legales.html" style="color:#C4A6FF">En savoir plus</a>';
 
     var row = document.createElement('div');
     row.style.cssText = 'display:flex; gap:10px; flex:none';

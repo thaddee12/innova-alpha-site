@@ -6,12 +6,12 @@
 
   // Titres canoniques : identiques au tableau `services` de INNOVA ALPHA.dc.html
   var SERVICES = [
-    { num: '01', file: 'Conseil.dc.html',   label: 'Conseil & Transformation', from: '#A855F7', to: '#5A18CF' },
-    { num: '02', file: 'Digital.dc.html',   label: 'Digital & Web',            from: '#8A4DFF', to: '#6C22ED' },
-    { num: '03', file: 'IA.dc.html',        label: 'IA & Automatisation',      from: '#7C3BFF', to: '#3C1482' },
-    { num: '04', file: 'Graphisme.dc.html', label: 'Identité & Marketing',     from: '#8A4DFF', to: '#5A18CF' },
-    { num: '05', file: 'Mobile.dc.html',    label: 'Applications Mobiles',     from: '#B98CFF', to: '#6C22ED' },
-    { num: '06', file: 'Formation.dc.html', label: 'Formation IA',             from: '#6C22ED', to: '#B98CFF' }
+    { num: '01', file: 'conseil.html',   label: 'Conseil & Transformation', from: '#A855F7', to: '#5A18CF' },
+    { num: '02', file: 'digital.html',   label: 'Digital & Web',            from: '#8A4DFF', to: '#6C22ED' },
+    { num: '03', file: 'ia.html',        label: 'IA & Automatisation',      from: '#7C3BFF', to: '#3C1482' },
+    { num: '04', file: 'graphisme.html', label: 'Identité & Marketing',     from: '#8A4DFF', to: '#5A18CF' },
+    { num: '05', file: 'mobile.html',    label: 'Applications Mobiles',     from: '#B98CFF', to: '#6C22ED' },
+    { num: '06', file: 'formation.html', label: 'Formation IA',             from: '#6C22ED', to: '#B98CFF' }
   ];
 
   function currentFile() {
