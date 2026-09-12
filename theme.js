@@ -21,7 +21,27 @@
     try { localStorage.setItem(KEY, night ? 'night' : 'day'); } catch (e) {}
     apply(night);
   };
-  function boot() { apply(night); }
+  /* Bascule jour/nuit + glyphe du bouton. Defini ici (et non dans un script
+     de page) pour etre disponible sur toutes les pages du site. */
+  window.INNOVA_toggleTheme = function () {
+    window.INNOVA_SET_NIGHT(!night);
+    syncGlyph();
+  };
+
+  window.INNOVA_scrollToTop = function () {
+    var boxes = [document.scrollingElement, document.body, document.documentElement];
+    var box = boxes.filter(function (el) { return el && el.scrollTop > 0; })[0];
+    (box || window).scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  function syncGlyph() {
+    var glyphs = document.querySelectorAll('[data-theme-glyph]');
+    for (var i = 0; i < glyphs.length; i++) {
+      glyphs[i].textContent = night ? '☀' : '☾';
+    }
+  }
+
+  function boot() { apply(night); syncGlyph(); }
   if (document.body) boot();
   else document.addEventListener('DOMContentLoaded', boot);
 })();

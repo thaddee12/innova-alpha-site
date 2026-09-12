@@ -3,25 +3,8 @@
    Port vanilla du composant React d'origine, comportement identique. */
 (function () {
 
-  /* ---------- thème (jour/nuit) ---------- */
-  window.INNOVA_toggleTheme = function () {
-    var night = !(window.INNOVA_NIGHT && window.INNOVA_NIGHT());
-    if (window.INNOVA_SET_NIGHT) window.INNOVA_SET_NIGHT(night);
-    document.querySelectorAll('[data-theme-glyph]').forEach(function (el) {
-      el.textContent = night ? '☀' : '☾';
-    });
-  };
-
-  window.INNOVA_scrollToTop = function () {
-    var boxes = [document.scrollingElement, document.body, document.documentElement];
-    var box = boxes.find(function (el) { return el && el.scrollTop > 0; });
-    (box || window).scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var glyph = document.querySelector('[data-theme-glyph]');
-    if (glyph && window.INNOVA_NIGHT) glyph.textContent = window.INNOVA_NIGHT() ? '☀' : '☾';
-  });
+  /* Thème jour/nuit et retour en haut : definis dans theme.js, charge sur
+     toutes les pages. */
 
   /* ---------- carrousel des 6 pôles (auto-défilement + survol + clic) ---------- */
   function setupPoleCards() {
