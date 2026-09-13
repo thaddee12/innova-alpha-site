@@ -200,6 +200,15 @@ body[data-night] nav[data-glass] [data-mobile-menu]{ background:#100C18 !importa
 
 /* Menu mobile : pas de flou d'arriere-plan imbrique (rendu defaillant sous Safari/Chrome, inutile avec un fond opaque) */
 nav[data-glass] [data-mobile-menu]{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+/* Menu mobile des pages interieures : le flou de la barre en fait le bloc conteneur, on le recale sur la largeur de l'ecran (la barre est centree) */
+nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-box !important; position:absolute !important; top:calc(100% + 10px) !important; left:50% !important; right:auto !important; width:calc(100vw - 24px) !important; max-width:520px; transform:translateX(-50%) !important; max-height:calc(100dvh - 110px) !important; }
+/* Accueil mobile : barre compacte et centree, identique aux pages de services (desktop inchange) */
+@media (max-width: 1120px){
+  [data-nav-row]{ width:auto !important; max-width:calc(100vw - 24px) !important; }
+  [data-nav-row] > nav[data-glass]{ flex:0 0 auto !important; justify-content:flex-start !important; }
+  [data-nav-row] > nav[data-glass] > a:first-child{ margin-right:12px !important; }
+}
+
 </style>
 <script src="./service-nav.js"></script>
 <script src="./theme.js"></script>
@@ -238,27 +247,22 @@ nav[data-glass] [data-mobile-menu]{ backdrop-filter:none !important; -webkit-bac
     <span style="display:block; width:18px; height:2px; border-radius:2px; background:var(--txA); transition:transform .3s ease, opacity .3s ease"></span>
     <span style="display:block; width:18px; height:2px; border-radius:2px; background:var(--txA); transition:transform .3s ease, opacity .3s ease"></span>
   </label>
-  <div data-mobile-menu style="display:none; position:absolute; top:calc(100% + 12px); right:0; flex-direction:column; gap:10px; padding:20px; background:var(--navBg); backdrop-filter:blur(24px); border:1px solid var(--lineA); border-radius:20px; min-width:240px">
-    <p style="margin:0; font-size:0.7rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent)">Services</p>
-    
-      <a class="ihh20" href="conseil.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Conseil & Transformation</a>
-    
-      <a class="ihh21" href="digital.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Digital & Web</a>
-    
-      <a class="ihh22" href="ia.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">IA & Automatisation</a>
-    
-      <a class="ihh23" href="graphisme.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Identité & Marketing</a>
-    
-      <a class="ihh24" href="mobile.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Applications Mobiles</a>
-    
-      <a class="ihh25" href="formation.html" style="color:var(--txA); text-decoration:none; font-size:0.88rem; padding-left:10px; transition:color .3s">Formation IA</a>
-    
-    <span style="display:block; height:1px; background:var(--lineA); margin:4px 0"></span>
-    <a class="ihh26" href="methode-alpha.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Méthode</a>
-    <a class="ihh27" href="realisations.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Portfolio</a>
-    <a class="ihh28" href="tarifs.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Tarifs</a>
-    <a class="ihh29" href="apropos.html" style="color:var(--txA); text-decoration:none; font-size:0.9rem; transition:color .3s">Équipe</a>
-    <a href="contact.html" style="color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 100%); text-decoration:none; font-size:0.9rem; padding:10px 16px; border-radius:8px; text-align:center">Simuler</a>
+  <div data-mobile-menu style="display:none; position:fixed; top:82px; left:12px; right:12px; max-height:calc(100dvh - 100px); overflow-y:auto; flex-direction:column; gap:2px; padding:16px; border-radius:24px; background:var(--navBg); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border:1px solid var(--lineA); box-shadow:var(--navShadow)">
+    <p style="margin:2px 8px 4px; color:var(--txB); font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; opacity:0.6">Services</p>
+      <a href="conseil.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Conseil &amp; Transformation</a>
+      <a href="digital.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Digital &amp; Web</a>
+      <a href="ia.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">IA &amp; Automatisation</a>
+      <a href="graphisme.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Identité &amp; Marketing</a>
+      <a href="mobile.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Applications Mobiles</a>
+      <a href="formation.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Formation IA</a>
+    <div style="height:1px; background:var(--lineA); margin:12px 8px"></div>
+    <p style="margin:2px 8px 4px; color:var(--txB); font-size:11px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; opacity:0.6">Explorer</p>
+      <a href="methode-alpha.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Méthode Alpha</a>
+      <a href="realisations.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Réalisations</a>
+      <a href="tarifs.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Tarifs</a>
+      <a href="apropos.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">À propos</a>
+      <a href="contact.html" style="display:block; text-decoration:none; color:var(--txA); font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:13px 14px; border-radius:12px; transition:background .25s ease">Contact</a>
+    <a href="contact.html" style="display:block; text-align:center; margin-top:14px; text-decoration:none; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.34); font-size:14px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:16px; border-radius:999px">Diagnostic Alpha</a>
   </div>
 </nav>
 <a class="ihh30" href="contact.html" style="flex:none; display:inline-flex; align-items:center; justify-content:center; padding:9px 30px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; white-space:nowrap; border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); border-radius:999px; text-decoration:none; transition:transform .3s ease, filter .3s ease">Contact</a>
