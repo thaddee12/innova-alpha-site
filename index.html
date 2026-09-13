@@ -72,6 +72,8 @@ nav[data-glass] [data-nav-links]{ gap:12px !important; min-width:0; }
 @keyframes alphaHalo { 0%, 100% { transform: scale(1); opacity: .9; } 50% { transform: scale(1.045); opacity: 1; } }
 @keyframes alphaStep { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes alphaBadge { 0%, 100% { box-shadow: 0 0 20px rgba(138,77,255,0.18); border-color: rgba(138,77,255,0.6); } 50% { box-shadow: 0 0 36px rgba(138,77,255,0.5); border-color: rgba(138,77,255,1); } }
+[data-alpha-flat] { display:none; }
+[data-hint-touch] { display:none; }
 [data-alpha-step] { animation: alphaStep .7s cubic-bezier(.22,1,.36,1) both; }
 [data-alpha-badge] { transition: transform .5s cubic-bezier(.22,1,.36,1); cursor:default; position:relative; z-index:2; }
 [data-alpha-title] { position:relative; z-index:2; transition: transform .5s cubic-bezier(.22,1,.36,1); }
@@ -83,21 +85,28 @@ nav[data-glass] [data-nav-links]{ gap:12px !important; min-width:0; }
 [data-alpha-step] { transition: filter .4s ease, opacity .4s ease; }
 [data-alpha-step]:hover [data-alpha-detail-card] { opacity: 1 !important; pointer-events: auto !important; }
 @media (hover: none) {
-  /* Ecrans tactiles (tablettes comprises) : les fiches sont toutes visibles,
-     donc le pentagone passe en liste empilee pour eviter qu'elles se
-     superposent et debordent a droite. */
-  [data-alpha-pentagon] { position: static !important; height: auto !important; display: flex; flex-direction: column; gap: 44px; }
-  [data-alpha-pentagon] [data-alpha-step] { position: static !important; transform: none !important; display: flex; align-items: center; gap: 16px; text-align: left; animation: none !important; }
-  [data-alpha-title] { position: static !important; width: auto !important; text-align: left !important; }
-  [data-alpha-detail-card] { position: static !important; opacity: 1 !important; pointer-events: auto !important; width: auto !important; margin-top: 10px !important; text-align: left !important; }
-  [data-alpha-step] > p, [data-alpha-step] > div { margin-top: 0 !important; }
+  [data-alpha-section] [data-alpha-pentagon] + *, [data-alpha-section] svg[preserveAspectRatio="none"] { display:none !important; }
+  [data-alpha-pentagon] { position:relative !important; display:flex !important; flex-direction:column !important; flex-wrap:nowrap !important; align-items:stretch !important; gap:22px !important; padding:0 !important; max-width:640px; margin:0 auto; }
+  [data-alpha-pentagon]::before { content:''; position:absolute; left:27px; top:28px; bottom:28px; width:1px; background:linear-gradient(180deg, rgba(138,77,255,0.55), rgba(138,77,255,0.08)); }
+  [data-alpha-pentagon] [data-alpha-step] { display:grid !important; grid-template-columns:56px 1fr; column-gap:16px; row-gap:10px; align-items:start; flex:none !important; max-width:none !important; width:100%; margin:0 !important; text-align:left !important; animation:none !important; opacity:1 !important; filter:none !important; }
+  [data-alpha-pentagon] [data-alpha-title] { display:none !important; }
+  [data-alpha-flat] { display:block !important; grid-column:2; grid-row:1; margin:14px 0 0 !important; font-size:1.02rem; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:var(--txA); }
+  [data-alpha-pentagon] [data-alpha-badge] { grid-column:1; grid-row:1 / span 2; width:56px !important; height:56px !important; margin:0 !important; font-size:1.05rem !important; position:relative; z-index:1; transform:none !important; }
+  [data-hint-hover] { display:none !important; }
+  [data-hint-touch] { display:inline !important; }
+  [data-alpha-pentagon] [data-alpha-detail-card] { grid-column:2; grid-row:2; position:static !important; left:auto !important; top:auto !important; transform:none !important; opacity:1 !important; pointer-events:auto !important; width:auto !important; margin:0 !important; padding:16px 18px !important; text-align:left !important; box-shadow:0 8px 24px rgba(0,0,0,0.10) !important; }
 }
 @media (max-width: 760px) {
-  [data-alpha-pentagon] { position: static !important; height: auto !important; display: flex; flex-direction: column; gap: 44px; }
-  [data-alpha-pentagon] [data-alpha-step] { position: static !important; transform: none !important; display: flex; align-items: center; gap: 16px; text-align: left; animation: none !important; }
-  [data-alpha-title] { position: static !important; width: auto !important; text-align: left !important; }
-  [data-alpha-detail-card] { position: static !important; opacity: 1 !important; pointer-events: auto !important; width: auto !important; margin-top: 10px !important; text-align: left !important; }
-  [data-alpha-step] > p, [data-alpha-step] > div { margin-top: 0 !important; }
+  [data-alpha-section] [data-alpha-pentagon] + *, [data-alpha-section] svg[preserveAspectRatio="none"] { display:none !important; }
+  [data-alpha-pentagon] { position:relative !important; display:flex !important; flex-direction:column !important; flex-wrap:nowrap !important; align-items:stretch !important; gap:22px !important; padding:0 !important; max-width:640px; margin:0 auto; }
+  [data-alpha-pentagon]::before { content:''; position:absolute; left:27px; top:28px; bottom:28px; width:1px; background:linear-gradient(180deg, rgba(138,77,255,0.55), rgba(138,77,255,0.08)); }
+  [data-alpha-pentagon] [data-alpha-step] { display:grid !important; grid-template-columns:56px 1fr; column-gap:16px; row-gap:10px; align-items:start; flex:none !important; max-width:none !important; width:100%; margin:0 !important; text-align:left !important; animation:none !important; opacity:1 !important; filter:none !important; }
+  [data-alpha-pentagon] [data-alpha-title] { display:none !important; }
+  [data-alpha-flat] { display:block !important; grid-column:2; grid-row:1; margin:14px 0 0 !important; font-size:1.02rem; font-weight:800; letter-spacing:0.04em; text-transform:uppercase; color:var(--txA); }
+  [data-alpha-pentagon] [data-alpha-badge] { grid-column:1; grid-row:1 / span 2; width:56px !important; height:56px !important; margin:0 !important; font-size:1.05rem !important; position:relative; z-index:1; transform:none !important; }
+  [data-hint-hover] { display:none !important; }
+  [data-hint-touch] { display:inline !important; }
+  [data-alpha-pentagon] [data-alpha-detail-card] { grid-column:2; grid-row:2; position:static !important; left:auto !important; top:auto !important; transform:none !important; opacity:1 !important; pointer-events:auto !important; width:auto !important; margin:0 !important; padding:16px 18px !important; text-align:left !important; box-shadow:0 8px 24px rgba(0,0,0,0.10) !important; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -406,7 +415,7 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
     <div style="max-width:600px; margin:0 auto clamp(52px, 7vw, 92px); text-align:center">
       <p style="margin:0 0 14px; font-size:0.82rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent)">La Méthode Alpha</p>
       <h2 style="margin:0 0 18px; font-size:clamp(2rem, 5.6vw, 3.4rem); font-weight:900; line-height:1.06; color:var(--txA)">Cinq étapes, toujours dans le même ordre</h2>
-      <p style="margin:0; font-size:clamp(0.92rem, 1.7vw, 1rem); line-height:1.75; color:var(--txB)">La technologie n'est jamais le point de départ. Survolez une étape pour voir ce qu'elle contient.</p>
+      <p style="margin:0; font-size:clamp(0.92rem, 1.7vw, 1rem); line-height:1.75; color:var(--txB)">La technologie n'est jamais le point de départ. <span data-hint-hover>Survolez une étape pour voir ce qu'elle contient.</span><span data-hint-touch>Voici ce que contient chaque étape.</span></p>
     </div>
 
     <div style="position:relative">
@@ -420,6 +429,7 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
             <path id="alphaArc0" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
             <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc0" startOffset="50%" text-anchor="middle">Problème</textPath></text>
           </svg>
+          <p data-alpha-flat>Problème</p>
           <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 0s infinite">1</span>
           
           <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
@@ -436,6 +446,7 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
             <path id="alphaArc1" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
             <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc1" startOffset="50%" text-anchor="middle">Stratégie</textPath></text>
           </svg>
+          <p data-alpha-flat>Stratégie</p>
           <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 0.9s infinite">2</span>
           
           <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
@@ -452,6 +463,7 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
             <path id="alphaArc2" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
             <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc2" startOffset="50%" text-anchor="middle">Transformation</textPath></text>
           </svg>
+          <p data-alpha-flat>Transformation</p>
           <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 1.8s infinite">3</span>
           
           <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
@@ -468,6 +480,7 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
             <path id="alphaArc3" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
             <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc3" startOffset="50%" text-anchor="middle">IA</textPath></text>
           </svg>
+          <p data-alpha-flat>IA</p>
           <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 2.7s infinite">4</span>
           
           <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
@@ -484,6 +497,7 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
             <path id="alphaArc4" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
             <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc4" startOffset="50%" text-anchor="middle">Performance</textPath></text>
           </svg>
+          <p data-alpha-flat>Performance</p>
           <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 3.6s infinite">5</span>
           
           <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
