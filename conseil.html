@@ -100,6 +100,16 @@ body[data-night] [data-faq] > details:hover, body[data-night] [data-faq] > detai
 .Conseil_h12:hover { background:rgba(108,34,237,0.07); box-shadow:0 10px 34px rgba(108,34,237,0.22); transform:translateX(6px) }
 .Conseil_h13:hover { background:rgba(108,34,237,0.07); box-shadow:0 10px 34px rgba(108,34,237,0.22); transform:translateX(6px) }
 .Conseil_h14:hover { background:rgba(108,34,237,0.07); box-shadow:0 10px 34px rgba(108,34,237,0.22); transform:translateX(6px) }
+
+/* Menu mobile : fond totalement opaque (a 97 %, les titres blancs du hero transparaissaient encore) */
+nav[data-glass] [data-mobile-menu]{ background:#FFFFFF !important; box-shadow:0 24px 60px rgba(11,11,12,0.22) !important; }
+body[data-night] nav[data-glass] [data-mobile-menu]{ background:#100C18 !important; box-shadow:0 24px 60px rgba(0,0,0,0.6) !important; }
+
+/* Menu mobile des pages interieures : le flou de la barre en fait le bloc conteneur, on le recale sur la largeur de l'ecran (la barre est centree) */
+nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ position:absolute !important; top:calc(100% + 10px) !important; left:50% !important; right:auto !important; width:calc(100vw - 24px) !important; max-width:520px; transform:translateX(-50%) !important; max-height:calc(100dvh - 110px) !important; }
+
+/* Menu mobile : pas de flou d'arriere-plan imbrique (rendu defaillant sous Safari/Chrome, inutile avec un fond opaque) */
+nav[data-glass] [data-mobile-menu]{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
 </style>
 <style>
 @media (max-width: 1120px){
