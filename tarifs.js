@@ -34,15 +34,16 @@
     var maxAttr = el.getAttribute('data-xaf-max');
     var max = maxAttr ? parseFloat(maxAttr) : null;
     var plus = el.getAttribute('data-plus') === '1';
+    var from = el.getAttribute('data-from') === '1';   // prix plancher : prefixe "Des"
     var kind = el.getAttribute('data-kind');
+    // controle avant tout calcul (sinon un abonnement sans prix affichait "NaN")
+    if (min === null || isNaN(min)) return 'Sur devis';
     if (kind === 'sub') {
-      var suffix = plus ? '+ / mois' : ' / mois';
-      return amount(min, true, cur) + suffix;
+      return (from ? 'Dès ' : '') + amount(min, true, cur) + (plus ? '+' : '') + ' / mois';
     }
     if (min === 0) return 'Gratuit';
-    if (min === null || isNaN(min)) return 'Sur devis';
     if (max) return amount(min, false, cur) + ' – ' + amount(max, true, cur);
-    return amount(min, true, cur) + (plus ? '+' : '');
+    return (from ? 'Dès ' : '') + amount(min, true, cur) + (plus ? '+' : '');
   }
 
   function detectCurrency() {

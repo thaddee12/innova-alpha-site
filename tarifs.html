@@ -148,7 +148,10 @@ nav[data-glass] [data-mobile-menu]{ backdrop-filter:none !important; -webkit-bac
 
   /* badges plus lisibles */
   [data-family] span[style*="font-size:10px"], section span[style*="font-size:10px"]{ font-size:11px !important; }
+
 }
+/* familles a 4 cartes : grille 2 x 2 pour eviter une carte orpheline */
+@media (min-width:700px){ [data-family][data-cols="4"]{ grid-template-columns:repeat(2, minmax(0,1fr)) !important; } }
 
 /* Pied de page : les blocs a width:100% avec marges interieures debordaient de 24px sur mobile */
 [data-footer-shell] footer > div{ box-sizing:border-box; }
@@ -245,7 +248,7 @@ body { background: var(--sA) !important; }
   <div style="position:relative; max-width:880px; margin:0 auto; text-align:center">
     <p style="margin:0 0 18px; opacity:0; animation:tarUp .85s cubic-bezier(.22,1,.36,1) .05s forwards; color:#A385FF; font-size:0.85rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase">Tarifs · Méthode Alpha</p>
     <h1 style="margin:0 0 22px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .16s forwards; font-size:clamp(2.2rem,5.6vw,4rem); font-weight:900; line-height:1.06; text-transform:uppercase; text-wrap:balance; color:#FFFFFF">Ce que ça coûte, dit avant de commencer</h1>
-    <p style="margin:0 auto 32px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .28s forwards; max-width:60ch; font-size:clamp(1rem,1.7vw,1.15rem); line-height:1.65; color:rgba(255,255,255,0.78)">Les fourchettes ci-dessous couvrent la plupart des situations. Le montant exact de votre projet est arrêté après le Diagnostic Alpha, qui ne coûte rien.</p>
+    <p style="margin:0 auto 32px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .28s forwards; max-width:60ch; font-size:clamp(1rem,1.7vw,1.15rem); line-height:1.65; color:rgba(255,255,255,0.78)">Les fourchettes ci-dessous couvrent la plupart des situations. Le premier échange est gratuit ; le montant exact de votre projet est arrêté après le Diagnostic Alpha, déduit si vous poursuivez avec nous.</p>
     <div data-currency-bar style="display:inline-flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .38s forwards; padding:8px; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14)">
       <span data-currency-label style="padding:0 10px; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6)">Devise</span>
       
@@ -300,268 +303,236 @@ body { background: var(--sA) !important; }
     </div>
     <div>
       <div data-family="conseil" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
-        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.04s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Diagnostic Alpha</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Audit initial de votre maturité digitale.</p>
-          <p data-price data-kind="plan" data-xaf="0" data-xaf-max="" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">2-4 semaines</p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Premier échange</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Identifier vos trois priorités, sans engagement.</p>
+          <p data-price data-kind="plan" data-xaf="0" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Sous 48 h</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Réponse écrite sous 48 h</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Audit de maturité digitale</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Entretiens dirigeants</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Rapport écrit</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Recommandations priorisées</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Appel ou réponse écrite sous 48 h</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Trois priorités identifiées</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Aucun engagement</span></li>
           </ul>
-          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Faire le point</a>
         </article>
-      
         <article class="tf_h21" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
             <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Cadrage 6 mois</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Feuille de route jalonnée et quick wins.</p>
-          <p data-price data-kind="plan" data-xaf="1200000" data-xaf-max="2500000" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">Sur 6 mois</p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Diagnostic Alpha</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Audit approfondi de votre organisation.</p>
+          <p data-price data-kind="plan" data-xaf="250000" data-xaf-max="500000" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">2 à 4 semaines · déductible</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Diagnostic stratégique</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Feuille de route jalonnée</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>KPI et reporting mensuel</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Accompagnement du changement</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Entretiens dirigeants et terrain</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Audit des dix dimensions</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Rapport écrit et feuille de route</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>100 % déduit si vous poursuivez</span></li>
+          </ul>
+          <a class="tf_h22" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un diagnostic</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.24s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Accompagnement</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Mise en œuvre de la feuille de route, pilotée avec vous.</p>
+          <p data-price data-kind="sub" data-xaf="350000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Engagement 3 mois</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Chantiers priorisés et jalonnés</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Coaching des équipes</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Reporting mensuel</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Comité de pilotage</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+      </div><div data-family="digital" data-cols="4" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.04s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Landing page</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Une page qui présente une offre et capte des contacts.</p>
+          <p data-price data-kind="plan" data-xaf="250000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">2 à 3 semaines</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Page unique responsive</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formulaire relié à WhatsApp</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>SEO de base</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Hébergement Hostinger inclus 1 an</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h21" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+            <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Alpha Speed</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Site statique de 5 pages, rapide et léger à maintenir.</p>
+          <p data-price data-kind="plan" data-xaf="450000" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">Projet</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>5 pages en HTML, CSS et JavaScript statiques</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Optimisé pour les connexions 3G/4G</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Formulaire relié à WhatsApp</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>SEO local de base</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Hébergement Hostinger inclus 1 an, HTTPS configuré</span></li>
+          </ul>
+          <a class="tf_h22" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Commander mon site</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.24s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Catalogue e-commerce</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Catalogue produits avec commande par WhatsApp.</p>
+          <p data-price data-kind="plan" data-xaf="600000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Projet</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Catalogue et fiches produits</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Panier et commande WhatsApp</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Données structurées pour Google</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formation à la mise à jour</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.34s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Alpha Core IA</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Site sur mesure relié à vos outils commerciaux.</p>
+          <p data-price data-kind="plan" data-xaf="950000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Projet</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Jusqu'à 10 pages sur mesure</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Contacts envoyés automatiquement vers votre suivi (tableur ou CRM)</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Notification WhatsApp de l'équipe</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formation d'une demi-journée</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Hébergement Hostinger inclus 1 an</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+      </div><div data-family="ia" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.04s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Automatisation</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Une tâche répétitive prise en charge de bout en bout.</p>
+          <p data-price data-kind="plan" data-xaf="150000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Par processus</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Cartographie du processus</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Workflow n8n ou Make</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Tests et documentation</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formation des utilisateurs</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h21" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+            <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Assistant IA</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Répond à vos clients sur votre site ou sur WhatsApp.</p>
+          <p data-price data-kind="plan" data-xaf="350000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">Projet + maintenance</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Base de connaissances métier</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Transfert vers un humain</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Suivi des conversations</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Frais d'API facturés au coût réel</span></li>
           </ul>
           <a class="tf_h22" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
-      
-        <article class="tf_h23" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.23s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.24s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Transformation</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Programme long terme avec gouvernance.</p>
-          <p data-price data-kind="plan" data-xaf="" data-xaf-max="" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">12-24 mois</p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Alpha Apex</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Intégration ERP/CRM et agents IA sur vos documents.</p>
+          <p data-price data-kind="plan" data-xaf="" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Sur mesure</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Mise en œuvre</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Coaching des équipes</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Gouvernance IT</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Pilotage multi-entités</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Intégration Odoo ERP/CRM</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Agent IA entraîné sur vos documents</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Workflows complexes</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Support prioritaire 3 mois</span></li>
           </ul>
-          <a class="tf_h24" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      </div><div data-family="digital" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
-        <article class="tf_h25" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Vitrine</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Site sur mesure, optimisé et responsive.</p>
-          <p data-price data-kind="plan" data-xaf="350000" data-xaf-max="650000" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">6-8 semaines</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Design UX/UI sur mesure</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>5 à 7 pages responsive</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>SEO de base</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formulaire et WhatsApp</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formation 2 h</span></li>
-            
-          </ul>
-          <a class="tf_h26" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      
-        <article class="tf_h27" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-            <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">App web / e-commerce</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Boutique ou application métier.</p>
-          <p data-price data-kind="plan" data-xaf="950000" data-xaf-max="2200000" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">3-6 mois</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Parcours utilisateur</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Frontend moderne</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Backend et back-office</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Paiement Mobile Money</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Mise en production</span></li>
-            
-          </ul>
-          <a class="tf_h28" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      
-        <article class="tf_h29" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.23s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Plateforme métier</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Multi-rôles, forte charge.</p>
-          <p data-price data-kind="plan" data-xaf="3500000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">6-12 mois+</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Architecture scalable</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Rôles multiples</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Intégrations</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>DevOps</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Recette et reprise de données</span></li>
-            
-          </ul>
-          <a class="tf_h30" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      </div><div data-family="ia" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
-        <article class="tf_h31" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Chatbot 24/7</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Assistant conversationnel site ou WhatsApp.</p>
-          <p data-price data-kind="plan" data-xaf="250000" data-xaf-max="450000" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">2-3 semaines</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Base de connaissances</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Transfert vers un humain</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Suivi des conversations</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Formation à la prise en main</span></li>
-            
-          </ul>
-          <a class="tf_h32" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      
-        <article class="tf_h33" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-            <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Automatisation métier</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Un processus automatisé de bout en bout.</p>
-          <p data-price data-kind="plan" data-xaf="750000" data-xaf-max="1800000" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">1-3 mois</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Cartographie du processus</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Automatisation RPA</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Analyse prédictive</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Intégrations à vos outils</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Formation des utilisateurs</span></li>
-            
-          </ul>
-          <a class="tf_h34" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      
-        <article class="tf_h35" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.23s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Suite IA</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Plusieurs modèles industrialisés.</p>
-          <p data-price data-kind="plan" data-xaf="3000000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">3-6 mois</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Computer vision</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>NLP et analyse de texte</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Moteur de recommandation</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Supervision des modèles</span></li>
-            
-          </ul>
-          <a class="tf_h36" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Étudier mon projet</a>
         </article>
       </div><div data-family="graphisme" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
-        <article class="tf_h37" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.04s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
           <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Supports com'</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">À l'unité, selon vos besoins.</p>
-          <p data-price data-kind="plan" data-xaf="25000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Flyers, affiches et visuels à l'unité.</p>
+          <p data-price data-kind="plan" data-xaf="25000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
           <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">À l'unité</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Flyer, affiche ou roll-up</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Déclinaisons de format</span></li>
-            
           </ul>
-          <a class="tf_h38" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
-      
-        <article class="tf_h39" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
           <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Logo</h3>
           <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Création ou refonte.</p>
-          <p data-price data-kind="plan" data-xaf="75000" data-xaf-max="" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">1-2 semaines</p>
+          <p data-price data-kind="plan" data-xaf="75000" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Projet</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>3 pistes créatives</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Déclinaisons</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Fichiers sources</span></li>
-            
           </ul>
-          <a class="tf_h40" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
-      
-        <article class="tf_h41" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.23s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Identité visuelle</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">La marque complète.</p>
-          <p data-price data-kind="plan" data-xaf="199000" data-xaf-max="" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">2-3 semaines</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Logo</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Charte graphique complète</span></li>
-            
-          </ul>
-          <a class="tf_h42" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      
-        <article class="tf_h43" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.32s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h21" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.24s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
             <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Pack Marque</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Lancement complet.</p>
-          <p data-price data-kind="plan" data-xaf="349000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">3-5 semaines</p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Identité visuelle</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">La marque complète.</p>
+          <p data-price data-kind="plan" data-xaf="199000" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">Projet</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Identité visuelle complète</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Supports de lancement</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Logo</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Charte graphique complète</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Carte de visite et papier en-tête</span></li>
           </ul>
-          <a class="tf_h44" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h22" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.34s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Pack Marque</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Identité et supports de lancement.</p>
+          <p data-price data-kind="plan" data-xaf="349000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Projet</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Identité visuelle complète</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Kit réseaux sociaux</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Supports de lancement</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.44s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Community management</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Réseaux sociaux animés chaque semaine.</p>
+          <p data-price data-kind="sub" data-xaf="200000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Engagement 3 mois</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Ligne éditoriale</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Visuels et publications</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Animation de la communauté</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Rapport mensuel</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.54s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Publicité Meta et Google</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Campagnes pilotées et optimisées.</p>
+          <p data-price data-kind="sub" data-xaf="100000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Hors budget média</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Paramétrage des campagnes</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Suivi et optimisation</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Rapport de performance</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Budget média versé directement aux plateformes</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
       </div><div data-family="mobile" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
         <article class="tf_h45" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
@@ -627,79 +598,60 @@ body { background: var(--sA) !important; }
           </ul>
           <a class="tf_h50" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
-      </div><div data-family="formation" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
-        <article class="tf_h51" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+      </div><div data-family="formation" data-cols="4" style="display:none; grid-template-columns:repeat(auto-fit, minmax(min(100%,310px), 1fr)); gap:22px; align-items:stretch">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.04s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
           <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Initiation IA</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">1 jour · jusqu'à 10 personnes.</p>
-          <p data-price data-kind="plan" data-xaf="150000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">1 jour</p>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Les fondamentaux et les premiers usages concrets.</p>
+          <p data-price data-kind="plan" data-xaf="150000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Demi-journée</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Fondamentaux de l'IA</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Premiers usages concrets</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Support de prise en main</span></li>
-            
           </ul>
-          <a class="tf_h52" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
-      
-        <article class="tf_h53" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h21" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
             <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus demandé</span>
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Parcours équipe</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">3 jours · jusqu'à 10 personnes.</p>
-          <p data-price data-kind="plan" data-xaf="400000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">3 jours</p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Formation intra-entreprise</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Une journée sur les vrais dossiers de vos équipes.</p>
+          <p data-price data-kind="plan" data-xaf="300000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:#FFFFFF"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:rgba(255,255,255,0.10); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#D9C6FF">1 jour · 10 pers. max</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Pratique sur vos cas réels</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Mises en situation</span></li>
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Support de prise en main</span></li>
-            
           </ul>
-          <a class="tf_h54" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h22" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
         </article>
-      
-        <article class="tf_h55" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.23s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.24s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Parcours équipe</h3>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Montée en compétences sur plusieurs sessions.</p>
+          <p data-price data-kind="plan" data-xaf="600000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">3 jours · 10 pers. max</p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Outils intégrés à vos processus</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Exercices entre les sessions</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Évaluation des acquis</span></li>
+          </ul>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+        </article>
+        <article class="tf_h19" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.34s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
           <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Programme dirigeants</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Format court pour le comité de direction.</p>
-          <p data-price data-kind="plan" data-xaf="300000" data-xaf-max="" data-plus="1" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">2 demi-journées</p>
+          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Stratégie IA et accompagnement dans la durée.</p>
+          <p data-price data-kind="plan" data-xaf="" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
+          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Sur mesure</p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Stratégie IA</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Cas sectoriels</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Feuille de route à emporter</span></li>
-            
-          </ul>
-          <a class="tf_h56" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
-        </article>
-      
-        <article class="tf_h57" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.32s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
-          
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Programme annuel</h3>
-          <p style="margin:0 0 24px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Parcours intra rythmé sur l'année.</p>
-          <p data-price data-kind="plan" data-xaf="" data-xaf-max="" data-plus="0" style="margin:0 0 6px; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:900; line-height:1.1; letter-spacing:-0.01em; color:var(--txA)"></p>
-          <p style="margin:0 0 26px; display:inline-flex; align-self:flex-start; padding:6px 13px; border-radius:999px; background:var(--ghost); font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent)">Sur l'année</p>
-          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Montée en compétences suivie</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Stratégie IA pour la direction</span></li>
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Sessions trimestrielles</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Évaluation des acquis</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Suivi de la montée en compétences</span></li>
           </ul>
-          <a class="tf_h58" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Demander un devis</a>
+          <a class="tf_h20" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Étudier mon projet</a>
         </article>
       </div>
     </div>
@@ -713,64 +665,83 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; inset:-30%; z-index:0; pointer-events:none; background:radial-gradient(closest-side, rgba(108,34,237,0.08) 0%, transparent 66%); animation:procPulse 22s ease-in-out infinite; animation-delay:-11s"></div>
 
   <div style="position:relative; z-index:1; max-width:1200px; margin:0 auto">
-    <p style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Après la mise en ligne</p>
-    <h2 style="margin:0 0 12px; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; text-transform:uppercase; color:var(--txA)">Abonnement mensuel</h2>
-    <p style="margin:0 0 34px; max-width:62ch; font-size:1rem; line-height:1.7; color:var(--txB)">Un projet livré n'est pas un projet fini. Chaque forfait se prolonge dans l'un de ces trois paliers, sans engagement de durée. Hébergement et licences sont refacturés au réel.</p>
+    <p style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Maintenance et croissance</p>
+    <h2 style="margin:0 0 12px; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; text-transform:uppercase; color:var(--txA)">Forfaits mensuels</h2>
+    <p style="margin:0 0 34px; max-width:62ch; font-size:1rem; line-height:1.7; color:var(--txB)">Un projet livré n'est pas un projet fini. La maintenance est sans engagement de durée ; les forfaits de croissance démarrent par un engagement de 3 mois.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,290px), 1fr)); gap:22px; align-items:stretch">
-      
         <article class="tf_h59" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Veille</h3>
-          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Le socle : le site reste debout.</p>
-          <p data-price data-kind="sub" data-xaf="35000" data-xaf-max="" data-plus="0" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:var(--txA)"></p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Maintenance</h3>
+          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Le socle : le site reste rapide et à jour.</p>
+          <p data-price data-kind="sub" data-xaf="75000" data-xaf-max="" data-plus="0" data-from="1" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:var(--txA)"></p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
               <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Mises à jour et sauvegardes</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Supervision</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>5 h de support</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Supervision et HTTPS</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Petites évolutions et support</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Sans engagement de durée</span></li>
           </ul>
-          <a class="tf_h60" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Choisir ce palier</a>
+          <a class="tf_h60" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Choisir ce forfait</a>
         </article>
-      
+        <article class="tf_h59" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+          
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Alpha Startup</h3>
+          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Une présence digitale active pour une petite PME.</p>
+          <p data-price data-kind="sub" data-xaf="350000" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:var(--txA)"></p>
+          <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>2 réseaux sociaux, 8 publications par mois</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Campagnes publicitaires suivies (budget média à part)</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Maintenance du site</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>1 automatisation simple</span></li>
+          </ul>
+          <a class="tf_h60" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Choisir ce forfait</a>
+        </article>
         <article class="tf_h61" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:linear-gradient(165deg, #23124A 0%, #12081F 100%); border:1px solid rgba(184,140,255,0.45); box-shadow:0 26px 70px rgba(108,34,237,0.28); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.14s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
-            <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Le plus choisi</span>
+            <span style="position:absolute; top:-13px; left:28px; padding:7px 15px; border-radius:999px; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 8px 22px rgba(108,34,237,0.4); color:#FFFFFF; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase">Recommandé</span>
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Croissance</h3>
-          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Pour un site qui doit évoluer, pas seulement tenir.</p>
-          <p data-price data-kind="sub" data-xaf="120000" data-xaf-max="" data-plus="0" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:#FFFFFF"></p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:#FFFFFF">Alpha Scale</h3>
+          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.74)">Le système de croissance d'une PME qui accélère.</p>
+          <p data-price data-kind="sub" data-xaf="850000" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:#FFFFFF"></p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>15 h de support et d'évolutions</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Reporting mensuel</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Priorité 48 h</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Stratégie multicanal</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>12 visuels et 2 vidéos par mois</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Publicité Meta et Google pilotée</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>2 automatisations par mois</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid rgba(255,255,255,0.14); font-size:0.94rem; line-height:1.55; color:rgba(255,255,255,0.74)"><span aria-hidden="true" style="flex:none; font-weight:900; color:#B98CFF">✓</span><span>Session IA mensuelle pour l'équipe</span></li>
           </ul>
-          <a class="tf_h62" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Choisir ce palier</a>
+          <a class="tf_h62" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Choisir ce forfait</a>
         </article>
-      
-        <article class="tf_h63" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.23s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
+        <article class="tf_h59" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
-          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Partenaire</h3>
-          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Une équipe à vos côtés en continu.</p>
-          <p data-price data-kind="sub" data-xaf="350000" data-xaf-max="" data-plus="1" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:var(--txA)"></p>
+          <h3 style="margin:0 0 8px; font-size:1.2rem; font-weight:900; letter-spacing:0.03em; text-transform:uppercase; color:var(--txA)">Alpha Enterprise</h3>
+          <p style="margin:0 0 22px; font-size:0.9rem; line-height:1.6; color:var(--txB)">Pour les PME structurées, groupes et institutions.</p>
+          <p data-price data-kind="plan" data-xaf="" data-xaf-max="" data-plus="0" data-from="0" style="margin:0 0 26px; font-size:clamp(1.4rem,2.6vw,1.8rem); font-weight:900; line-height:1.15; color:var(--txA)"></p>
           <ul style="margin:0 0 28px; padding:0; list-style:none; flex:1; display:flex; flex-direction:column; gap:2px">
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Équipe dédiée à temps partiel</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Roadmap trimestrielle</span></li>
-            
-              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Astreinte</span></li>
-            
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Diagnostic et feuille de route</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Agents IA et intégrations sur mesure</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Comité de pilotage bimensuel</span></li>
+              <li style="display:flex; gap:12px; align-items:baseline; padding:11px 0; border-top:1px solid var(--lineA); font-size:0.94rem; line-height:1.55; color:var(--txB)"><span aria-hidden="true" style="flex:none; font-weight:900; color:var(--accent)">✓</span><span>Budget indicatif dès 2 200 000 FCFA par mois</span></li>
           </ul>
-          <a class="tf_h64" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Choisir ce palier</a>
+          <a class="tf_h60" href="contact.html" style="text-align:center; padding:15px 26px; border-radius:999px; text-decoration:none; font-size:13px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--txA); background:transparent; border:1px solid var(--lineA); transition:transform .35s cubic-bezier(.22,1,.36,1), filter .35s ease">Étudier mon projet</a>
         </article>
-      
+      </div>
+    <div data-conditions style="margin-top:44px; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,300px), 1fr)); gap:18px">
+      <div style="padding:24px 26px; border-radius:22px; background:var(--glassBg); border:1px solid var(--lineA)">
+        <p style="margin:0 0 12px; font-size:0.78rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent)">Conditions</p>
+        <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; font-size:0.94rem; line-height:1.6; color:var(--txB)">
+          <li>Projets web et IA : 50 % au démarrage, 40 % à la validation de la maquette, 10 % à la mise en ligne.</li>
+          <li>Forfaits de croissance : engagement initial de 3 mois, puis renouvellement au mois ou au trimestre.</li>
+          <li>Diagnostic Alpha : entièrement déduit si vous poursuivez avec nous.</li>
+        </ul>
+      </div>
+      <div style="padding:24px 26px; border-radius:22px; background:var(--glassBg); border:1px solid var(--lineA)">
+        <p style="margin:0 0 12px; font-size:0.78rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent)">Non inclus dans nos honoraires</p>
+        <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; font-size:0.94rem; line-height:1.6; color:var(--txB)">
+          <li>Nom de domaine, acheté à votre nom pour qu'il vous appartienne (environ 10 000 à 15 000 FCFA par an).</li>
+          <li>Budget publicitaire versé à Meta ou Google.</li>
+          <li>Abonnements logiciels et frais d'API (Odoo, OpenAI, Anthropic), facturés au coût réel.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -812,7 +783,7 @@ body { background: var(--sA) !important; }
     </div>
     <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1 1 auto; min-height:0; padding:clamp(108px, 15vh, 150px) 24px clamp(20px, 4vh, 56px); width:100%; max-width:900px; margin:0 auto">
       <h2 data-footer-reveal style="font-size:clamp(2rem, 8vw, 4.5rem); font-weight:900; letter-spacing:-0.02em; margin:0 0 clamp(18px, 3.5vh, 32px); text-align:center; background:linear-gradient(180deg, var(--txA) 0%, rgba(11,11,12,0.4) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text">Combien pour votre cas ?</h2>
-      <p data-footer-reveal style="margin:0 0 clamp(18px, 3.5vh, 32px); max-width:52ch; text-align:center; font-size:clamp(0.92rem, 2vw, 1.05rem); line-height:1.7; color:var(--txB)">Le chiffrage exact vient après le Diagnostic Alpha, qui ne coûte rien.</p>
+      <p data-footer-reveal style="margin:0 0 clamp(18px, 3.5vh, 32px); max-width:52ch; text-align:center; font-size:clamp(0.92rem, 2vw, 1.05rem); line-height:1.7; color:var(--txB)">Le premier échange est gratuit. Le chiffrage exact vient après le Diagnostic Alpha, déduit si vous poursuivez.</p>
       <div data-footer-reveal style="display:flex; flex-direction:column; align-items:center; gap:24px; width:100%">
         <a data-magnetic href="contact.html" style="display:inline-flex; align-items:center; gap:8px; padding:17px 34px; border-radius:999px; text-decoration:none; color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); transition:transform .3s ease, filter .3s ease">Obtenir un chiffrage</a>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px; width:100%; margin-top:16px">
