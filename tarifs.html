@@ -149,6 +149,9 @@ nav[data-glass] [data-mobile-menu]{ backdrop-filter:none !important; -webkit-bac
   /* badges plus lisibles */
   [data-family] span[style*="font-size:10px"], section span[style*="font-size:10px"]{ font-size:11px !important; }
 }
+
+/* Pied de page : les blocs a width:100% avec marges interieures debordaient de 24px sur mobile */
+[data-footer-shell] footer > div{ box-sizing:border-box; }
 </style>
 <style>
 @media (max-width: 1120px){

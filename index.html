@@ -215,6 +215,9 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
   [data-nav-row] > nav[data-glass] > a:first-child{ margin-right:12px !important; }
 }
 
+
+/* Pied de page : les blocs a width:100% avec marges interieures debordaient de 24px sur mobile */
+[data-footer-shell] footer > div{ box-sizing:border-box; }
 </style>
 <script src="./service-nav.js"></script>
 <script src="./theme.js"></script>
