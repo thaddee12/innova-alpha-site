@@ -120,6 +120,35 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ position:absolute !
 
 /* Menu mobile : pas de flou d'arriere-plan imbrique (rendu defaillant sous Safari/Chrome, inutile avec un fond opaque) */
 nav[data-glass] [data-mobile-menu]{ backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+
+/* ===== Tarifs : experience mobile ===== */
+@media (max-width: 760px){
+  /* devises : une seule ligne, sans libelle */
+  [data-currency-bar]{ flex-wrap:nowrap !important; max-width:100%; overflow-x:auto; scrollbar-width:none; gap:4px !important; padding:5px !important; box-sizing:border-box; }
+  [data-currency-bar]::-webkit-scrollbar{ display:none; }
+  [data-currency-label]{ display:none !important; }
+  [data-currency-btn]{ flex:none; min-height:40px; padding:9px 13px !important; }
+
+  /* onglets : bandeau horizontal defilable, colle sous la barre de navigation */
+  [data-family-section]{ overflow:clip !important; }
+  [data-family-head]{ display:contents !important; }
+  [data-family-head] > :not([role="tablist"]){ display:block; margin-bottom:18px; }
+  [role="tablist"][aria-label="Famille de forfaits"]{
+    position:sticky; top:84px; z-index:30;
+    flex-wrap:nowrap !important; overflow-x:auto; scroll-snap-type:x proximity; scroll-padding-inline:24px; scrollbar-width:none;
+    margin:0 -24px 26px !important; padding:8px 24px !important; border-radius:0 !important;
+    border-left:none !important; border-right:none !important;
+    background:var(--sA) !important; box-shadow:0 10px 24px rgba(11,11,12,0.08);
+    -webkit-mask-image:linear-gradient(90deg, #000 0, #000 82%, transparent 100%);
+            mask-image:linear-gradient(90deg, #000 0, #000 82%, transparent 100%);
+  }
+  [role="tablist"][aria-label="Famille de forfaits"]::-webkit-scrollbar{ display:none; }
+  [role="tablist"][aria-label="Famille de forfaits"].at-end{ -webkit-mask-image:none; mask-image:none; }
+  [data-tab-btn]{ flex:none; scroll-snap-align:start; min-height:44px; padding:11px 18px !important; }
+
+  /* badges plus lisibles */
+  [data-family] span[style*="font-size:10px"], section span[style*="font-size:10px"]{ font-size:11px !important; }
+}
 </style>
 <style>
 @media (max-width: 1120px){
@@ -214,8 +243,8 @@ body { background: var(--sA) !important; }
     <p style="margin:0 0 18px; opacity:0; animation:tarUp .85s cubic-bezier(.22,1,.36,1) .05s forwards; color:#A385FF; font-size:0.85rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase">Tarifs · Méthode Alpha</p>
     <h1 style="margin:0 0 22px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .16s forwards; font-size:clamp(2.2rem,5.6vw,4rem); font-weight:900; line-height:1.06; text-transform:uppercase; text-wrap:balance; color:#FFFFFF">Ce que ça coûte, dit avant de commencer</h1>
     <p style="margin:0 auto 32px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .28s forwards; max-width:60ch; font-size:clamp(1rem,1.7vw,1.15rem); line-height:1.65; color:rgba(255,255,255,0.78)">Les fourchettes ci-dessous couvrent la plupart des situations. Le montant exact de votre projet est arrêté après le Diagnostic Alpha, qui ne coûte rien.</p>
-    <div style="display:inline-flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .38s forwards; padding:8px; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14)">
-      <span style="padding:0 10px; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6)">Devise</span>
+    <div data-currency-bar style="display:inline-flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .38s forwards; padding:8px; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14)">
+      <span data-currency-label style="padding:0 10px; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6)">Devise</span>
       
         <button data-currency-btn="XAF" type="button" aria-pressed="true" style="font-family:inherit; cursor:pointer; padding:9px 16px; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:0.1em; white-space:nowrap; transition:background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease; color:#FFFFFF; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45)">FCFA</button>
       
@@ -242,10 +271,10 @@ body { background: var(--sA) !important; }
 
 <hr aria-hidden="true" style="height:1px; border:none; margin:0; background-image:linear-gradient(90deg, transparent 0%, rgba(108,34,237,0) 35%, rgba(138,77,255,0.95) 50%, rgba(108,34,237,0) 65%, transparent 100%); background-size:220% 100%; background-repeat:no-repeat; background-color:var(--lineA); animation:sepFlow 4.5s linear infinite">
 
-<section style="position:relative; isolation:isolate; overflow:hidden; padding:clamp(56px,7vw,84px) 24px; background:var(--sA)">
+<section data-family-section style="position:relative; isolation:isolate; overflow:hidden; padding:clamp(56px,7vw,84px) 24px; background:var(--sA)">
   <circuit-bg variant="network"></circuit-bg>
   <div style="max-width:1200px; margin:0 auto">
-    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:22px; margin-bottom:34px">
+    <div data-family-head style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:22px; margin-bottom:34px">
       <div>
         <p style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Forfaits</p>
         <h2 style="margin:0; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; text-transform:uppercase; color:var(--txA)"><span data-tab-title>Conseil & Transformation</span></h2>

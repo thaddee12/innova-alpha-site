@@ -80,9 +80,10 @@
     document.querySelectorAll('[data-currency-btn]').forEach(function (b) {
       var active = b.getAttribute('data-currency-btn') === code;
       b.setAttribute('aria-pressed', active ? 'true' : 'false');
-      b.style.color = active ? '#FFFFFF' : 'var(--txA, #0B0B0C)';
+      // le hero est toujours sombre : texte clair pour les devises inactives (sinon noir sur noir en mode jour)
+      b.style.color = active ? '#FFFFFF' : 'rgba(255,255,255,0.78)';
       b.style.background = active ? 'linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%)' : 'transparent';
-      b.style.borderColor = active ? 'rgba(255,255,255,0.38)' : 'var(--lineA, rgba(11,11,12,0.14))';
+      b.style.borderColor = active ? 'rgba(255,255,255,0.38)' : 'transparent';
       b.style.boxShadow = active ? '0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45)' : 'none';
     });
     renderPrices();
@@ -118,9 +119,38 @@
       });
       if (titleEl) titleEl.textContent = FAMILY_TITLES[id] || '';
     }
+
+    var list = document.querySelector('[role="tablist"][aria-label="Famille de forfaits"]');
+    var mobile = window.matchMedia('(max-width: 760px)');
+
+    function syncEdge() {
+      if (!list) return;
+      list.classList.toggle('at-end', list.scrollLeft + list.clientWidth >= list.scrollWidth - 4);
+    }
+
     tabs.forEach(function (b) {
-      b.addEventListener('click', function () { select(b.getAttribute('data-tab-btn')); });
+      b.addEventListener('click', function () {
+        var id = b.getAttribute('data-tab-btn');
+        select(id);
+        if (!mobile.matches || !list) return;
+        // onglet actif ramene au centre du bandeau
+        list.scrollTo({ left: b.offsetLeft - (list.clientWidth - b.offsetWidth) / 2, behavior: 'smooth' });
+        // si l'on est deja descendu dans les cartes, revenir au debut de la famille choisie
+        var block = document.querySelector('[data-family="' + id + '"]');
+        if (!block) return;
+        var barBottom = list.getBoundingClientRect().bottom;
+        var top = block.getBoundingClientRect().top;
+        if (top < barBottom) {
+          window.scrollTo({ top: window.scrollY + top - barBottom - 12, behavior: 'smooth' });
+        }
+      });
     });
+
+    if (list) {
+      list.addEventListener('scroll', syncEdge, { passive: true });
+      window.addEventListener('resize', syncEdge);
+      syncEdge();
+    }
   }
 
   function boot() { setupCurrency(); setupTabs(); }
