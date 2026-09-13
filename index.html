@@ -160,6 +160,12 @@ body[data-night] [data-trust-logo]{ background:rgba(255,255,255,0.88); padding:1
   [data-pole-card]{ min-width:0; min-height:58px; }
   [data-pole-card] p[aria-hidden]{ display:none; }
   [data-pole-card] h3{ opacity:1; }
+  /* Carte fermee : apercu numero + titre sur une ligne, la description et le lien ne prennent plus de place */
+  [data-pole-card]:not([data-active]) > div{ flex-direction:row !important; align-items:center !important; justify-content:flex-start !important; gap:14px !important; padding:0 20px !important; }
+  [data-pole-card]:not([data-active]) > div > p:not([aria-hidden]):not(:first-child), [data-pole-card]:not([data-active]) > div > span{ display:none !important; }
+  [data-pole-card]:not([data-active]) > div > p:first-child{ opacity:1 !important; margin:0 !important; flex:none; }
+  [data-pole-card]:not([data-active]) h3{ font-size:1rem !important; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; }
+  [data-pole-card]:not([data-active]) [data-pole-img]{ opacity:0.75 !important; }
 }
 
 .iha16::after { content:''; position:absolute; inset:0; border-radius:inherit; background:radial-gradient(140px circle at var(--gx,50%) var(--gy,50%), rgba(124,59,255,0.18), transparent 65%); opacity:var(--glow,0); transition:opacity .4s ease; pointer-events:none }
@@ -342,7 +348,7 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
     <div data-pole-cards style="display:flex; gap:10px">
       
         <a href="conseil.html" data-pole-card data-pole-index="0" data-active style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
-          <img data-pole-img src="assets/poles/conseil.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <img data-pole-img src="assets/poles/conseil.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
           <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
           <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Conseil & Transformation</p>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
@@ -354,7 +360,7 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
         </a>
       
         <a href="digital.html" data-pole-card data-pole-index="1" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
-          <img data-pole-img src="assets/poles/digital.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <img data-pole-img src="assets/poles/digital.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
           <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
           <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Digital & Web</p>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
@@ -366,7 +372,7 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
         </a>
       
         <a href="ia.html" data-pole-card data-pole-index="2" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
-          <img data-pole-img src="assets/poles/ia.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <img data-pole-img src="assets/poles/ia.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
           <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
           <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">IA & Automatisation</p>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
@@ -378,7 +384,7 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
         </a>
       
         <a href="graphisme.html" data-pole-card data-pole-index="3" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
-          <img data-pole-img src="assets/poles/graphisme.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <img data-pole-img src="assets/poles/graphisme.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
           <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
           <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Identité & Marketing</p>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
@@ -390,7 +396,7 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
         </a>
       
         <a href="mobile.html" data-pole-card data-pole-index="4" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
-          <img data-pole-img src="assets/poles/mobile.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <img data-pole-img src="assets/poles/mobile.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
           <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
           <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Applications Mobiles</p>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
@@ -402,7 +408,7 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
         </a>
       
         <a href="formation.html" data-pole-card data-pole-index="5" style="position:relative; display:block;    overflow:hidden; border-radius:18px; border:1px solid rgba(11,11,12,0.10); background:#0B0B0C; color:inherit; text-decoration:none; cursor:pointer; transition:flex-grow .55s cubic-bezier(.22,1,.36,1), border-color .4s ease">
-          <img data-pole-img src="assets/poles/formation.png" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
+          <img data-pole-img src="assets/poles/formation.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;   filter:saturate(0.95); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease">
           <div aria-hidden="true" style="position:absolute; inset:0; background:linear-gradient(to top, rgba(11,11,12,0.88) 0%, rgba(11,11,12,0.45) 45%, rgba(11,11,12,0.12) 100%)"></div>
           <p aria-hidden="true" style=" position:absolute; left:24px; top:24px; bottom:24px; margin:0; writing-mode:vertical-rl; transform:rotate(180deg); text-align:start; font-size:0.8rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.86); white-space:nowrap;  transition:opacity .4s ease; pointer-events:none">Formation IA</p>
           <div style="position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; gap:8px; padding:22px 24px">
