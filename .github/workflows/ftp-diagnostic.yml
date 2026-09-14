@@ -19,11 +19,20 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USER }}
           LFTP_PASSWORD: ${{ secrets.FTP_PASS }}
         run: |
-          lftp --env-password -u "$FTP_USER" -e "
-            set ftp:ssl-allow yes; set ssl:verify-certificate no;
-            set net:max-retries 2; set net:timeout 20;
-            echo '== dossier de connexion'; pwd;
-            echo '== racine'; cls -1;
-            echo '== domains'; cls -1 domains/;
-            echo '== domains/innovaalpha.com/public_html'; cls -la domains/innovaalpha.com/public_html/;
-            bye" "$FTP_HOST"
+          cat > "$RUNNER_TEMP/diag.lftp" <<SCRIPT
+          set ftp:ssl-allow yes
+          set ssl:verify-certificate no
+          set net:max-retries 2
+          set net:timeout 20
+          open --env-password -u "$FTP_USER" "$FTP_HOST"
+          echo "== dossier de connexion"
+          pwd
+          echo "== racine"
+          cls -1
+          echo "== domains"
+          cls -1 domains/
+          echo "== domains/innovaalpha.com/public_html"
+          cls -la domains/innovaalpha.com/public_html/
+          bye
+          SCRIPT
+          lftp -f "$RUNNER_TEMP/diag.lftp"
