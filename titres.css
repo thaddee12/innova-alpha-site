@@ -54,3 +54,31 @@ h3[data-title-small]{
 @media (min-width:761px){
   [data-hc-row]{ flex-direction:column !important; align-items:center !important; justify-content:center !important; }
 }
+
+/* ---- Sous-titres proportionnels aux titres (2026-09-14) ----
+   data-sub="eyebrow" : surtitre au-dessus d'un titre
+   data-sub="lead1"   : chapeau sous un titre de page (h1)
+   data-sub="lead2"   : chapeau sous un titre de section (h2)
+   data-sub="leadcta" : chapeau sous l'appel final de bas de page */
+p[data-sub="eyebrow"]{
+  font-size:0.75rem !important;
+  font-weight:700 !important;
+  letter-spacing:0.22em !important;
+  line-height:1.5 !important;
+  text-transform:uppercase !important;
+}
+p[data-sub="lead1"]{
+  font-size:clamp(0.95rem, 1.3vw, 1.08rem) !important;
+  line-height:1.65 !important;
+  max-width:58ch !important;
+}
+p[data-sub="lead2"]{
+  font-size:1rem !important;
+  line-height:1.65 !important;
+  max-width:56ch !important;
+}
+p[data-sub="leadcta"]{
+  font-size:1rem !important;
+  line-height:1.65 !important;
+  max-width:52ch !important;
+}

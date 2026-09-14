@@ -198,7 +198,7 @@ body { background: var(--sA) !important; }
 <script src="./theme.js"></script>
 <script src="./consent.js"></script>
 <script src="./scroll-progress.js"></script>
-<link rel="stylesheet" href="titres.css?v=3">
+<link rel="stylesheet" href="titres.css?v=4">
 </head>
 <body>
 <a data-skip href="#contenu">Aller au contenu</a>
@@ -247,9 +247,9 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; width:44vmax; height:44vmax; top:-28%; left:50%; transform:translateX(-50%); border-radius:50%; background:radial-gradient(circle at 50% 50%, rgba(138,77,255,0.28), rgba(11,11,12,0) 64%); filter:blur(76px); animation:tarOrb 17s ease-in-out infinite alternate; pointer-events:none"></div>
   <div aria-hidden="true" style="position:absolute; inset:0; background-size:64px 64px; background-image:linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); mask-image:radial-gradient(ellipse at 50% 30%, black 16%, transparent 72%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, black 16%, transparent 72%); pointer-events:none"></div>
   <div style="position:relative; max-width:880px; margin:0 auto; text-align:center">
-    <p style="margin:0 0 18px; opacity:0; animation:tarUp .85s cubic-bezier(.22,1,.36,1) .05s forwards; color:#A385FF; font-size:0.85rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase">Tarifs · Méthode Alpha</p>
+    <p data-sub="eyebrow" style="margin:0 0 18px; opacity:0; animation:tarUp .85s cubic-bezier(.22,1,.36,1) .05s forwards; color:#A385FF; font-size:0.85rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase">Tarifs · Méthode Alpha</p>
     <h1 style="margin:0 0 22px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .16s forwards; font-size:clamp(2.2rem,5.6vw,4rem); font-weight:900; line-height:1.06; text-transform:uppercase; text-wrap:balance; color:#FFFFFF">Ce que ça coûte, dit avant de commencer</h1>
-    <p style="margin:0 auto 32px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .28s forwards; max-width:60ch; font-size:clamp(1rem,1.7vw,1.15rem); line-height:1.65; color:rgba(255,255,255,0.78)">Les fourchettes ci-dessous couvrent la plupart des situations. Le premier échange est gratuit ; le montant exact de votre projet est arrêté après le Diagnostic Alpha, déduit si vous poursuivez avec nous.</p>
+    <p data-sub="lead1" style="margin:0 auto 32px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .28s forwards; max-width:60ch; font-size:clamp(1rem,1.7vw,1.15rem); line-height:1.65; color:rgba(255,255,255,0.78)">Les fourchettes ci-dessous couvrent la plupart des situations. Le premier échange est gratuit ; le montant exact de votre projet est arrêté après le Diagnostic Alpha, déduit si vous poursuivez avec nous.</p>
     <div data-currency-bar style="display:inline-flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:8px; opacity:0; animation:tarUp .95s cubic-bezier(.22,1,.36,1) .38s forwards; padding:8px; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.14)">
       <span data-currency-label style="padding:0 10px; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.6)">Devise</span>
       
@@ -283,7 +283,7 @@ body { background: var(--sA) !important; }
   <div style="max-width:1200px; margin:0 auto">
     <div data-hc-row data-family-head style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:22px; margin-bottom:34px">
       <div data-hc>
-        <p style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Forfaits</p>
+        <p data-sub="eyebrow" style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Forfaits</p>
         <h2 style="margin:0; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; text-transform:uppercase; color:var(--txA)"><span data-tab-title>Conseil & Transformation</span></h2>
       </div>
       <div role="tablist" aria-label="Famille de forfaits" style="display:flex; flex-wrap:wrap; gap:6px; padding:6px; border-radius:999px; background:var(--glassBg); border:1px solid var(--lineA)">
@@ -666,9 +666,9 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; inset:-30%; z-index:0; pointer-events:none; background:radial-gradient(closest-side, rgba(108,34,237,0.08) 0%, transparent 66%); animation:procPulse 22s ease-in-out infinite; animation-delay:-11s"></div>
 
   <div data-hc style="position:relative; z-index:1; max-width:1200px; margin:0 auto">
-    <p style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Maintenance et croissance</p>
+    <p data-sub="eyebrow" style="margin:0 0 8px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Maintenance et croissance</p>
     <h2 style="margin:0 0 12px; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; text-transform:uppercase; color:var(--txA)">Forfaits mensuels</h2>
-    <p style="margin:0 0 34px; max-width:62ch; font-size:1rem; line-height:1.7; color:var(--txB)">Un projet livré n'est pas un projet fini. La maintenance est sans engagement de durée ; les forfaits de croissance démarrent par un engagement de 3 mois.</p>
+    <p data-sub="lead2" style="margin:0 0 34px; max-width:62ch; font-size:1rem; line-height:1.7; color:var(--txB)">Un projet livré n'est pas un projet fini. La maintenance est sans engagement de durée ; les forfaits de croissance démarrent par un engagement de 3 mois.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,290px), 1fr)); gap:22px; align-items:stretch">
         <article class="tf_h59" style="position:relative; display:flex; flex-direction:column; padding:32px 28px; border-radius:28px; background:var(--glassBg); border:1px solid var(--lineA); box-shadow:0 12px 40px rgba(11,11,12,0.06); opacity:0; animation:tarUp .8s cubic-bezier(.22,1,.36,1) both; animation-delay:0.05s; transition:transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease, border-color .5s ease">
           
@@ -784,7 +784,7 @@ body { background: var(--sA) !important; }
     </div>
     <div style="position:relative; z-index:10; display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1 1 auto; min-height:0; padding:clamp(108px, 15vh, 150px) 24px clamp(20px, 4vh, 56px); width:100%; max-width:900px; margin:0 auto">
       <h2 data-title-cta data-footer-reveal style="font-size:clamp(2rem, 8vw, 4.5rem); font-weight:900; letter-spacing:-0.02em; margin:0 0 clamp(18px, 3.5vh, 32px); text-align:center; background:linear-gradient(180deg, var(--txA) 0%, rgba(11,11,12,0.4) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text">Combien pour votre cas ?</h2>
-      <p data-footer-reveal style="margin:0 0 clamp(18px, 3.5vh, 32px); max-width:52ch; text-align:center; font-size:clamp(0.92rem, 2vw, 1.05rem); line-height:1.7; color:var(--txB)">Le premier échange est gratuit. Le chiffrage exact vient après le Diagnostic Alpha, déduit si vous poursuivez.</p>
+      <p data-sub="leadcta" data-footer-reveal style="margin:0 0 clamp(18px, 3.5vh, 32px); max-width:52ch; text-align:center; font-size:clamp(0.92rem, 2vw, 1.05rem); line-height:1.7; color:var(--txB)">Le premier échange est gratuit. Le chiffrage exact vient après le Diagnostic Alpha, déduit si vous poursuivez.</p>
       <div data-footer-reveal style="display:flex; flex-direction:column; align-items:center; gap:24px; width:100%">
         <a data-magnetic href="contact.html" style="display:inline-flex; align-items:center; gap:8px; padding:17px 34px; border-radius:999px; text-decoration:none; color:#FFFFFF; font-weight:600; font-size:14px; letter-spacing:0.15em; text-transform:uppercase; background:linear-gradient(180deg, #8A4DFF 0%, #6C22ED 45%, #5A18CF 100%); border:1px solid rgba(255,255,255,0.38); box-shadow:0 10px 28px rgba(108,34,237,0.38), inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.18); transition:transform .3s ease, filter .3s ease">Obtenir un chiffrage</a>
         <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:12px; width:100%; margin-top:16px">
