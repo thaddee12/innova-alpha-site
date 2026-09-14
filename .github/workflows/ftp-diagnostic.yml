@@ -29,10 +29,8 @@ jobs:
           pwd
           echo "== racine"
           cls -1
-          echo "== domains"
-          cls -1 domains/
-          echo "== domains/innovaalpha.com/public_html"
-          cls -la domains/innovaalpha.com/public_html/
+          echo "== public_html"
+          cls -la public_html/
           bye
           SCRIPT
           lftp -f "$RUNNER_TEMP/diag.lftp"
