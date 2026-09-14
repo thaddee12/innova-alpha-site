@@ -37,3 +37,20 @@ h3[data-title-small]{
   font-size:0.95rem !important;
   letter-spacing:0 !important;
 }
+
+/* ---- Titres centres sur tout le site (2026-09-14), comme la page Realisations ----
+   data-hc        : conteneur direct d'un titre de page ou de section
+   data-hc-actions: rangee de boutons d'un hero
+   data-hc-stack  : section a deux colonnes (titre + liste), empilee
+   data-hc-row    : en-tete titre + onglets (Tarifs), empile sur ordinateur */
+[data-hc]{ margin-left:auto !important; margin-right:auto !important; }
+[data-hc] > :is(p, h1, h2){ text-align:center; margin-left:auto !important; margin-right:auto !important; }
+[data-hc] > p[style*="display:flex"]{ justify-content:center; }
+[data-hc] > a{ display:table !important; margin-left:auto !important; margin-right:auto !important; }
+[data-hc] > span{ display:flex !important; width:fit-content; margin-left:auto !important; margin-right:auto !important; }
+[data-hc] > [data-hc-actions]{ justify-content:center !important; }
+[data-hc-stack]{ flex-direction:column !important; grid-template-columns:1fr !important; align-items:stretch !important; gap:clamp(24px, 3vw, 40px) !important; }
+[data-hc-stack] > *{ flex:0 0 auto !important; width:100%; max-width:760px; margin-left:auto !important; margin-right:auto !important; }
+@media (min-width:761px){
+  [data-hc-row]{ flex-direction:column !important; align-items:center !important; justify-content:center !important; }
+}

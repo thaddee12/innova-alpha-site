@@ -175,7 +175,7 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; width:46vmax; height:46vmax; top:-30%; left:-14%; border-radius:50%; background:radial-gradient(circle at 40% 40%, rgba(138,77,255,0.30), rgba(11,11,12,0) 63%); filter:blur(74px); animation:aboOrb 16s ease-in-out infinite alternate; pointer-events:none"></div>
   <div aria-hidden="true" style="position:absolute; width:34vmax; height:34vmax; bottom:-22%; right:-10%; border-radius:50%; background:radial-gradient(circle at 50% 50%, rgba(108,34,237,0.24), rgba(11,11,12,0) 66%); filter:blur(84px); animation:aboOrb 21s ease-in-out infinite alternate-reverse; pointer-events:none"></div>
   <div aria-hidden="true" style="position:absolute; inset:0; background-size:64px 64px; background-image:linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); mask-image:radial-gradient(ellipse at 40% 40%, black 18%, transparent 74%); -webkit-mask-image:radial-gradient(ellipse at 40% 40%, black 18%, transparent 74%); pointer-events:none"></div>
-  <div style="position:relative; max-width:1140px; margin:0 auto">
+  <div data-hc style="position:relative; max-width:1140px; margin:0 auto">
     <p style="margin:0 0 18px; opacity:0; animation:aboUp .85s cubic-bezier(.22,1,.36,1) .05s forwards; color:#A385FF; font-size:0.85rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase">La transformation digitale par la Méthode Alpha</p>
     <h1 style="margin:0 0 22px; opacity:0; animation:aboUp .95s cubic-bezier(.22,1,.36,1) .16s forwards; font-size:clamp(2.4rem,6.4vw,4.6rem); font-weight:900; line-height:1.05; letter-spacing:0.01em; text-transform:uppercase; color:#FFFFFF">Une méthode née du terrain</h1>
     <p style="margin:0 0 34px; opacity:0; animation:aboUp .95s cubic-bezier(.22,1,.36,1) .28s forwards; max-width:56ch; font-size:clamp(1rem,1.7vw,1.2rem); line-height:1.65; color:rgba(255,255,255,0.78)">INNOVA ALPHA est née à Yaoundé d'un constat : les entreprises d'ici n'échouent pas par manque d'outils, mais par manque d'ordre dans les décisions. La Méthode Alpha est notre réponse.</p>
@@ -195,8 +195,8 @@ body { background: var(--sA) !important; }
 
 <section style="position:relative; isolation:isolate; overflow:hidden; padding:clamp(56px,7vw,84px) 24px; background:var(--bandBg)">
   <circuit-bg variant="network"></circuit-bg>
-  <div style="max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px), 1fr)); gap:clamp(28px,4vw,56px); align-items:start">
-    <div>
+  <div data-hc-stack style="max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px), 1fr)); gap:clamp(28px,4vw,56px); align-items:start">
+    <div data-hc>
       <p style="margin:0 0 10px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Notre Mission</p>
       <h2 style="margin:0; font-size:clamp(1.9rem,4.4vw,2.9rem); font-weight:900; line-height:1.12; text-transform:uppercase; letter-spacing:0.01em; color:var(--txA); text-wrap:balance">Remettre la technologie à sa place</h2>
     </div>
@@ -211,8 +211,8 @@ body { background: var(--sA) !important; }
 <hr aria-hidden="true" style="height:1px; border:none; margin:0; background-image:linear-gradient(90deg, transparent 0%, rgba(108,34,237,0) 35%, rgba(138,77,255,0.95) 50%, rgba(108,34,237,0) 65%, transparent 100%); background-size:220% 100%; background-repeat:no-repeat; background-color:var(--lineA); animation:sepFlow 4.5s linear infinite">
 
 <section data-signature style="position:relative; isolation:isolate; overflow:hidden; padding:clamp(56px,7vw,84px) 24px">
-  <div style="max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px), 1fr)); gap:clamp(28px,4vw,56px); align-items:start">
-    <div>
+  <div data-hc-stack style="max-width:1140px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,320px), 1fr)); gap:clamp(28px,4vw,56px); align-items:start">
+    <div data-hc>
       <p style="margin:0 0 10px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Notre signature</p>
       <h2 style="margin:0; font-size:clamp(1.9rem,4.4vw,2.9rem); font-weight:900; line-height:1.12; text-transform:uppercase; letter-spacing:0.01em; color:var(--txA); text-wrap:balance">L’Alpha du digital</h2>
     </div>
@@ -231,7 +231,7 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; inset:-25%; z-index:0; pointer-events:none; background:conic-gradient(from 0deg at 62% 38%, transparent 0deg, rgba(138,77,255,0.10) 42deg, transparent 96deg, transparent 240deg, rgba(108,34,237,0.07) 292deg, transparent 340deg); animation:defiSweep 60s linear infinite"></div>
   <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none; background:radial-gradient(58% 68% at 62% 38%, rgba(138,77,255,0.07) 0%, transparent 72%); animation:defiHalo 18s ease-in-out infinite alternate"></div>
 
-  <div style="position:relative; z-index:1; max-width:1140px; margin:0 auto">
+  <div data-hc style="position:relative; z-index:1; max-width:1140px; margin:0 auto">
     <p style="margin:0 0 10px; font-size:0.8rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent)">Ce qui nous engage</p>
     <h2 style="margin:0 0 36px; font-size:clamp(1.9rem,4vw,2.6rem); font-weight:900; text-transform:uppercase; color:var(--txA)">Nos règles de travail</h2>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,260px), 1fr)); gap:20px">
