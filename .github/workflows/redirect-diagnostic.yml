@@ -1,0 +1,32 @@
+name: Diagnostic redirection (lecture seule)
+
+# Detaille les reponses 307 du CDN Hostinger : destination, en-tetes, contenu,
+# selon le type de visiteur. Aucune ecriture.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Details des redirections
+        run: |
+          set +e
+          NAV='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/128 Safari/537.36'
+          GB='Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+          for essai in 1 2; do
+            echo "######## essai $essai"
+            for ua in "$NAV" "$GB"; do
+              for p in "" conseil.html; do
+                echo "== /$p | ${ua:0:32}"
+                curl -sS -A "$ua" -D /tmp/h -o /tmp/b --max-time 25 "https://innovaalpha.com/$p" -w "   code=%{http_code} taille=%{size_download} redirection=%{redirect_url}\n" 2>&1
+                grep -iE '^(location|server|x-hcdn-[a-z-]+|set-cookie|cache-control|refresh):' /tmp/h | tr -d '\r' | sed -E 's/(set-cookie: [^=]+=)[^;]*/\1[masque]/I; s/^/   /'
+                echo "   corps: $(head -c 200 /tmp/b | tr '\n' ' ')"
+                echo "   -- en suivant la redirection :"
+                curl -sS -L -A "$ua" -o /tmp/b2 --max-time 25 "https://innovaalpha.com/$p" -w "   final=%{url_effective} code=%{http_code} taille=%{size_download} redirections=%{num_redirects}\n" 2>&1
+                echo "   data-sub: $(grep -o 'data-sub' /tmp/b2 | wc -l)"
+              done
+            done
+            [ "$essai" = 1 ] && sleep 30
+          done
