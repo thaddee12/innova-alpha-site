@@ -234,23 +234,32 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
 .ap-steps{position:relative; z-index:1; list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); column-gap:0}
 .ap-step{display:flex; flex-direction:column; align-items:center; min-width:0; padding-inline:clamp(6px, 1vw, 14px)}
 .ap-step:nth-child(even){padding-top:120px}
-.ap-tile-wrap{position:relative; width:112px; height:112px; margin-top:30px; transition:transform .45s cubic-bezier(.22,1,.36,1)}
-.ap-step:hover .ap-tile-wrap{transform:translateY(-10px)}
-.ap-num{position:absolute; left:-16px; top:-30px; z-index:3; font-size:1.9rem; font-weight:900; font-style:italic; line-height:1; letter-spacing:-0.02em; color:var(--cd)}
-.ap-glow{position:absolute; left:50%; top:58%; width:132px; height:64px; transform:translateX(-50%); border-radius:50%; background:radial-gradient(closest-side, var(--c), transparent); filter:blur(14px); opacity:.45; z-index:0; animation:apGlow 5s ease-in-out infinite; animation-delay:calc(var(--i) * 1s); transition:transform .45s ease}
-.ap-step:hover .ap-glow{transform:translateX(-50%) scale(1.25)}
+.ap-tile-wrap{position:relative; width:112px; height:112px; margin-top:30px; transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .5s ease; will-change:transform}
+.ap-num{position:absolute; left:-16px; top:-30px; z-index:3; font-size:1.9rem; font-weight:900; font-style:italic; line-height:1; letter-spacing:-0.02em; color:var(--cd); transform-origin:left bottom; transition:transform .6s cubic-bezier(.22,1,.36,1)}
+.ap-glow{position:absolute; left:50%; top:58%; width:132px; height:64px; transform:translateX(-50%); border-radius:50%; background:radial-gradient(closest-side, var(--c), transparent); filter:blur(14px); opacity:.45; z-index:0; animation:apGlow 5s ease-in-out infinite; animation-delay:calc(var(--i) * 1s); transition:transform .7s cubic-bezier(.22,1,.36,1); will-change:transform, opacity}
+.ap-glow::after{content:""; position:absolute; inset:0; border-radius:inherit; background:inherit; opacity:0; transition:opacity .6s ease}
 .ap-tile{position:absolute; inset:0; z-index:1; animation:apFloat 4.8s ease-in-out infinite; animation-delay:calc(var(--i) * .6s)}
-.ap-face{position:absolute; inset:10px; display:flex; align-items:center; justify-content:center; border-radius:22px; color:var(--cd); background:linear-gradient(145deg, #FFFFFF 0%, #F1EDFB 100%); transform:rotateX(56deg) rotateZ(45deg); box-shadow:inset 0 1px 0 rgba(255,255,255,.95), 0 0 0 1px rgba(108,34,237,.10), 9px 9px 0 color-mix(in srgb, var(--c) 32%, #DCD4F2), 16px 16px 26px rgba(20,10,40,.16)}
+.ap-face{position:absolute; inset:10px; display:flex; align-items:center; justify-content:center; border-radius:22px; color:var(--cd); background:linear-gradient(145deg, #FFFFFF 0%, #F1EDFB 100%); transform:rotateX(56deg) rotateZ(45deg); box-shadow:inset 0 1px 0 rgba(255,255,255,.95), 0 0 0 1px rgba(108,34,237,.10), 9px 9px 0 color-mix(in srgb, var(--c) 32%, #DCD4F2), 16px 16px 26px rgba(20,10,40,.16); transition:transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s ease}
 .ap-face svg{width:40px; height:40px; transform:rotate(-45deg)}
-.ap-text{margin-top:30px; width:100%; max-width:230px; text-align:left}
+.ap-text{margin-top:30px; width:100%; max-width:230px; text-align:left; transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .5s ease}
 .ap-step h3.ap-title{margin:0 0 10px; color:var(--cd); letter-spacing:.06em !important}
-.ap-bar{display:block; width:46px; height:3px; margin:0 0 14px; border-radius:3px; background:var(--cd)}
+.ap-bar{display:block; width:46px; height:3px; margin:0 0 14px; border-radius:3px; background:var(--cd); transform-origin:left center; transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .ap-desc{margin:0; font-size:.9rem; line-height:1.6; color:var(--txB)}
 body[data-night] .ap-num, body[data-night] .ap-step h3.ap-title, body[data-night] .ap-face{color:var(--c)}
 body[data-night] .ap-bar{background:var(--c)}
 body[data-night] .ap-face{color:var(--cd)}
 [data-ap][data-ap-ready]:not([data-ap-visible]) .ap-step{opacity:0}
 [data-ap][data-ap-visible] .ap-step{animation:apIn .8s cubic-bezier(.22,1,.36,1) both; animation-delay:calc(var(--i) * .14s)}
+@media (hover:hover){
+  .ap-step:hover .ap-tile-wrap{transform:translateY(-12px)}
+  .ap-step:hover .ap-face{transform:rotateX(50deg) rotateZ(45deg) scale(1.05); box-shadow:inset 0 1px 0 rgba(255,255,255,.95), 0 0 0 1px rgba(108,34,237,.14), 12px 12px 0 color-mix(in srgb, var(--c) 40%, #DCD4F2), 24px 28px 36px rgba(20,10,40,.24)}
+  .ap-step:hover .ap-glow{transform:translateX(-50%) scale(1.3)}
+  .ap-step:hover .ap-glow::after{opacity:1}
+  .ap-step:hover .ap-num{transform:translate(-4px, -6px) scale(1.1)}
+  .ap-step:hover .ap-bar{transform:scaleX(1.6)}
+  .ap-step:hover .ap-text{transform:translateY(-4px)}
+  .ap-steps:has(.ap-step:hover) .ap-step:not(:hover) :is(.ap-tile-wrap, .ap-text){opacity:.5}
+}
 @keyframes apFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes apGlow{0%,40%,100%{opacity:.4}12%,26%{opacity:.95}}
 @keyframes apIn{from{opacity:0; transform:translateY(24px)}to{opacity:1; transform:none}}
