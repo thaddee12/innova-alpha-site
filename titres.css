@@ -82,3 +82,20 @@ p[data-sub="leadcta"]{
   line-height:1.65 !important;
   max-width:52ch !important;
 }
+
+/* ---- Bande « Ils nous font confiance » a l'epaisseur des logos (2026-09-14) ----
+   Marges haut/bas reduites, mention placee a gauche des logos sur ordinateur. */
+section[data-trust]{ padding-block:clamp(8px, 1vw, 12px) !important; }
+section[data-trust] > div[style*="flex-direction:column"]{
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:clamp(18px, 3vw, 36px) !important;
+  max-width:1240px !important;
+}
+section[data-trust] > div[style*="flex-direction:column"] > p{ flex:none; white-space:nowrap; text-align:left !important; }
+section[data-trust] [data-trust-track]{ flex:1 1 auto; min-width:0; }
+body[data-night] [data-trust-logo]{ padding:6px 14px !important; border-radius:10px !important; }
+@media (max-width:700px){
+  section[data-trust] > div[style*="flex-direction:column"]{ flex-direction:column !important; gap:10px !important; }
+  section[data-trust] > div[style*="flex-direction:column"] > p{ text-align:center !important; }
+}
