@@ -14,11 +14,11 @@ jobs:
         run: |
           set +e
           NAV='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/128 Safari/537.36'
-          for p in "" index.html conseil.html tarifs.html realisations.html apropos.html contact.html titres.css; do
+          for p in "" index.html conseil.html tarifs.html realisations.html apropos.html contact.html "titres.css?v=4"; do
             url="https://innovaalpha.com/$p"
             curl -sS -A "$NAV" -D /tmp/h -o /tmp/b --max-time 25 --retry 2 --retry-delay 3 "$url" -w "== /$p code=%{http_code} taille=%{size_download} ip=%{remote_ip}\n" 2>/tmp/err || echo "   erreur curl: $(cat /tmp/err)"
             grep -iE '^(x-hcdn-cache-status|cache-control|age|last-modified|etag):' /tmp/h | tr -d '\r' | sed 's/^/   /'
-            echo "   data-hc: $(grep -o 'data-hc' /tmp/b | wc -l) | titres.css lie: $(grep -c 'href="titres.css"' /tmp/b) | LinkedIn: $(grep -o 'linkedin.com/company/innova-alpha' /tmp/b | wc -l) | Thaddée: $(grep -o 'Thaddée' /tmp/b | wc -l)"
+            echo "   data-sub: $(grep -o 'data-sub' /tmp/b | wc -l) | titres.css?v=4 lie: $(grep -c 'titres.css?v=4' /tmp/b) | data-hc: $(grep -o 'data-hc' /tmp/b | wc -l) | titres.css lie: $(grep -c 'href="titres.css"' /tmp/b) | LinkedIn: $(grep -o 'linkedin.com/company/innova-alpha' /tmp/b | wc -l) | Thaddée: $(grep -o 'Thaddée' /tmp/b | wc -l)"
           done
           echo "== meme page avec contournement de cache"
           curl -sS -A "$NAV" -D /tmp/h -o /tmp/b --max-time 20 "https://innovaalpha.com/index.html?nocache=$RANDOM" -w "code=%{http_code}\n"
