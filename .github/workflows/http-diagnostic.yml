@@ -1,0 +1,24 @@
+name: Diagnostic HTTP (lecture seule)
+
+# Verifie ce que recoit un robot d'indexation : codes HTTP, type de contenu,
+# redirections. Aucune ecriture.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Requetes comme Googlebot et comme navigateur
+        run: |
+          GB='Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+          NAV='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/128 Safari/537.36'
+          for url in https://innovaalpha.com/sitemap.xml https://innovaalpha.com/robots.txt https://innovaalpha.com/ http://innovaalpha.com/sitemap.xml https://www.innovaalpha.com/sitemap.xml; do
+            for ua in "$GB" "$NAV"; do
+              echo "== $url | ${ua:0:40}"
+              curl -sS -o /tmp/body -D /tmp/h -A "$ua" --max-time 20 -w 'code=%{http_code} type=%{content_type} redir=%{redirect_url} taille=%{size_download}\n' "$url" || echo "curl erreur"
+              grep -iE '^(server|x-hcdn|cf-|platform|panel|x-turbo)' /tmp/h | head -4
+              head -c 120 /tmp/body; echo
+            done
+          done
