@@ -226,6 +226,51 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
 <script src="./circuit-bg.js"></script>
 <script src="./footer-motion.js"></script>
 <link rel="stylesheet" href="titres.css?v=4">
+<style>
+/* Section Methode Alpha de l'accueil : etapes en tuiles isometriques (modele "project process", 2026-09-14) */
+.ap-wrap{position:relative; max-width:1120px; margin:0 auto}
+.ap-line{position:absolute; left:0; top:0; width:100%; height:300px; overflow:visible; pointer-events:none; z-index:0}
+.ap-line polyline{fill:none; stroke:var(--lineA); stroke-opacity:.6; stroke-width:24; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke}
+.ap-steps{position:relative; z-index:1; list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); column-gap:0}
+.ap-step{display:flex; flex-direction:column; align-items:center; min-width:0; padding-inline:clamp(6px, 1vw, 14px)}
+.ap-step:nth-child(even){padding-top:120px}
+.ap-tile-wrap{position:relative; width:112px; height:112px; margin-top:30px; transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.ap-step:hover .ap-tile-wrap{transform:translateY(-10px)}
+.ap-num{position:absolute; left:-16px; top:-30px; z-index:3; font-size:1.9rem; font-weight:900; font-style:italic; line-height:1; letter-spacing:-0.02em; color:var(--cd)}
+.ap-glow{position:absolute; left:50%; top:58%; width:132px; height:64px; transform:translateX(-50%); border-radius:50%; background:radial-gradient(closest-side, var(--c), transparent); filter:blur(14px); opacity:.45; z-index:0; animation:apGlow 5s ease-in-out infinite; animation-delay:calc(var(--i) * 1s); transition:transform .45s ease}
+.ap-step:hover .ap-glow{transform:translateX(-50%) scale(1.25)}
+.ap-tile{position:absolute; inset:0; z-index:1; animation:apFloat 4.8s ease-in-out infinite; animation-delay:calc(var(--i) * .6s)}
+.ap-face{position:absolute; inset:10px; display:flex; align-items:center; justify-content:center; border-radius:22px; color:var(--cd); background:linear-gradient(145deg, #FFFFFF 0%, #F1EDFB 100%); transform:rotateX(56deg) rotateZ(45deg); box-shadow:inset 0 1px 0 rgba(255,255,255,.95), 0 0 0 1px rgba(108,34,237,.10), 9px 9px 0 color-mix(in srgb, var(--c) 32%, #DCD4F2), 16px 16px 26px rgba(20,10,40,.16)}
+.ap-face svg{width:40px; height:40px; transform:rotate(-45deg)}
+.ap-text{margin-top:30px; width:100%; max-width:230px; text-align:left}
+.ap-step h3.ap-title{margin:0 0 10px; color:var(--cd); letter-spacing:.06em !important}
+.ap-bar{display:block; width:46px; height:3px; margin:0 0 14px; border-radius:3px; background:var(--cd)}
+.ap-desc{margin:0; font-size:.9rem; line-height:1.6; color:var(--txB)}
+body[data-night] .ap-num, body[data-night] .ap-step h3.ap-title, body[data-night] .ap-face{color:var(--c)}
+body[data-night] .ap-bar{background:var(--c)}
+body[data-night] .ap-face{color:var(--cd)}
+[data-ap][data-ap-ready]:not([data-ap-visible]) .ap-step{opacity:0}
+[data-ap][data-ap-visible] .ap-step{animation:apIn .8s cubic-bezier(.22,1,.36,1) both; animation-delay:calc(var(--i) * .14s)}
+@keyframes apFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes apGlow{0%,40%,100%{opacity:.4}12%,26%{opacity:.95}}
+@keyframes apIn{from{opacity:0; transform:translateY(24px)}to{opacity:1; transform:none}}
+@media (max-width:900px){
+  .ap-line{display:none}
+  .ap-steps{grid-template-columns:1fr; row-gap:30px; max-width:560px; margin:0 auto}
+  .ap-steps::before{content:""; position:absolute; left:36px; top:60px; bottom:70px; width:16px; border-radius:16px; background:var(--lineA); opacity:.6; z-index:-1}
+  .ap-step, .ap-step:nth-child(even){flex-direction:row; align-items:flex-start; padding-top:0; gap:22px}
+  .ap-tile-wrap{flex:none; width:88px; height:88px; margin-top:22px}
+  .ap-face{inset:8px; border-radius:18px}
+  .ap-face svg{width:30px; height:30px}
+  .ap-glow{width:104px; height:52px}
+  .ap-num{font-size:1.45rem; left:-8px; top:-22px}
+  .ap-text{margin-top:16px; max-width:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .ap-wrap *{animation:none !important; transition:none !important}
+  [data-ap] .ap-step{opacity:1 !important}
+}
+</style>
 </head>
 <body>
 <a data-skip href="#contenu">Aller au contenu</a>
@@ -435,102 +480,81 @@ nav[data-glass] [data-mobile-menu][style*="position:fixed"]{ box-sizing:border-b
     <div data-hc style="max-width:600px; margin:0 auto clamp(52px, 7vw, 92px); text-align:center">
       <p data-sub="eyebrow" style="margin:0 0 14px; font-size:0.82rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent)">La Méthode Alpha</p>
       <h2 style="margin:0 0 18px; font-size:clamp(2rem, 5.6vw, 3.4rem); font-weight:900; line-height:1.06; color:var(--txA)">Cinq étapes, toujours dans le même ordre</h2>
-      <p data-sub="lead2" style="margin:0; font-size:clamp(0.92rem, 1.7vw, 1rem); line-height:1.75; color:var(--txB)">La technologie n'est jamais le point de départ. <span data-hint-hover>Survolez une étape pour voir ce qu'elle contient.</span><span data-hint-touch>Voici ce que contient chaque étape.</span></p>
+      <p data-sub="lead2" style="margin:0; font-size:clamp(0.92rem, 1.7vw, 1rem); line-height:1.75; color:var(--txB)">La technologie n'est jamais le point de départ.</p>
     </div>
 
-    <div style="position:relative">
-      <svg aria-hidden="true" viewBox="0 0 1340 460" preserveAspectRatio="none" fill="none" style="position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; color:#8A4DFF">
-        <path d="M0 330 C 90 384 200 362 280 282 C 360 202 462 188 540 250 C 620 312 700 362 800 300 C 880 250 942 152 1042 172 C 1142 192 1222 300 1340 332" stroke="currentColor" stroke-width="5" stroke-opacity="0.10" stroke-linecap="round"></path>
-        <path d="M0 330 C 90 384 200 362 280 282 C 360 202 462 188 540 250 C 620 312 700 362 800 300 C 880 250 942 152 1042 172 C 1142 192 1222 300 1340 332" stroke="currentColor" stroke-width="1.5" stroke-opacity="0.6" stroke-linecap="round" stroke-dasharray="760 480" style="animation:alphaSpin 28s linear infinite"></path>
-      </svg>
-      <div data-alpha-pentagon style="position:relative; z-index:1; display:flex; flex-wrap:wrap; align-items:flex-start; justify-content:center; gap:clamp(28px, 3vw, 46px) clamp(14px, 1.8vw, 26px); padding:clamp(20px,3vw,40px) 0">
-        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:clamp(0px, 4.6vw, 58px); animation-delay:0s;">
-          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
-            <path id="alphaArc0" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
-            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc0" startOffset="50%" text-anchor="middle">Problème</textPath></text>
-          </svg>
-          <p data-alpha-flat>Problème</p>
-          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 0s infinite">1</span>
-          
-          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
-            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">Nous passons du temps chez vous pour voir ce qui coince réellement.</p>
-            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Périmètre, interlocuteurs et calendrier posés par écrit</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les dix dimensions passées au crible : entretien dirigeant, terrain, audit documentaire</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Un rapport remis à la direction : ce qui coûte, ce qui rapporte, ce qui peut attendre</span></li>
-            </ul>
+    <div class="ap-wrap" data-ap>
+      <svg class="ap-line" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true"><polyline points="100,86 300,206 500,86 700,206 900,86"></polyline></svg>
+      <ol class="ap-steps" aria-label="Les cinq étapes de la Méthode Alpha">
+        <li class="ap-step" style="--i:0; --c:#22D3EE; --cd:#0E7490">
+          <div class="ap-tile-wrap">
+            <span class="ap-num" aria-hidden="true">01</span>
+            <span class="ap-glow" aria-hidden="true"></span>
+            <div class="ap-tile" aria-hidden="true"><div class="ap-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l4.5 4.5"></path></svg></div></div>
           </div>
-        </div>
-        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:0px; animation-delay:.12s;">
-          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
-            <path id="alphaArc1" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
-            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc1" startOffset="50%" text-anchor="middle">Stratégie</textPath></text>
-          </svg>
-          <p data-alpha-flat>Stratégie</p>
-          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 0.9s infinite">2</span>
-          
-          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
-            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">Trois chantiers maximum, classés par ce qu'ils vous font gagner.</p>
-            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les chantiers priorisés par impact, chiffrés et jalonnés</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Trois chantiers au maximum, jamais plus</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Ce qui peut attendre est dit aussi clairement que ce qui est urgent</span></li>
-            </ul>
+          <div class="ap-text">
+            <h3 class="ap-title">Problème</h3>
+            <span class="ap-bar" aria-hidden="true"></span>
+            <p class="ap-desc">Nous passons du temps chez vous pour voir ce qui coince réellement.</p>
           </div>
-        </div>
-        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:clamp(0px, 4.6vw, 58px); animation-delay:.24s;">
-          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
-            <path id="alphaArc2" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
-            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc2" startOffset="50%" text-anchor="middle">Transformation</textPath></text>
-          </svg>
-          <p data-alpha-flat>Transformation</p>
-          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 1.8s infinite">3</span>
-          
-          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
-            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">Livré par morceaux utilisables tout de suite, pas un grand projet dans six mois.</p>
-            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Fondations : identité, présence en ligne et outils de base</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les processus passent au numérique, par lots utilisables immédiatement</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Chaque lot est utilisable avant que le suivant commence</span></li>
-            </ul>
+        </li>
+        <li class="ap-step" style="--i:1; --c:#818CF8; --cd:#4F46E5">
+          <div class="ap-tile-wrap">
+            <span class="ap-num" aria-hidden="true">02</span>
+            <span class="ap-glow" aria-hidden="true"></span>
+            <div class="ap-tile" aria-hidden="true"><div class="ap-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1.3" fill="currentColor"></circle></svg></div></div>
           </div>
-        </div>
-        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:0px; animation-delay:.36s;">
-          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
-            <path id="alphaArc3" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
-            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc3" startOffset="50%" text-anchor="middle">IA</textPath></text>
-          </svg>
-          <p data-alpha-flat>IA</p>
-          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 2.7s infinite">4</span>
-          
-          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
-            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">L'automatisation vient après, sur des processus déjà propres.</p>
-            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>L'IA arrive sur des processus déjà propres, jamais en point de départ</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Les tâches répétitives automatisées, pas les décisions</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Chaque automatisation est mesurée avant d'être étendue</span></li>
-            </ul>
+          <div class="ap-text">
+            <h3 class="ap-title">Stratégie</h3>
+            <span class="ap-bar" aria-hidden="true"></span>
+            <p class="ap-desc">Trois chantiers maximum, classés par ce qu'ils vous font gagner.</p>
           </div>
-        </div>
-        <div data-alpha-step style="flex:1 1 214px; max-width:272px; margin-top:clamp(0px, 4.6vw, 58px); animation-delay:.48s;">
-          <svg data-alpha-title viewBox="0 0 200 50" style="display:block; width:170px; height:44px; margin:0 auto 8px; overflow:visible">
-            <path id="alphaArc4" d="M8,42 Q100,2 192,42" fill="none" stroke="none"></path>
-            <text font-size="15" font-weight="700" fill="var(--txA)"><textPath href="#alphaArc4" startOffset="50%" text-anchor="middle">Performance</textPath></text>
-          </svg>
-          <p data-alpha-flat>Performance</p>
-          <span data-alpha-badge style="display:flex; margin:0 auto; align-items:center; justify-content:center; width:clamp(112px, 11.5vw, 132px); height:clamp(112px, 11.5vw, 132px); border-radius:50%; border:1px solid var(--lineA); font-size:1.4rem; font-weight:700; letter-spacing:0.08em; color:var(--accent); background:var(--sA); animation:alphaBadge 4.6s ease-in-out 3.6s infinite">5</span>
-          
-          <div data-alpha-detail-card style="position:absolute; left:100%; top:50%; margin-left:14px; transform:translateY(-50%); width:min(82vw, 280px); padding:18px 20px; border-radius:18px; background:var(--sA); border:1px solid var(--lineA); box-shadow:0 20px 50px rgba(0,0,0,0.16); opacity:0; pointer-events:none; transition:opacity .4s ease, transform .4s cubic-bezier(.22,1,.36,1); text-align:center; z-index:5">
-            <p style="margin:0 0 10px; font-size:0.86rem; line-height:1.55; color:var(--txB)">On mesure, on forme vos équipes, vous reprenez la main.</p>
-            <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px; font-size:0.8rem; line-height:1.5; color:var(--txB)">
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Indicateurs de suivi remis avec la livraison</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>Formation de vos équipes et transfert des compétences</span></li>
-                  <li style="display:flex; flex-direction:row; gap:11px; align-items:flex-start; margin:0"><span aria-hidden="true" style="flex:none; width:6px; height:6px; margin-top:7px; background:#8A4DFF; transform:rotate(45deg)"></span><span>La mission finit quand vous n'avez plus besoin de nous</span></li>
-            </ul>
+        </li>
+        <li class="ap-step" style="--i:2; --c:#B98CFF; --cd:#6C22ED">
+          <div class="ap-tile-wrap">
+            <span class="ap-num" aria-hidden="true">03</span>
+            <span class="ap-glow" aria-hidden="true"></span>
+            <div class="ap-tile" aria-hidden="true"><div class="ap-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><circle cx="12" cy="12" r="6.5"></circle><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"></path></svg></div></div>
           </div>
-        </div>
-      </div>
+          <div class="ap-text">
+            <h3 class="ap-title">Transformation</h3>
+            <span class="ap-bar" aria-hidden="true"></span>
+            <p class="ap-desc">Livré par morceaux utilisables tout de suite, pas un grand projet dans six mois.</p>
+          </div>
+        </li>
+        <li class="ap-step" style="--i:3; --c:#E879F9; --cd:#C026D3">
+          <div class="ap-tile-wrap">
+            <span class="ap-num" aria-hidden="true">04</span>
+            <span class="ap-glow" aria-hidden="true"></span>
+            <div class="ap-tile" aria-hidden="true"><div class="ap-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"></rect><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4M10.5 12h3"></path></svg></div></div>
+          </div>
+          <div class="ap-text">
+            <h3 class="ap-title">IA</h3>
+            <span class="ap-bar" aria-hidden="true"></span>
+            <p class="ap-desc">L'automatisation vient après, sur des processus déjà propres.</p>
+          </div>
+        </li>
+        <li class="ap-step" style="--i:4; --c:#FB7185; --cd:#E11D48">
+          <div class="ap-tile-wrap">
+            <span class="ap-num" aria-hidden="true">05</span>
+            <span class="ap-glow" aria-hidden="true"></span>
+            <div class="ap-tile" aria-hidden="true"><div class="ap-face"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5h16"></path><path d="M5 15l4-4 3 3 6.5-7"></path><path d="M15.5 7h3v3"></path></svg></div></div>
+          </div>
+          <div class="ap-text">
+            <h3 class="ap-title">Performance</h3>
+            <span class="ap-bar" aria-hidden="true"></span>
+            <p class="ap-desc">On mesure, on forme vos équipes, vous reprenez la main.</p>
+          </div>
+        </li>
+      </ol>
     </div>
+    <script>
+    (function(){var w=document.querySelector('[data-ap]');if(!w||!('IntersectionObserver' in window))return;
+      w.setAttribute('data-ap-ready','');
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){w.setAttribute('data-ap-visible','');io.disconnect();}});},{threshold:0.15});
+      io.observe(w);
+      setTimeout(function(){if(!w.hasAttribute('data-ap-visible')){w.setAttribute('data-ap-visible','');io.disconnect();}},6000);})();
+    </script>
 
     <div style="margin-top:clamp(48px, 6vw, 76px); text-align:center">
       <a class="ihh37" href="methode-alpha.html" style="display:inline-flex; align-items:center; gap:10px; font-size:0.85rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); text-decoration:none; transition:gap .35s ease">Voir le déroulé complet d'une mission <span aria-hidden="true">→</span></a>
