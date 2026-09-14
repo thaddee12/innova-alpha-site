@@ -131,6 +131,17 @@ body { background: var(--sA) !important; }
 <script src="./theme.js"></script>
 <script src="./consent.js"></script>
 <script src="./scroll-progress.js"></script>
+
+<style>
+/* Realisations : titres de sections centres */
+[data-head-hero] > p, [data-head-hero] > h1{ text-align:center; margin-left:auto !important; margin-right:auto !important; }
+[data-head-block]{ margin-left:auto !important; margin-right:auto !important; text-align:center; }
+[data-head-block] > p{ margin-left:auto !important; margin-right:auto !important; }
+[data-head-row]{ flex-direction:column !important; align-items:center !important; justify-content:center !important; }
+[data-head-text]{ text-align:center; }
+[data-head-text] > p{ margin-left:auto !important; margin-right:auto !important; justify-content:center; }
+[data-head-row] [role="tablist"]{ justify-content:center; }
+</style>
 </head>
 <body>
 <a data-skip href="#contenu">Aller au contenu</a>
@@ -179,7 +190,7 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; width:46vmax; height:46vmax; top:-28%; right:-14%; border-radius:50%; background:radial-gradient(circle at 35% 35%, rgba(138,77,255,0.30), rgba(11,11,12,0) 62%); filter:blur(70px); animation:realOrb 15s ease-in-out infinite alternate; pointer-events:none"></div>
   <div aria-hidden="true" style="position:absolute; width:36vmax; height:36vmax; bottom:-24%; left:-12%; border-radius:50%; background:radial-gradient(circle at 50% 50%, rgba(108,34,237,0.26), rgba(11,11,12,0) 66%); filter:blur(80px); animation:realOrb 19s ease-in-out infinite alternate-reverse; pointer-events:none"></div>
   <div aria-hidden="true" style="position:absolute; inset:0; background-size:64px 64px; background-image:linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px); mask-image:radial-gradient(ellipse at 50% 38%, black 18%, transparent 74%); -webkit-mask-image:radial-gradient(ellipse at 50% 38%, black 18%, transparent 74%); pointer-events:none"></div>
-  <div style="position:relative; max-width:1140px; margin:0 auto">
+  <div data-head-hero style="position:relative; max-width:1140px; margin:0 auto">
     <p style="margin:0 0 18px; opacity:0; animation:realUp .8s cubic-bezier(.22,1,.36,1) .05s forwards; color:#A385FF; font-size:0.85rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase">La Méthode Alpha en production</p>
     <h1 style="margin:0 0 22px; opacity:0; animation:realUp .9s cubic-bezier(.22,1,.36,1) .15s forwards; font-size:clamp(2.4rem, 6.4vw, 4.6rem); font-weight:900; line-height:1.05; letter-spacing:0.01em; text-transform:uppercase; text-wrap:balance; max-width:22ch; color:#FFFFFF">Ce que nous avons livré,<br>et ce que ça a changé</h1>
     <p style="margin:0 0 44px; opacity:0; animation:realUp .9s cubic-bezier(.22,1,.36,1) .25s forwards; max-width:58ch; font-size:clamp(1rem,1.7vw,1.2rem); line-height:1.6; color:rgba(255,255,255,0.78)">Chaque projet suit la Méthode Alpha : on part de ce qui bloque, on livre, puis on reste. Voici les faits, client par client.</p>
@@ -217,7 +228,7 @@ body { background: var(--sA) !important; }
 <section data-screen-label="Cas client" style="position:relative; isolation:isolate; overflow:hidden; background:var(--sA); color:var(--txA); padding:clamp(72px,9vw,120px) 24px">
   <circuit-bg variant="network"></circuit-bg>
   <div style="position:relative; z-index:1; max-width:1140px; margin:0 auto">
-    <div data-reveal style="max-width:820px; margin-bottom:clamp(40px, 5vw, 60px)">
+    <div data-head-block data-reveal style="max-width:820px; margin-bottom:clamp(40px, 5vw, 60px)">
       <p style="margin:0 0 16px; color:var(--accent); font-size:13px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase">Cas client · 01</p>
       <h2 style="margin:0 0 18px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase; font-size:clamp(1.7rem, 4.2vw, 2.9rem); line-height:1.1">AQUAFARM : rendre visible une expertise que personne ne trouvait.</h2>
       <p style="margin:0; color:var(--txB); font-size:1rem; line-height:1.7; font-weight:400; font-size:1.05rem; max-width:62ch">Une ferme piscicole qui maîtrisait sa production, vendait à des professionnels exigeants, et restait introuvable pour eux.</p>
@@ -281,7 +292,7 @@ body { background: var(--sA) !important; }
 <section data-screen-label="Cas client KA SHOP" style="position:relative; isolation:isolate; overflow:hidden; background:var(--bandBg); color:var(--txA); padding:clamp(72px,9vw,120px) 24px">
   <circuit-bg variant="network"></circuit-bg>
   <div style="position:relative; z-index:1; max-width:1140px; margin:0 auto">
-    <div data-reveal style="max-width:820px; margin-bottom:clamp(40px, 5vw, 60px)">
+    <div data-head-block data-reveal style="max-width:820px; margin-bottom:clamp(40px, 5vw, 60px)">
       <p style="margin:0 0 16px; color:var(--accent); font-size:13px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase">Cas client · 02</p>
       <h2 style="margin:0 0 18px; font-weight:900; letter-spacing:0.02em; text-transform:uppercase; font-size:clamp(1.7rem, 4.2vw, 2.9rem); line-height:1.1">KA SHOP : un catalogue en ligne qui vend par WhatsApp.</h2>
       <p style="margin:0; color:var(--txB); font-size:1.05rem; line-height:1.7; font-weight:400; max-width:62ch">Deux boutiques, un catalogue large, et une vente qui reposait entièrement sur le passage en boutique.</p>
@@ -349,8 +360,8 @@ body { background: var(--sA) !important; }
   <div aria-hidden="true" style="position:absolute; inset:0; z-index:0; pointer-events:none; background-size:72px 72px; background-image:linear-gradient(to right, rgba(138,77,255,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(138,77,255,0.12) 1px, transparent 1px); mask-image:radial-gradient(86% 74% at 50% 34%, #000 0%, transparent 100%); -webkit-mask-image:radial-gradient(86% 74% at 50% 34%, #000 0%, transparent 100%)"></div>
   <div aria-hidden="true" style="position:absolute; z-index:0; pointer-events:none; width:72vmax; height:72vmax; top:-34%; left:50%; transform:translateX(-50%); border-radius:50%; background:radial-gradient(circle at 50% 50%, rgba(108,34,237,0.14), rgba(108,34,237,0) 62%)"></div>
   <div style="position:relative; z-index:1; max-width:1240px; margin:0 auto">
-    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:28px; margin-bottom:40px">
-      <div style="min-width:0">
+    <div data-head-row style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:28px; margin-bottom:40px">
+      <div data-head-text style="min-width:0">
         <p style="margin:0 0 14px; display:flex; align-items:center; gap:12px; font-family:ui-monospace, SFMono-Regular, Menlo, 'Courier New', monospace; font-size:11px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent)"><span aria-hidden="true" style="display:inline-block; width:28px; height:1px; background:#8A4DFF"></span>Portfolio · 5 dossiers clients</p>
         <h2 style="margin:0 0 14px; font-size:clamp(1.9rem,4vw,2.8rem); font-weight:900; text-transform:uppercase; letter-spacing:0.01em; color:var(--txA)">Projets Récents</h2>
         <p style="margin:0; max-width:46ch; color:var(--txB); font-size:1rem; line-height:1.6; text-wrap:pretty">De l'identité visuelle à la mise en ligne, voici ce que nous avons livré.</p>
