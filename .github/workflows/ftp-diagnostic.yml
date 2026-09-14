@@ -24,6 +24,8 @@ jobs:
           set ssl:verify-certificate no
           set net:max-retries 2
           set net:timeout 20
+          set net:reconnect-interval-base 5
+          debug 3
           open --env-password -u "$FTP_USER" "$FTP_HOST"
           echo "== dossier de connexion"
           pwd
