@@ -99,3 +99,18 @@ body[data-night] [data-trust-logo]{ padding:6px 14px !important; border-radius:1
   section[data-trust] > div[style*="flex-direction:column"]{ flex-direction:column !important; gap:10px !important; }
   section[data-trust] > div[style*="flex-direction:column"] > p{ text-align:center !important; }
 }
+
+/* ---- Bande de services du pole, a la place du fil d'Ariane (2026-09-15) ---- */
+[data-svc-band]{ position:relative; overflow:hidden; background:var(--sA); border-bottom:1px solid var(--lineA); padding-block:14px;
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+[data-svc-band] .svc-track{ display:flex; width:max-content; animation:svcBand 48s linear infinite; }
+[data-svc-band]:hover .svc-track{ animation-play-state:paused; }
+[data-svc-band] .svc-list{ display:flex; align-items:center; gap:34px; margin:0; padding:0 17px; list-style:none; white-space:nowrap;
+  font-size:0.75rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--accent); }
+[data-svc-band] .svc-sep{ opacity:.5; letter-spacing:0; }
+@keyframes svcBand{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+@media (prefers-reduced-motion: reduce){
+  [data-svc-band] .svc-track{ animation:none; width:auto; }
+  [data-svc-band] .svc-list{ flex-wrap:wrap; justify-content:center; row-gap:8px; white-space:normal; }
+  [data-svc-band] .svc-list[aria-hidden="true"]{ display:none; }
+}

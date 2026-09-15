@@ -146,7 +146,7 @@ nav[data-glass] [data-nav-links]{ gap:6px !important; min-width:0; }
 <script src="./theme.js"></script>
 <script src="./consent.js"></script>
 <script src="./scroll-progress.js"></script>
-<link rel="stylesheet" href="titres.css?v=5">
+<link rel="stylesheet" href="titres.css?v=6">
 </head>
 <body>
 <a data-skip href="#contenu">Aller au contenu</a>
@@ -210,13 +210,12 @@ nav[data-glass] [data-nav-links]{ gap:6px !important; min-width:0; }
 </header>
 
 <main id="contenu" tabindex="-1">
-<nav data-breadcrumb aria-label="Fil d'Ariane" style="background:var(--sA); color:var(--txB); padding:14px 24px; border-bottom:1px solid var(--lineA)">
-  <ol style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; max-width:1240px; margin:0 auto; padding:0; list-style:none; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase">
-    <li><a href="index.html" style="color:var(--txB); text-decoration:none">Accueil</a></li>
-    <li aria-hidden="true" style="opacity:0.5">/</li>
-    <li aria-current="page" style="color:var(--txA)">Intelligence artificielle</li>
-  </ol>
-</nav>
+<div data-svc-band role="region" aria-label="Services du pôle IA &amp; Automatisation">
+  <div class="svc-track">
+    <ul class="svc-list"><li>Automatisation de processus</li><li class="svc-sep" aria-hidden="true">✦</li><li>Workflows n8n et Make</li><li class="svc-sep" aria-hidden="true">✦</li><li>Assistant IA site et WhatsApp</li><li class="svc-sep" aria-hidden="true">✦</li><li>Agent IA entraîné sur vos documents</li><li class="svc-sep" aria-hidden="true">✦</li><li>Intégration Odoo ERP/CRM</li><li class="svc-sep" aria-hidden="true">✦</li><li>Analyse prédictive</li><li class="svc-sep" aria-hidden="true">✦</li><li>Tableaux de bord de suivi</li><li class="svc-sep" aria-hidden="true">✦</li><li>Formation des utilisateurs</li><li class="svc-sep" aria-hidden="true">✦</li></ul>
+    <ul class="svc-list" aria-hidden="true"><li>Automatisation de processus</li><li class="svc-sep" aria-hidden="true">✦</li><li>Workflows n8n et Make</li><li class="svc-sep" aria-hidden="true">✦</li><li>Assistant IA site et WhatsApp</li><li class="svc-sep" aria-hidden="true">✦</li><li>Agent IA entraîné sur vos documents</li><li class="svc-sep" aria-hidden="true">✦</li><li>Intégration Odoo ERP/CRM</li><li class="svc-sep" aria-hidden="true">✦</li><li>Analyse prédictive</li><li class="svc-sep" aria-hidden="true">✦</li><li>Tableaux de bord de suivi</li><li class="svc-sep" aria-hidden="true">✦</li><li>Formation des utilisateurs</li><li class="svc-sep" aria-hidden="true">✦</li></ul>
+  </div>
+</div>
 
 
 <section id="devis" data-screen-label="Packs" style="position:relative; isolation:isolate; overflow:hidden; background:var(--sB); color:var(--txA); padding:clamp(80px, 10vw, 140px) 24px; scroll-margin-top:110px">
