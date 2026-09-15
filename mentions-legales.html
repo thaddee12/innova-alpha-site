@@ -124,13 +124,12 @@ body[data-night] { --navShadow:0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(2
 
 
 <div id="contenu" tabindex="-1" style="min-height:100vh; display:flex; flex-direction:column">
-<nav data-breadcrumb aria-label="Fil d'Ariane" style="background:var(--sA); color:var(--txB); padding:14px 24px; border-bottom:1px solid var(--lineA)">
-  <ol style="display:flex; flex-wrap:wrap; align-items:center; gap:10px; max-width:1240px; margin:0 auto; padding:0; list-style:none; font-size:0.78rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase">
-    <li><a href="index.html" style="color:var(--txB); text-decoration:none">Accueil</a></li>
-    <li aria-hidden="true" style="opacity:0.5">/</li>
-    <li aria-current="page" style="color:var(--txA)">Mentions légales</li>
-  </ol>
-</nav>
+<div data-svc-band role="region" aria-label="Sommaire des mentions légales">
+  <div class="svc-track">
+    <ul class="svc-list"><li>Mentions légales</li><li class="svc-sep" aria-hidden="true">✦</li><li>Éditeur du site</li><li class="svc-sep" aria-hidden="true">✦</li><li>Directeur de la publication</li><li class="svc-sep" aria-hidden="true">✦</li><li>Hébergement</li><li class="svc-sep" aria-hidden="true">✦</li><li>Propriété intellectuelle</li><li class="svc-sep" aria-hidden="true">✦</li><li>Politique de confidentialité</li><li class="svc-sep" aria-hidden="true">✦</li><li>Données collectées</li><li class="svc-sep" aria-hidden="true">✦</li><li>Finalité</li><li class="svc-sep" aria-hidden="true">✦</li><li>Conservation</li><li class="svc-sep" aria-hidden="true">✦</li><li>Vos droits</li><li class="svc-sep" aria-hidden="true">✦</li><li>Cookies</li><li class="svc-sep" aria-hidden="true">✦</li></ul>
+    <ul class="svc-list" aria-hidden="true"><li>Mentions légales</li><li class="svc-sep" aria-hidden="true">✦</li><li>Éditeur du site</li><li class="svc-sep" aria-hidden="true">✦</li><li>Directeur de la publication</li><li class="svc-sep" aria-hidden="true">✦</li><li>Hébergement</li><li class="svc-sep" aria-hidden="true">✦</li><li>Propriété intellectuelle</li><li class="svc-sep" aria-hidden="true">✦</li><li>Politique de confidentialité</li><li class="svc-sep" aria-hidden="true">✦</li><li>Données collectées</li><li class="svc-sep" aria-hidden="true">✦</li><li>Finalité</li><li class="svc-sep" aria-hidden="true">✦</li><li>Conservation</li><li class="svc-sep" aria-hidden="true">✦</li><li>Vos droits</li><li class="svc-sep" aria-hidden="true">✦</li><li>Cookies</li><li class="svc-sep" aria-hidden="true">✦</li></ul>
+  </div>
+</div>
   <header style="border-bottom:1px solid var(--lineA); padding:18px 24px; position:sticky; top:0; background:rgba(255,255,255,0.9); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); z-index:10">
     <div style="max-width:820px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px">
       <a href="index.html#hero" style="display:flex; align-items:center"><img decoding="async" loading="lazy" src="assets/logo-innova-alpha-light.svg" alt="INNOVA ALPHA" style="height:40px; width:auto; display:block"></a>
