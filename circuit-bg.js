@@ -1,5 +1,5 @@
 // <circuit-bg>: animated "tech circuit" section background, adapted from the
-// KA SHOP block into the site's violet palette. Pure CSS animation (grid drift,
+// KASHOP block into the site's violet palette. Pure CSS animation (grid drift,
 // SVG trace draw, pulsing nodes, rising particles, light sweep, floating halo).
 // Drop as the FIRST child of a position:relative; isolation:isolate section;
 // paints at z-index:-1 (above the section background, below content), never
