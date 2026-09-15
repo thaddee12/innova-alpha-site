@@ -122,3 +122,17 @@ a[data-lang-switch]:focus-visible{ outline:2px solid #8A4DFF; outline-offset:2px
 @media (max-width:1120px){
   nav[data-glass] > a[data-lang-switch], [data-nav-row] > a[data-lang-switch]{ display:inline-flex !important; margin-left:6px !important; padding:0; }
 }
+/* Bouton de langue : le drapeau de la langue affichee remplace le libelle au survol */
+a[data-lang-switch]{ position:relative; overflow:hidden; }
+a[data-lang-switch] .ls-txt, a[data-lang-switch] .ls-flag{ transition:opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1); }
+a[data-lang-switch] .ls-flag{ position:absolute; inset:0; border-radius:50%; overflow:hidden; opacity:0; transform:scale(.6); pointer-events:none; }
+a[data-lang-switch] .ls-flag svg{ display:block; width:100%; height:100%; }
+@media (hover:hover){
+  a[data-lang-switch]:hover .ls-flag{ opacity:1; transform:scale(1); }
+  a[data-lang-switch]:hover .ls-txt{ opacity:0; transform:scale(.6); }
+}
+a[data-lang-switch]:focus-visible .ls-flag{ opacity:1; transform:scale(1); }
+a[data-lang-switch]:focus-visible .ls-txt{ opacity:0; }
+@media (prefers-reduced-motion: reduce){
+  a[data-lang-switch] .ls-txt, a[data-lang-switch] .ls-flag{ transition:none; }
+}
