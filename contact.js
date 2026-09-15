@@ -3,6 +3,7 @@
    "Diagnostic Alpha". Port vanilla du composant React d'origine. */
 (function () {
   var MAILTO = 'contact@innovaalpha.com';
+  var EN = /^en/i.test(document.documentElement.lang || '');
 
   /* ---------- points decoratifs (cercle hero) ---------- */
   function randomDot() {
@@ -65,7 +66,7 @@
       if (payload.site_web) return; // honeypot : bot detecte, on ignore silencieusement
       delete payload.site_web;
       if (!payload.privacy) {
-        setStatus("Merci de valider le consentement avant l'envoi.", '#D2453B');
+        setStatus(EN ? 'Please accept the data consent before sending.' : "Merci de valider le consentement avant l'envoi.", '#D2453B');
         return;
       }
 
@@ -77,9 +78,9 @@
       } catch (err) {}
 
       window.location.href = 'mailto:' + MAILTO
-        + '?subject=' + encodeURIComponent('Demande de diagnostic : ' + (payload.name || ''))
+        + '?subject=' + encodeURIComponent((EN ? 'Diagnostic request: ' : 'Demande de diagnostic : ') + (payload.name || ''))
         + '&body=' + encodeURIComponent(body);
-      setStatus("Votre logiciel de messagerie va s'ouvrir avec la demande pré-remplie. Si rien ne se passe, écrivez à " + MAILTO + ' ou appelez le +237 697 212 646.', 'var(--txB)');
+      setStatus(EN ? 'Your email app will open with the request prefilled. If nothing happens, write to ' + MAILTO + ' or call +237 697 212 646.' : "Votre logiciel de messagerie va s'ouvrir avec la demande pré-remplie. Si rien ne se passe, écrivez à " + MAILTO + ' ou appelez le +237 697 212 646.', 'var(--txB)');
     });
   }
 

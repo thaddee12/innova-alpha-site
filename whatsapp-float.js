@@ -6,9 +6,10 @@
 (function () {
   if (window.__waFloat) return;
   window.__waFloat = true;
+  var EN = /^en/i.test(document.documentElement.lang || '');
 
   var HREF = 'https://wa.me/237697212646?text=' +
-    encodeURIComponent('Bonjour INNOVA ALPHA, je souhaite faire le point sur mon projet.');
+    encodeURIComponent(EN ? 'Hello INNOVA ALPHA, I would like to discuss my project.' : 'Bonjour INNOVA ALPHA, je souhaite faire le point sur mon projet.');
   var GAP = 18;
 
   var CSS =
@@ -46,14 +47,14 @@
     a.href = HREF;
     a.target = '_blank';
     a.rel = 'noopener';
-    a.setAttribute('aria-label', 'Discuter avec INNOVA ALPHA sur WhatsApp');
-    a.innerHTML = ICON + '<span>Discuter sur WhatsApp</span>';
+    a.setAttribute('aria-label', EN ? 'Chat with INNOVA ALPHA on WhatsApp' : 'Discuter avec INNOVA ALPHA sur WhatsApp');
+    a.innerHTML = ICON + '<span>' + (EN ? 'Chat on WhatsApp' : 'Discuter sur WhatsApp') + '</span>';
     document.body.appendChild(a);
     return a;
   }
 
   function consentBanner() {
-    return document.querySelector('[role="dialog"][aria-label^="Consentement"]');
+    return document.querySelector('[data-consent], [role="dialog"][aria-label^="Consentement"]');
   }
 
   function boot() {

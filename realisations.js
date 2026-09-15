@@ -21,7 +21,7 @@
       });
       var shown = 0;
       cards.forEach(function (c) {
-        var match = label === 'Tous' || c.getAttribute('data-type') === label;
+        var match = label === 'Tous' || label === 'All' || c.getAttribute('data-type') === label;
         c.style.display = match ? '' : 'none';
         if (match) shown++;
       });

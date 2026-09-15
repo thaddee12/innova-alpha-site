@@ -3,6 +3,7 @@
    Pour brancher un outil : renseigner window.INNOVA_ANALYTICS avant ce script,
    il ne sera appelé qu'après acceptation. */
 (function () {
+  var EN = /^en/i.test(document.documentElement.lang || '');
   var KEY = 'innova-consent';
   var MAX_AGE = 1000 * 60 * 60 * 24 * 182;
 
@@ -28,12 +29,13 @@
     var wrap = document.createElement('div');
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-live', 'polite');
-    wrap.setAttribute('aria-label', 'Consentement à la mesure d\u2019audience');
+    wrap.setAttribute('data-consent', '');
+    wrap.setAttribute('aria-label', EN ? 'Audience measurement consent' : 'Consentement à la mesure d\u2019audience');
     wrap.style.cssText = 'position:fixed; z-index:300; left:16px; right:16px; bottom:16px; max-width:640px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:14px; padding:16px 18px; border-radius:18px; background:rgba(15,7,34,0.94); color:#FFFFFF; border:1px solid rgba(255,255,255,0.16); box-shadow:0 24px 60px rgba(0,0,0,0.45); backdrop-filter:blur(18px); font-family:inherit; font-size:13.5px; line-height:1.55';
 
     var txt = document.createElement('p');
     txt.style.cssText = 'margin:0; flex:1 1 260px; min-width:0; color:rgba(255,255,255,0.86)';
-    txt.innerHTML = 'Nous mesurons l\u2019audience du site pour l\u2019améliorer. Rien n\u2019est déposé sans votre accord. <a href="mentions-legales.html" style="color:#C4A6FF">En savoir plus</a>';
+    txt.innerHTML = EN ? 'We measure site traffic to improve it. Nothing is stored without your consent. <a href="mentions-legales.html" style="color:#C4A6FF">Learn more</a>' : 'Nous mesurons l\u2019audience du site pour l\u2019améliorer. Rien n\u2019est déposé sans votre accord. <a href="mentions-legales.html" style="color:#C4A6FF">En savoir plus</a>';
 
     var row = document.createElement('div');
     row.style.cssText = 'display:flex; gap:10px; flex:none';
@@ -48,7 +50,7 @@
           : 'color:rgba(255,255,255,0.86); background:transparent; border:1px solid rgba(255,255,255,0.28)');
       return b;
     }
-    var no = mk('Refuser', false), yes = mk('Accepter', true);
+    var no = mk(EN ? 'Decline' : 'Refuser', false), yes = mk(EN ? 'Accept' : 'Accepter', true);
 
     function close(choice) {
       write(choice);

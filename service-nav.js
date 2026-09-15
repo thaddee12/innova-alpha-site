@@ -3,15 +3,16 @@
 (function () {
   if (window.__serviceNav) return;                 // le runtime peut évaluer ce script deux fois
   window.__serviceNav = true;
+  var EN = /^en/i.test(document.documentElement.lang || '');
 
   // Titres canoniques : identiques au tableau `services` de INNOVA ALPHA.dc.html
   var SERVICES = [
-    { num: '01', file: 'conseil.html',   label: 'Conseil & Transformation', from: '#A855F7', to: '#5A18CF' },
+    { num: '01', file: 'conseil.html',   label: EN ? 'Consulting & Transformation' : 'Conseil & Transformation', from: '#A855F7', to: '#5A18CF' },
     { num: '02', file: 'digital.html',   label: 'Digital & Web',            from: '#8A4DFF', to: '#6C22ED' },
-    { num: '03', file: 'ia.html',        label: 'IA & Automatisation',      from: '#7C3BFF', to: '#3C1482' },
-    { num: '04', file: 'graphisme.html', label: 'Identité & Marketing',     from: '#8A4DFF', to: '#5A18CF' },
-    { num: '05', file: 'mobile.html',    label: 'Applications Mobiles',     from: '#B98CFF', to: '#6C22ED' },
-    { num: '06', file: 'formation.html', label: 'Formation IA',             from: '#6C22ED', to: '#B98CFF' }
+    { num: '03', file: 'ia.html',        label: EN ? 'AI & Automation' : 'IA & Automatisation',      from: '#7C3BFF', to: '#3C1482' },
+    { num: '04', file: 'graphisme.html', label: EN ? 'Brand & Marketing' : 'Identité & Marketing',     from: '#8A4DFF', to: '#5A18CF' },
+    { num: '05', file: 'mobile.html',    label: EN ? 'Mobile Apps' : 'Applications Mobiles',     from: '#B98CFF', to: '#6C22ED' },
+    { num: '06', file: 'formation.html', label: EN ? 'AI Training' : 'Formation IA',             from: '#6C22ED', to: '#B98CFF' }
   ];
 
   function currentFile() {

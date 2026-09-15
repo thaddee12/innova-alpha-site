@@ -2,6 +2,9 @@
    entre les 6 familles de forfaits, onglets. Port vanilla du composant React
    d'origine (memes regles de conversion et de detection de devise). */
 (function () {
+  var EN = /^en/i.test(document.documentElement.lang || '');
+  var LOCALE = EN ? 'en-US' : 'fr-FR';
+  var FROM = EN ? 'From ' : 'Dès ';
   var FX = {
     XAF: { label: 'FCFA', rate: 1 },
     EUR: { label: '€', rate: 655.957 },
@@ -9,23 +12,23 @@
     GBP: { label: '£', rate: 780 },
     CAD: { label: 'C$', rate: 440 },
   };
-  var NOTE_XAF = 'Tarifs de référence en francs CFA (XAF/XOF). Devis ferme après le Diagnostic Alpha.';
-  var NOTE_OTHER = 'Conversion indicative depuis le franc CFA, notre devise de référence. La facturation reste en FCFA au taux du jour.';
+  var NOTE_XAF = EN ? 'Reference prices in CFA francs (XAF/XOF). Firm quote after the Alpha Diagnostic.' : 'Tarifs de référence en francs CFA (XAF/XOF). Devis ferme après le Diagnostic Alpha.';
+  var NOTE_OTHER = EN ? 'Indicative conversion from the CFA franc, our reference currency. Invoicing remains in FCFA at the daily rate.' : 'Conversion indicative depuis le franc CFA, notre devise de référence. La facturation reste en FCFA au taux du jour.';
 
   function amount(xaf, withUnit, cur) {
     var fx = FX[cur];
     if (cur === 'XAF') {
       if (xaf >= 1000000) {
         var m = Math.round(xaf / 100000) / 10;
-        return String(m).replace('.', ',') + (withUnit ? ' M FCFA' : ' M');
+        return (EN ? String(m) : String(m).replace('.', ',')) + (withUnit ? ' M FCFA' : ' M');
       }
       var v = Math.round(xaf / 1000) * 1000;
-      return new Intl.NumberFormat('fr-FR').format(v) + (withUnit ? ' FCFA' : '');
+      return new Intl.NumberFormat(LOCALE).format(v) + (withUnit ? ' FCFA' : '');
     }
     var raw = xaf / fx.rate;
     var step = raw >= 20000 ? 1000 : raw >= 2000 ? 100 : raw >= 200 ? 25 : 5;
     var v2 = Math.max(step, Math.round(raw / step) * step);
-    var num = new Intl.NumberFormat('fr-FR').format(v2);
+    var num = new Intl.NumberFormat(LOCALE).format(v2);
     return withUnit ? num + ' ' + fx.label : num;
   }
 
@@ -37,13 +40,13 @@
     var from = el.getAttribute('data-from') === '1';   // prix plancher : prefixe "Des"
     var kind = el.getAttribute('data-kind');
     // controle avant tout calcul (sinon un abonnement sans prix affichait "NaN")
-    if (min === null || isNaN(min)) return 'Sur devis';
+    if (min === null || isNaN(min)) return EN ? 'On quote' : 'Sur devis';
     if (kind === 'sub') {
-      return (from ? 'Dès ' : '') + amount(min, true, cur) + (plus ? '+' : '') + ' / mois';
+      return (from ? FROM : '') + amount(min, true, cur) + (plus ? '+' : '') + (EN ? ' / month' : ' / mois');
     }
-    if (min === 0) return 'Gratuit';
+    if (min === 0) return EN ? 'Free' : 'Gratuit';
     if (max) return amount(min, false, cur) + ' – ' + amount(max, true, cur);
-    return (from ? 'Dès ' : '') + amount(min, true, cur) + (plus ? '+' : '');
+    return (from ? FROM : '') + amount(min, true, cur) + (plus ? '+' : '');
   }
 
   function detectCurrency() {
@@ -99,7 +102,10 @@
   }
 
   /* ---------- onglets famille de forfaits ---------- */
-  var FAMILY_TITLES = {
+  var FAMILY_TITLES = EN ? {
+    conseil: 'Consulting & Transformation', digital: 'Digital & Web', ia: 'AI & Automation',
+    graphisme: 'Brand & Marketing', mobile: 'Mobile Apps', formation: 'AI Training'
+  } : {
     conseil: 'Conseil & Transformation', digital: 'Digital & Web', ia: 'IA & Automatisation',
     graphisme: 'Identité & Marketing', mobile: 'Applications Mobiles', formation: 'Formation IA'
   };
@@ -121,7 +127,7 @@
       if (titleEl) titleEl.textContent = FAMILY_TITLES[id] || '';
     }
 
-    var list = document.querySelector('[role="tablist"][aria-label="Famille de forfaits"]');
+    var list = document.querySelector('[role="tablist"][data-family-tabs]');
     var mobile = window.matchMedia('(max-width: 760px)');
 
     function syncEdge() {
