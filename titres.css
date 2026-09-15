@@ -136,3 +136,15 @@ a[data-lang-switch]:focus-visible .ls-txt{ opacity:0; }
 @media (prefers-reduced-motion: reduce){
   a[data-lang-switch] .ls-txt, a[data-lang-switch] .ls-flag{ transition:none; }
 }
+
+/* Bouton jour / nuit : animation du symbole au survol (lune qui bascule, soleil qui tourne) */
+button[onclick="INNOVA_toggleTheme()"] [data-theme-glyph]{ display:inline-block; line-height:1; transform-origin:50% 50%; transition:transform .45s cubic-bezier(.22,1,.36,1); }
+@media (hover:hover){
+  button[onclick="INNOVA_toggleTheme()"]:hover [data-theme-glyph]{ transform:rotate(-20deg) scale(1.18); }
+  body[data-night] button[onclick="INNOVA_toggleTheme()"]:hover [data-theme-glyph]{ transform:rotate(90deg) scale(1.18); }
+}
+button[onclick="INNOVA_toggleTheme()"]:focus-visible [data-theme-glyph]{ transform:rotate(-20deg) scale(1.18); }
+body[data-night] button[onclick="INNOVA_toggleTheme()"]:focus-visible [data-theme-glyph]{ transform:rotate(90deg) scale(1.18); }
+@media (prefers-reduced-motion: reduce){
+  button[onclick="INNOVA_toggleTheme()"] [data-theme-glyph]{ transition:none; }
+}
