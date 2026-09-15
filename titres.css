@@ -115,10 +115,10 @@ body[data-night] [data-trust-logo]{ padding:6px 14px !important; border-radius:1
   [data-svc-band] .svc-list[aria-hidden="true"]{ display:none; }
 }
 
-/* Bascule FR / EN : lien vers la page equivalente dans l'autre langue */
-a[data-lang-switch]{ display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; flex:none; padding:0 12px; margin-left:8px; font-family:inherit; font-size:12px; font-weight:700; letter-spacing:.12em; line-height:1; color:var(--txA); background:transparent; border:1px solid var(--lineA); border-radius:999px; text-decoration:none; transition:background .3s ease; }
+/* Bascule FR / EN : meme style que le bouton jour / nuit (rond de 36 px) */
+a[data-lang-switch]{ display:inline-flex; align-items:center; justify-content:center; box-sizing:border-box; flex:none; width:36px; height:36px; padding:0; margin-left:8px; font-family:inherit; font-size:11px; font-weight:800; letter-spacing:.02em; line-height:1; color:var(--txA); background:transparent; border:1px solid var(--lineA); border-radius:999px; text-decoration:none; transition:background .3s ease; }
 a[data-lang-switch]:hover{ color:var(--txA); background:var(--hov); }
 a[data-lang-switch]:focus-visible{ outline:2px solid #8A4DFF; outline-offset:2px; }
 @media (max-width:1120px){
-  nav[data-glass] > a[data-lang-switch], [data-nav-row] > a[data-lang-switch]{ display:inline-flex !important; margin-left:6px !important; padding:0 10px; }
+  nav[data-glass] > a[data-lang-switch], [data-nav-row] > a[data-lang-switch]{ display:inline-flex !important; margin-left:6px !important; padding:0; }
 }
