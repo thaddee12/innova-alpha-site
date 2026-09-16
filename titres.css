@@ -153,3 +153,8 @@ body[data-night] button[onclick="INNOVA_toggleTheme()"]:focus-visible [data-them
 footer > div:has(> div > [data-slogan]){ justify-content:center !important; box-sizing:border-box; min-height:76px; padding-inline:calc(48px + 16px + clamp(20px, 4vw, 44px)) !important; }
 footer > div:has(> div > [data-slogan]) > div:has(> [data-slogan]){ justify-content:center; text-align:center; }
 footer > div:has(> div > [data-slogan]) > button{ position:absolute; right:clamp(20px, 4vw, 44px); top:0; bottom:0; margin:auto 0; }
+
+/* Cartes du cycle operationnel (Methode Alpha) : la couleur suit le theme.
+   Jetons dedies : ne pas reutiliser --cardBg, deja defini par plusieurs pages. */
+:root{ --cycleBg:#FFFFFF; --cycleLine:#E4DFF0; }
+body[data-night]{ --cycleBg:#141019; --cycleLine:rgba(255,255,255,0.14); }
