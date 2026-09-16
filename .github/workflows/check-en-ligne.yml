@@ -4,24 +4,20 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Acces au site dans differentes conditions
+      - name: IPv6 et TLS
         run: |
           set +e
-          echo "=== 1. adresses testees"
-          for u in "https://innovaalpha.com/" "https://www.innovaalpha.com/" "http://innovaalpha.com/" "http://www.innovaalpha.com/"; do
-            echo "$(curl -s -o /dev/null -L -w '%{http_code} %{time_total}s redirections=%{num_redirects} finale=%{url_effective}' --max-time 25 "$u")  <- $u"
+          echo "=== A. la machine de test a-t-elle l IPv6 ? (temoin)"
+          curl -6 -s -o /dev/null -w "google ipv6: %{http_code}\n" --max-time 15 https://ipv6.google.com/ || echo "google ipv6: echec"
+          curl -6 -s -o /dev/null -w "cloudflare ipv6: %{http_code}\n" --max-time 15 https://www.cloudflare.com/ || echo "cloudflare ipv6: echec"
+          echo "=== B. le site en IPv6"
+          curl -6 -s -o /dev/null -w "innovaalpha ipv6: %{http_code} ip=%{remote_ip}\n" --max-time 15 https://innovaalpha.com/ || echo "innovaalpha ipv6: echec"
+          echo "=== C. versions TLS acceptees par le site"
+          for v in 1.0 1.1 1.2 1.3; do
+            out=$(curl -s -o /dev/null --tlsv$v --tls-max $v -w "%{http_code}" --max-time 15 https://innovaalpha.com/ 2>&1)
+            echo "TLS $v -> ${out:-refuse}"
           done
-          echo "=== 2. sans suivre les redirections"
-          for u in "http://innovaalpha.com/" "https://www.innovaalpha.com/"; do
-            echo "-- $u"; curl -sI --max-time 25 "$u" | grep -iE 'HTTP/|location|strict-transport' | head -4
-          done
-          echo "=== 3. IPv6"
-          curl -6 -s -o /dev/null -w "ipv6: %{http_code} %{time_total}s\n" --max-time 20 https://innovaalpha.com/ || echo "ipv6: echec"
-          echo "=== 4. IPv4"
-          curl -4 -s -o /dev/null -w "ipv4: %{http_code} %{time_total}s ip=%{remote_ip}\n" --max-time 20 https://innovaalpha.com/
-          echo "=== 5. certificat"
-          echo | openssl s_client -connect innovaalpha.com:443 -servername innovaalpha.com 2>/dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName 2>/dev/null | head -8
-          echo "=== 6. versions TLS"
-          for v in tls1 tls1_1 tls1_2 tls1_3; do
-            curl -s -o /dev/null --$v -w "$v: %{http_code}\n" --max-time 15 https://innovaalpha.com/ 2>/dev/null || echo "$v: refuse"
-          done
+          echo "=== D. detail de la negociation"
+          echo | openssl s_client -connect innovaalpha.com:443 -servername innovaalpha.com 2>/dev/null | grep -E 'Protocol|Cipher' | head -4
+          echo "=== E. resolution DNS vue depuis ce serveur"
+          getent ahosts innovaalpha.com | head -6
