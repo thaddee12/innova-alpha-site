@@ -4,14 +4,24 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Verifier les pages
+      - name: Acces au site dans differentes conditions
         run: |
           set +e
-          for u in "" "simulateur.html" "tarifs.html" "contact.html" "realisations.html" "methode-alpha.html" "en/" "en/simulateur.html" "en/tarifs.html" "scroll-progress.js?v=7" "titres.css?v=11" "sitemap.xml" "robots.txt" "404-inexistante.html"; do
-            r=$(curl -s -o /tmp/p -w "%{http_code} %{time_total}s %{size_download}o" --max-time 25 "https://innovaalpha.com/$u")
-            echo "$r  <- /$u"
+          echo "=== 1. adresses testees"
+          for u in "https://innovaalpha.com/" "https://www.innovaalpha.com/" "http://innovaalpha.com/" "http://www.innovaalpha.com/"; do
+            echo "$(curl -s -o /dev/null -L -w '%{http_code} %{time_total}s redirections=%{num_redirects} finale=%{url_effective}' --max-time 25 "$u")  <- $u"
           done
-          echo "--- entetes page d accueil"
-          curl -sI --max-time 25 https://innovaalpha.com/ | grep -iE 'HTTP/|content-type|cache-control|x-hcdn|server' | head -8
-          echo "--- entetes du script"
-          curl -sI --max-time 25 "https://innovaalpha.com/scroll-progress.js?v=7" | grep -iE 'HTTP/|content-type|cache-control' | head -5
+          echo "=== 2. sans suivre les redirections"
+          for u in "http://innovaalpha.com/" "https://www.innovaalpha.com/"; do
+            echo "-- $u"; curl -sI --max-time 25 "$u" | grep -iE 'HTTP/|location|strict-transport' | head -4
+          done
+          echo "=== 3. IPv6"
+          curl -6 -s -o /dev/null -w "ipv6: %{http_code} %{time_total}s\n" --max-time 20 https://innovaalpha.com/ || echo "ipv6: echec"
+          echo "=== 4. IPv4"
+          curl -4 -s -o /dev/null -w "ipv4: %{http_code} %{time_total}s ip=%{remote_ip}\n" --max-time 20 https://innovaalpha.com/
+          echo "=== 5. certificat"
+          echo | openssl s_client -connect innovaalpha.com:443 -servername innovaalpha.com 2>/dev/null | openssl x509 -noout -subject -issuer -dates -ext subjectAltName 2>/dev/null | head -8
+          echo "=== 6. versions TLS"
+          for v in tls1 tls1_1 tls1_2 tls1_3; do
+            curl -s -o /dev/null --$v -w "$v: %{http_code}\n" --max-time 15 https://innovaalpha.com/ 2>/dev/null || echo "$v: refuse"
+          done
