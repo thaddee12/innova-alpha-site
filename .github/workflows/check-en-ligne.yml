@@ -1,0 +1,17 @@
+name: check-en-ligne
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifier les pages
+        run: |
+          set +e
+          for u in "" "simulateur.html" "tarifs.html" "contact.html" "realisations.html" "methode-alpha.html" "en/" "en/simulateur.html" "en/tarifs.html" "scroll-progress.js?v=7" "titres.css?v=11" "sitemap.xml" "robots.txt" "404-inexistante.html"; do
+            r=$(curl -s -o /tmp/p -w "%{http_code} %{time_total}s %{size_download}o" --max-time 25 "https://innovaalpha.com/$u")
+            echo "$r  <- /$u"
+          done
+          echo "--- entetes page d accueil"
+          curl -sI --max-time 25 https://innovaalpha.com/ | grep -iE 'HTTP/|content-type|cache-control|x-hcdn|server' | head -8
+          echo "--- entetes du script"
+          curl -sI --max-time 25 "https://innovaalpha.com/scroll-progress.js?v=7" | grep -iE 'HTTP/|content-type|cache-control' | head -5
