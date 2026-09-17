@@ -4,20 +4,14 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: IPv6 et TLS
+      - name: Balises de description servies en ligne
         run: |
           set +e
-          echo "=== A. la machine de test a-t-elle l IPv6 ? (temoin)"
-          curl -6 -s -o /dev/null -w "google ipv6: %{http_code}\n" --max-time 15 https://ipv6.google.com/ || echo "google ipv6: echec"
-          curl -6 -s -o /dev/null -w "cloudflare ipv6: %{http_code}\n" --max-time 15 https://www.cloudflare.com/ || echo "cloudflare ipv6: echec"
-          echo "=== B. le site en IPv6"
-          curl -6 -s -o /dev/null -w "innovaalpha ipv6: %{http_code} ip=%{remote_ip}\n" --max-time 15 https://innovaalpha.com/ || echo "innovaalpha ipv6: echec"
-          echo "=== C. versions TLS acceptees par le site"
-          for v in 1.0 1.1 1.2 1.3; do
-            out=$(curl -s -o /dev/null --tlsv$v --tls-max $v -w "%{http_code}" --max-time 15 https://innovaalpha.com/ 2>&1)
-            echo "TLS $v -> ${out:-refuse}"
+          for u in "https://innovaalpha.com/" "https://innovaalpha.com/en/"; do
+            echo "=== $u"
+            curl -s --max-time 25 "$u" > /tmp/p.html
+            grep -o '<meta name="description" content="[^"]*"' /tmp/p.html | head -1
+            grep -o '<meta property="og:description" content="[^"]*"' /tmp/p.html | head -1
+            grep -o '"description":"[^"]*"' /tmp/p.html | head -1
+            grep -o '<title>[^<]*</title>' /tmp/p.html | head -1
           done
-          echo "=== D. detail de la negociation"
-          echo | openssl s_client -connect innovaalpha.com:443 -servername innovaalpha.com 2>/dev/null | grep -E 'Protocol|Cipher' | head -4
-          echo "=== E. resolution DNS vue depuis ce serveur"
-          getent ahosts innovaalpha.com | head -6
