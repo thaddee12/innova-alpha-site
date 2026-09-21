@@ -40,7 +40,7 @@
     var from = el.getAttribute('data-from') === '1';   // prix plancher : prefixe "Des"
     var kind = el.getAttribute('data-kind');
     // controle avant tout calcul (sinon un abonnement sans prix affichait "NaN")
-    if (min === null || isNaN(min)) return EN ? 'On quote' : 'Sur devis';
+    if (min === null || isNaN(min)) return EN ? 'Custom quote' : 'Sur devis';
     if (kind === 'sub') {
       return (from ? FROM : '') + amount(min, true, cur) + (plus ? '+' : '') + (EN ? ' / month' : ' / mois');
     }

@@ -16,8 +16,8 @@
     CAD: { label: 'C$', rate: 440 }
   };
   var T = EN ? {
-    from: 'From ', month: ' / month', free: 'Free', quote: 'On quote', none: '—',
-    quoteNote: function (n) { return n === 1 ? '1 service on quote, priced after a call.' : n + ' services on quote, priced after a call.'; },
+    from: 'From ', month: ' / month', free: 'Free', quote: 'Custom quote', none: '—',
+    quoteNote: function (n) { return n === 1 ? '1 service needs a custom quote, priced after a call.' : n + ' services need a custom quote, priced after a call.'; },
     remove: 'Remove',
     errEmpty: 'Choose at least one service or describe your need.',
     errName: 'Please enter your name.',
