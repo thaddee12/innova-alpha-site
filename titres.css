@@ -162,3 +162,13 @@ body[data-night]{ --cycleBg:#141019; --cycleLine:rgba(255,255,255,0.14); }
 /* Reseaux sociaux du pied de page (visibles aussi sur mobile) */
 [data-social-row] a:hover{ border-color:var(--accent) !important; color:var(--accent) !important; }
 [data-social-row] a:focus-visible{ outline:2px solid #8A4DFF; outline-offset:3px; }
+
+/* Decor anime de la section « Ce que nous faisons » : fige sur mobile.
+   72 traces animes sur stroke-dashoffset, non accelerables par le GPU :
+   le defilement tremblait sur telephone. Anime sur ordinateur, fige en dessous. */
+@media (max-width: 900px){
+  #expertises svg path{ animation:none !important; }
+}
+@media (prefers-reduced-motion: reduce){
+  #expertises svg path{ animation:none !important; }
+}
