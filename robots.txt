@@ -1,22 +1,22 @@
+# robots.txt | innovaalpha.com
+#
+# Un seul groupe, volontairement. Des qu'un robot trouve un groupe a son
+# nom, il lit celui-la et ignore entierement le groupe « * », interdictions
+# comprises. L'ancien fichier comportait un groupe « Googlebot: Allow: / »
+# qui n'ajoutait rien, puisque « * » autorise deja tout, mais qui privait
+# Google des interdictions ci-dessous. Meme chose pour les robots d'IA.
+#
+# Les robots d'IA (GPTBot, CCBot, anthropic-ai) restent autorises : ils sont
+# couverts par « * ». Les retirer de cette autorisation se ferait en ajoutant
+# un groupe a leur nom avec « Disallow: / », jamais en les listant ici.
+
 User-agent: *
 Allow: /
-Allow: /*.dc.html
-Allow: /assets/
 Disallow: /debug/
 Disallow: /scraps/
 Disallow: /uploads/
 Disallow: /.image-slots.state.json
 Disallow: /.thumbnail
-
-User-agent: GPTBot
-User-agent: CCBot
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Googlebot
-Allow: /
-
 Crawl-delay: 1
-Request-rate: 10/1s
 
 Sitemap: https://innovaalpha.com/sitemap.xml
