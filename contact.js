@@ -1,5 +1,5 @@
-/* contact.js : formulaire de contact (barre de progression, envoi par email
-   pre-rempli, anti-spam), accordeon FAQ, points decoratifs du cercle
+/* contact.js : formulaire de contact (barre de progression, envoi par
+   contact.php avec repli sur l'e-mail pre-rempli, anti-spam), accordeon FAQ, points decoratifs du cercle
    "Diagnostic Alpha". Port vanilla du composant React d'origine. */
 (function () {
   var MAILTO = 'contact@innovaalpha.com';
@@ -71,16 +71,35 @@
       }
 
       var body = Object.entries(payload).map(function (kv) { return kv[0] + ' : ' + kv[1]; }).join('\n');
-      try {
-        var kept = JSON.parse(localStorage.getItem('innova-demandes') || '[]');
-        kept.push(Object.assign({}, payload, { date: new Date().toISOString() }));
-        localStorage.setItem('innova-demandes', JSON.stringify(kept));
-      } catch (err) {}
+      function openMail() {
+        window.location.href = 'mailto:' + MAILTO
+          + '?subject=' + encodeURIComponent((EN ? 'Diagnostic request: ' : 'Demande de diagnostic : ') + (payload.name || ''))
+          + '&body=' + encodeURIComponent(body);
+      }
 
-      window.location.href = 'mailto:' + MAILTO
-        + '?subject=' + encodeURIComponent((EN ? 'Diagnostic request: ' : 'Demande de diagnostic : ') + (payload.name || ''))
-        + '&body=' + encodeURIComponent(body);
-      setStatus(EN ? 'Your email app will open with the request prefilled. If nothing happens, write to ' + MAILTO + ' or call +237 697 212 646.' : "Votre logiciel de messagerie va s'ouvrir avec la demande pré-remplie. Si rien ne se passe, écrivez à " + MAILTO + ' ou appelez le +237 697 212 646.', 'var(--txB)');
+      // Envoi direct par contact.php (Hostinger) ; l'application e-mail n'est
+      // plus qu'un dernier recours si le serveur ne répond pas.
+      data.delete('privacy');
+      data.append('lang', EN ? 'en' : 'fr');
+      if (submitBtn) submitBtn.disabled = true;
+      setStatus(EN ? 'Sending…' : 'Envoi en cours…', 'var(--txB)');
+      fetch('/contact.php', { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }).then(function (j) { return { status: r.status, ok: r.ok && j.ok }; }); })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset(); updateProgress();
+            setStatus(EN ? 'Thank you! Your request has been sent. We will get back to you within 48 hours.' : 'Merci ! Votre demande a bien été envoyée. Nous revenons vers vous sous 48 h.', '#1E9E5A');
+          } else if (res.status === 429) {
+            setStatus(EN ? 'Too many requests. Please write to ' + MAILTO + ' or call +237 697 212 646.' : 'Trop de demandes envoyées. Écrivez à ' + MAILTO + ' ou appelez le +237 697 212 646.', '#D2453B');
+          } else if (res.status === 400) {
+            setStatus(EN ? 'Please check your name, company and e-mail address.' : 'Vérifiez votre nom, votre entreprise et votre adresse e-mail.', '#D2453B');
+          } else { throw new Error('send'); }
+        })
+        .catch(function () {
+          setStatus(EN ? 'Sending failed. Your email app will open with the request prefilled, or write to ' + MAILTO + '.' : "L'envoi a échoué. Votre messagerie va s'ouvrir avec la demande pré-remplie, ou écrivez à " + MAILTO + '.', '#D2453B');
+          openMail();
+        })
+        .then(function () { if (submitBtn) submitBtn.disabled = false; });
     });
   }
 

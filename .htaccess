@@ -1,0 +1,12 @@
+# INNOVA ALPHA · une seule adresse : https://innovaalpha.com (sans www),
+# redirection permanente, pour que Google ne voie pas deux sites en double.
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://innovaalpha.com%{REQUEST_URI} [L,R=301]
+
+# Page 404 du site au lieu de la page générique de l'hébergeur
+ErrorDocument 404 /404.html
+
+# Manifeste de l'application web servi avec le bon type
+AddType application/manifest+json .webmanifest
